@@ -17,8 +17,8 @@ function Home() {
             <HeroSection />
             <BookNowSection />
             <AboutMeSection />
-            <OurServices />
-            <GallerySection />
+            {/* <OurServices />
+            <GallerySection /> */}
             <Footer />
         </>
     )

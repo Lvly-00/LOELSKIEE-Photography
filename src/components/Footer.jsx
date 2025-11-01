@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Group, Text, Image, SimpleGrid } from "@mantine/core";
 import LOGO from "../assets/images/Footer-Logo.png";
+import FooterImg from "../assets/images/FooterImg.png";
+
 
 // Filled Gmail Icon
 const GmailFilled = () => (
@@ -14,16 +16,20 @@ const Footer = () => {
     <footer
       style={{
         color: "#000",
-        padding: "4rem 1.5rem",
+        padding: "4rem 0rem",
         fontFamily: "'Sora', sans-serif",
       }}
     >
+      <Image src={FooterImg} />
 
       <Container size="xl">
         <Image
           src={LOGO}
           alt="Loelskiee Photography"
-          style={{ marginBottom: "1.5rem" }}
+          style={{
+            marginBottom: "1.5rem",
+            width: "300px",
+          }}
         />
         <SimpleGrid
           cols={3}
