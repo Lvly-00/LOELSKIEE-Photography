@@ -48,7 +48,6 @@ export default function OurServices() {
   return (
     <section
       style={{
-        backgroundColor: "#F5F1E8",
         padding: "6rem 0",
         fontFamily: "'Poppins', sans-serif",
       }}
