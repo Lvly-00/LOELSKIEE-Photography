@@ -11,35 +11,43 @@ const AboutMeSection = () => {
       }}
     >
       {/* ✅ TOP LABEL + LINE */}
-      <Container size="xl" style={{ position: "relative" }}>
-        {/* 2024 Badge */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "5rem",
+        }}
+      >
+        {/* LEFT — Badge */}
         <div
           style={{
-            border: "2px solid #000",
-            padding: "0.4rem 1.5rem",
-            borderRadius: "40px",
-            display: "inline-block",
-            fontWeight: 600,
-            fontSize: "1rem",
+            border: "3px solid #000",
+            padding: "0.5rem 4.5rem",
+            borderRadius: "60px",
+            fontWeight: 700,
+            fontSize: "3rem",
+            whiteSpace: "nowrap",
+            marginLeft: "10rem"
           }}
         >
           2024
         </div>
 
-        {/* Top Black Line */}
+        {/* RIGHT — Line */}
         <div
           style={{
-            height: "6px",
+            height: "25px",
             background: "#000",
-            width: "55%",
-            marginTop: "1rem",
+            width: "70%",
           }}
         ></div>
-      </Container>
+      </div>
+
 
       {/* ✅ MAIN ABOUT ME SECTION */}
       <Container size="xl" style={{ paddingLeft: 0 }}>
-        <Grid align="center" gutter={50}>
+        <Grid >
 
           {/* ✅ LEFT — BLACK ABOUT ME CARD (STICKS TO LEFT) */}
           <Grid.Col
@@ -53,13 +61,13 @@ const AboutMeSection = () => {
               style={{
                 background: "#000",
                 padding: "3rem",
-                paddingLeft: "8rem",
-                borderRadius: "30px",
+                paddingLeft: "10rem",
+                borderRadius: "60px",
                 color: "#fff",
-                width: "50%",
+                width: "60%",
                 position: "absolute",
-                left: "-20px",
-                height: "100%",       
+                left: "-50px",
+                height: "92%",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -68,8 +76,7 @@ const AboutMeSection = () => {
               <Text
                 fw={800}
                 style={{
-                  fontSize: "5rem",
-                  marginBottom: ".5rem",
+                  fontSize: "7rem",
                 }}
               >
                 ABOUT ME
@@ -80,7 +87,7 @@ const AboutMeSection = () => {
                   fontSize: "1.5rem",
                   lineHeight: 2,
                   opacity: 0.9,
-                  maxWidth: "90%",
+                  maxWidth: "70%",
                 }}
               >
                 Hi, I'm Loel Ludovice, a freelance photographer based in Manila.
@@ -97,7 +104,8 @@ const AboutMeSection = () => {
 
           {/* ✅ RIGHT — IMAGE */}
           <Grid.Col
-            span={{ base: 12, md: 5 }}
+            span={{ base: 12, md: 4.5 }}
+            offset={9}
             style={{
               display: "flex",
               justifyContent: "flex-end",
@@ -115,50 +123,55 @@ const AboutMeSection = () => {
       </Container>
 
       {/* ✅ BOTTOM LINE + PHOTOGRAPHER + STYLE BUTTON */}
-      <Container size="xl" style={{ marginTop: "4rem" }}>
-        {/* Bottom Black Line */}
-        <div
-          style={{
-            height: "6px",
-            background: "#000",
-            width: "30%",
-            marginBottom: "2rem",
-          }}
-        ></div>
-
+      <div size="xl" style={{ marginTop: "4rem" }}>
+        {/* ✅ Bottom row aligned in one line */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            flexWrap: "wrap",
+            gap: "2rem",
+            flexWrap: "nowrap",
           }}
         >
-          {/* PHOTOGRAPHER TEXT */}
+          {/* LEFT — Line */}
+          <div
+            style={{
+              height: "25px", background: "#000",
+              width: "20%",
+            }}
+          ></div>
+
+          {/* CENTER — PHOTOGRAPHER TEXT */}
           <Text
             fw={900}
             style={{
-              fontSize: "3rem",
+              fontSize: "6rem",
               letterSpacing: "2px",
+              whiteSpace: "nowrap",
             }}
           >
             PHOTOGRAPHER
           </Text>
 
-          {/* STYLE OUTLINE BUTTON */}
+          {/* RIGHT — STYLE OUTLINE BUTTON */}
           <div
             style={{
-              border: "2px solid #000",
-              padding: "0.5rem 2rem",
-              borderRadius: "40px",
-              fontWeight: 600,
-              fontSize: "1.1rem",
+              border: "3px solid #000",
+              padding: "0.5rem 5rem",
+              borderRadius: "60px",
+              fontWeight: 700,
+              fontSize: "3rem",
+              whiteSpace: "nowrap",
             }}
+
+
           >
             STYLE
           </div>
         </div>
-      </Container>
+      </div>
+
     </section>
   );
 };
