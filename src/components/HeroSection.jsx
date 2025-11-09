@@ -8,9 +8,8 @@ const HeroSection = () => {
             {/* ✅ BLACK TOP SECTION */}
             <section
                 style={{
-                    marginTop: "60px",
                     backgroundColor: "#000",
-                    paddingTop: "clamp(1rem, 5vw, 6rem)",
+                    paddingTop: "7rem",
                     paddingBottom: "10rem",
                     color: "#fff",
                     position: "relative",
@@ -18,23 +17,28 @@ const HeroSection = () => {
             >
                 {/* ✅ TEXT BLOCK */}
                 <Container
+                    className="hero-text-block"
                     size="xl"
                     style={{
                         display: "flex",
                         justifyContent: "space-between",
-                        alignItems: "flex-start",
-                        flexWrap: "wrap",
-                    }}
-                >
-                    <div>
+                        flexWrap: "wrap"
+                    }}>
+
+                    <div
+                        style={{
+                            flex: "1 1 100px",
+                            minWidth: "250px",
+                            textAlign: "left",
+                        }}
+                    >
                         <Title
                             order={1}
                             style={{
-                                fontSize: "clamp(1rem, 6vw, 6rem)",
+                                fontSize: "clamp(2.5rem, 6vw, 6rem)",
                                 fontWeight: 900,
                                 lineHeight: 1,
                                 color: "#fff",
-
                             }}
                         >
                             LOELSKIEE
@@ -43,12 +47,11 @@ const HeroSection = () => {
                         <Title
                             order={1}
                             style={{
-                                fontSize: "clamp(1rem, 6vw, 6rem)",
+                                fontSize: "clamp(2.5rem, 6vw, 6rem)",
                                 fontWeight: 900,
                                 lineHeight: 1,
                                 marginTop: "0.5rem",
                                 color: "#fff",
-
                             }}
                         >
                             PHOTOGRAPHY
@@ -57,8 +60,10 @@ const HeroSection = () => {
 
                     <Text
                         style={{
-                            maxWidth: "clamp(70px, 30%, 300px)",
-                            fontSize: "clamp(0.3rem, 1vw, 1rem)",
+                            flex: "1 1 150px",
+                            minWidth: "200px",
+                            maxWidth: "clamp(350px, 30%, 500px)",
+                            fontSize: "clamp(0.4rem, 2vw, 1rem)",
                             lineHeight: 1.4,
                             opacity: 0.9,
                             textAlign: "right",
@@ -71,7 +76,7 @@ const HeroSection = () => {
                     </Text>
                 </Container>
 
-                {/* ✅ IMAGE — much higher now */}
+                {/* ✅ IMAGE */}
                 <Container size="xl" style={{ position: "relative" }}>
                     <Image
                         src={HeroBanner}
@@ -89,7 +94,7 @@ const HeroSection = () => {
                 </Container>
             </section>
 
-            {/* ✅ WHITE SECTION BELOW (reveals bottom half of image) */}
+            {/* ✅ WHITE SECTION BELOW */}
             <div style={{ height: "8rem", background: "#fff" }}></div>
         </>
     );

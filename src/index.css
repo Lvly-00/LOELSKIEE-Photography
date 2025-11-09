@@ -1,8 +1,8 @@
-/* ✅ Import Fonts */
+/*  Import Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Fjalla+One&display=swap');
 
-/* ✅ Global Root Styles */
+/*  Global Root Styles */
 
 :root {
     line-height: 1.5;
@@ -15,7 +15,7 @@
 }
 
 
-/* ✅ Default global font — Sora */
+/*  Default global font — Sora */
 
 body,
 p,
@@ -26,7 +26,7 @@ a {
 }
 
 
-/* ✅ Optional secondary font classes */
+/*  Optional secondary font classes */
 
 .montserrat-regular {
     font-family: "Montserrat", sans-serif !important;
@@ -38,7 +38,7 @@ a {
 }
 
 
-/* ✅ Headings use Sora by default */
+/*  Headings use Sora by default */
 
 h1,
 h2,
@@ -54,14 +54,14 @@ h6,
 }
 
 
-/* ✅ Hero Title */
+/*  Hero Title */
 
 .hero-title {
     font-size: clamp(4rem, 10vw, 10rem);
 }
 
 
-/* ✅ Light Mode Adjustments */
+/*  Light Mode Adjustments */
 
 @media (prefers-color-scheme: light) {
      :root {
@@ -77,8 +77,20 @@ h6,
 }
 
 
-/* ✅ Smooth transitions */
+/*  Smooth transitions */
 
 * {
     transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hero-text-block {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .hero-text-block>div,
+    .hero-text-block>p {
+        text-align: center !important;
+    }
 }
