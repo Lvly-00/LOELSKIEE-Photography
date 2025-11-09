@@ -11,7 +11,7 @@ const HeroSection = () => {
                     marginTop: "60px",
                     backgroundColor: "#000",
                     paddingTop: "6rem",
-                    paddingBottom: "10rem", // smaller so the image doesn't get pushed too low
+                    paddingBottom: "10rem",
                     color: "#fff",
                     position: "relative",
                 }}
@@ -30,7 +30,7 @@ const HeroSection = () => {
                         <Title
                             order={1}
                             style={{
-                                fontSize: "clamp(3.5rem, 6vw, 6rem)",
+                                fontSize: "clamp(1rem, 6vw, 6rem)",
                                 fontWeight: 900,
                                 lineHeight: 1,
                                 color: "#fff",
@@ -43,7 +43,7 @@ const HeroSection = () => {
                         <Title
                             order={1}
                             style={{
-                                fontSize: "clamp(3.5rem, 6vw, 6rem)",
+                                fontSize: "clamp(1rem, 6vw, 6rem)",
                                 fontWeight: 900,
                                 lineHeight: 1,
                                 marginTop: "0.5rem",
@@ -57,8 +57,8 @@ const HeroSection = () => {
 
                     <Text
                         style={{
-                            maxWidth: "300px",
-                            fontSize: "0.9rem",
+                            maxWidth: "clamp(100px, 40%, 500px)",
+                            fontSize: "clamp(0.4rem, 2vw, 0.9rem)",
                             lineHeight: 1.4,
                             opacity: 0.9,
                             textAlign: "right",
@@ -81,8 +81,8 @@ const HeroSection = () => {
                             borderRadius: "18px",
                             objectFit: "cover",
                             position: "relative",
-                            top: ".5rem",     
-                            marginBottom: "-20rem", // ✅ only half overlaps
+                            top: ".5rem",
+                            marginBottom: "clamp(-15rem, -15vw, -20rem)", 
                             zIndex: 10,
                         }}
                     />

@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <>
-            {/* ✅ Navbar Header */}
+            {/*  Navbar Header */}
             <header
                 style={{
                     position: "fixed",
@@ -34,7 +34,6 @@ const Navbar = () => {
                         justifyContent: "space-between",
                     }}
                 >
-                    {/* ✅ Responsive Logo */}
                     <img
                         src={LOGO}
                         alt="Loelskiee Logo"
@@ -44,7 +43,6 @@ const Navbar = () => {
                         }}
                     />
 
-                    {/* ✅ Burger visible only under "md" (768px) */}
                     <Burger
                         opened={opened}
                         onClick={() => setOpened(true)}
@@ -52,7 +50,7 @@ const Navbar = () => {
                         hiddenFrom="md"
                     />
 
-                    {/* ✅ Desktop Navigation */}
+                    {/*  Desktop Navigation */}
                     <Group spacing="lg" visibleFrom="md">
                         {["HOME", "ABOUT ME", "DEALS"].map((item) => {
                             const isHome = item === "HOME";
@@ -97,14 +95,14 @@ const Navbar = () => {
                 </Container>
             </header>
 
-            {/* ✅ MOBILE SIDEBAR */}
+            {/*  MOBILE SIDEBAR */}
             <Drawer
                 opened={opened}
                 onClose={() => setOpened(false)}
-                size="md" 
+                size="md"
                 hiddenFrom="md"
                 position="right"
-                            
+
                 styles={{
                     drawer: {
                         backgroundColor: "#000",
@@ -134,7 +132,7 @@ const Navbar = () => {
                 }}
             >
 
-                {/* ✅ Top Navigation Buttons */}
+                {/*  Top Navigation Buttons */}
                 <Group
                     direction="column"
                     spacing="md"
@@ -142,10 +140,9 @@ const Navbar = () => {
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "space-between",
-                        height: "95%",
+                        height: "100%",
                     }}
                 >
-                    {/* ✅ Top Navigation Buttons */}
                     <div>
                         {["HOME", "ABOUT ME", "DEALS"].map((item) => {
                             const isHome = item === "HOME";
@@ -181,7 +178,7 @@ const Navbar = () => {
                         })}
                     </div>
 
-                    {/* ✅ Reach Out Button at the Bottom */}
+                    {/*  Reach Out Button at the Bottom */}
                     <Button
                         fullWidth
                         radius="xl"

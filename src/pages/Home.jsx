@@ -14,9 +14,9 @@ function Home() {
     return (
         <>
             <Navbar />
-            {/* <HeroSection />
-            <BookNowSection />
-            <AboutMeSection /> */}
+            <HeroSection />
+            {/* <BookNowSection /> */}
+            {/* <AboutMeSection />  */}
             {/* <OurServices />
             <GallerySection /> */}
             {/* <Footer /> */}
