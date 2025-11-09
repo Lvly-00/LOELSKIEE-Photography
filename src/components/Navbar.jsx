@@ -23,22 +23,24 @@ const Navbar = () => {
                     width: "100%",
                     backgroundColor: "#000",
                     zIndex: 200,
-                    padding: "0.5rem 1rem",
+                    padding: "1rem 1.5rem",
                 }}
             >
                 <Container
-                    size="lg"
+                    size="xl"
                     style={{
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
+                        padding:"0"
+
                     }}
                 >
                     <img
                         src={LOGO}
                         alt="Loelskiee Logo"
                         style={{
-                            width: "180px",
+                            width: "clamp(100px, 15vw, 180px)",
                             height: "auto",
                         }}
                     />

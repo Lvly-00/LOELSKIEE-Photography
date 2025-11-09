@@ -10,7 +10,7 @@ const HeroSection = () => {
                 style={{
                     marginTop: "60px",
                     backgroundColor: "#000",
-                    paddingTop: "6rem",
+                    paddingTop: "clamp(1rem, 5vw, 6rem)",
                     paddingBottom: "10rem",
                     color: "#fff",
                     position: "relative",
@@ -57,8 +57,8 @@ const HeroSection = () => {
 
                     <Text
                         style={{
-                            maxWidth: "clamp(100px, 40%, 500px)",
-                            fontSize: "clamp(0.4rem, 2vw, 0.9rem)",
+                            maxWidth: "clamp(70px, 30%, 300px)",
+                            fontSize: "clamp(0.3rem, 1vw, 1rem)",
                             lineHeight: 1.4,
                             opacity: 0.9,
                             textAlign: "right",
@@ -82,7 +82,7 @@ const HeroSection = () => {
                             objectFit: "cover",
                             position: "relative",
                             top: ".5rem",
-                            marginBottom: "clamp(-15rem, -15vw, -20rem)", 
+                            marginBottom: "clamp(-15rem, -15vw, -20rem)",
                             zIndex: 10,
                         }}
                     />
