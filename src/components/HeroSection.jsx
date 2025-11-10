@@ -5,17 +5,17 @@ import HeroBanner from "../assets/images/HERO-SECTION.png";
 const HeroSection = () => {
     return (
         <>
-            {/* ✅ BLACK TOP SECTION */}
+            {/*  BLACK TOP SECTION */}
             <section
                 style={{
                     backgroundColor: "#000",
-                    paddingTop: "7rem",
+                    paddingTop: "clamp(7rem, 15vw, 10rem)",
                     paddingBottom: "10rem",
                     color: "#fff",
                     position: "relative",
                 }}
             >
-                {/* ✅ TEXT BLOCK */}
+                {/*  TEXT BLOCK */}
                 <Container
                     className="hero-text-block"
                     size="xl"
@@ -33,7 +33,6 @@ const HeroSection = () => {
                         }}
                     >
                         <Title
-                            order={1}
                             style={{
                                 fontSize: "clamp(2.5rem, 6vw, 6rem)",
                                 fontWeight: 900,
@@ -45,7 +44,6 @@ const HeroSection = () => {
                         </Title>
 
                         <Title
-                            order={1}
                             style={{
                                 fontSize: "clamp(2.5rem, 6vw, 6rem)",
                                 fontWeight: 900,
@@ -60,10 +58,10 @@ const HeroSection = () => {
 
                     <Text
                         style={{
-                            flex: "1 1 150px",
+                            flex: "1 1 100px",
                             minWidth: "200px",
-                            maxWidth: "clamp(350px, 30%, 500px)",
-                            fontSize: "clamp(0.4rem, 2vw, 1rem)",
+                            maxWidth: "clamp(450px, 36%, 700px)",
+                            fontSize: "clamp(0.7rem, 2vw, 1rem)",
                             lineHeight: 1.4,
                             opacity: 0.9,
                             textAlign: "right",
@@ -76,7 +74,7 @@ const HeroSection = () => {
                     </Text>
                 </Container>
 
-                {/* ✅ IMAGE */}
+                {/*  IMAGE */}
                 <Container size="xl" style={{ position: "relative" }}>
                     <Image
                         src={HeroBanner}
@@ -94,7 +92,7 @@ const HeroSection = () => {
                 </Container>
             </section>
 
-            {/* ✅ WHITE SECTION BELOW */}
+            {/*  WHITE SECTION BELOW */}
             <div style={{ height: "8rem", background: "#fff" }}></div>
         </>
     );

@@ -6,11 +6,11 @@ const AboutMeSection = () => {
   return (
     <section
       style={{
-        padding: "3rem 0 6rem 0",
+        padding: "2rem 0 6rem 0",
         fontFamily: "'Sora', sans-serif",
       }}
     >
-      {/* ✅ TOP LABEL + LINE */}
+      {/* TOP LABEL + LINE */}
       <div
         style={{
           display: "flex",
@@ -22,34 +22,32 @@ const AboutMeSection = () => {
         {/* LEFT — Badge */}
         <div
           style={{
-            border: "3px solid #000",
-            padding: "0.5rem 4.5rem",
+            padding: "clamp(0.2rem, 1vw, 0.5rem) clamp(1.5rem, 5vw, 4.5rem)",
+            border: "clamp(1px, 0.3vw, 3px) solid #000",
             borderRadius: "60px",
             fontWeight: 700,
-            fontSize: "3rem",
+            fontSize: "clamp(.5rem, 2.5vw, 3rem)",
             whiteSpace: "nowrap",
-            marginLeft: "10rem"
+            marginLeft: "clamp(1rem, 5vw, 10rem)",
           }}
         >
           2024
         </div>
 
+
         {/* RIGHT — Line */}
         <div
           style={{
-            height: "25px",
+            height: "clamp(.5rem, 1.5vw, 2rem)",
             background: "#000",
             width: "70%",
           }}
         ></div>
       </div>
 
-
-      {/* ✅ MAIN ABOUT ME SECTION */}
+      {/* MAIN ABOUT ME SECTION */}
       <Container size="xl" style={{ paddingLeft: 0 }}>
-        <Grid >
-
-          {/* ✅ LEFT — BLACK ABOUT ME CARD (STICKS TO LEFT) */}
+        <Grid>
           <Grid.Col
             span={{ base: 12, md: 7 }}
             style={{
@@ -64,10 +62,9 @@ const AboutMeSection = () => {
                 paddingLeft: "10rem",
                 borderRadius: "60px",
                 color: "#fff",
-                width: "60%",
+                width: "70%",
                 position: "absolute",
                 left: "-50px",
-                height: "92%",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -76,7 +73,7 @@ const AboutMeSection = () => {
               <Text
                 fw={800}
                 style={{
-                  fontSize: "7rem",
+                  fontSize: "clamp(0.5rem, 5vw, 7rem)",
                 }}
               >
                 ABOUT ME
@@ -84,7 +81,7 @@ const AboutMeSection = () => {
 
               <Text
                 style={{
-                  fontSize: "1.5rem",
+                  fontSize: "clamp(0.5rem, 5vw, 1.5rem)",
                   lineHeight: 2,
                   opacity: 0.9,
                   maxWidth: "70%",
@@ -102,7 +99,8 @@ const AboutMeSection = () => {
             </div>
           </Grid.Col>
 
-          {/* ✅ RIGHT — IMAGE */}
+          {/* RIGHT — IMAGE (hidden on small screens) */}
+
           <Grid.Col
             span={{ base: 12, md: 4.5 }}
             offset={9}
@@ -115,16 +113,28 @@ const AboutMeSection = () => {
             <Image
               src={PlaceholderImg}
               alt="Photographer"
-
+              visibleFrom="xl"
+              style={{
+                width: "100%",          // take full width of container
+                maxWidth: "24rem",      // maximum width
+                height: "auto",         // maintain aspect ratio
+                borderRadius: "20px",
+                objectFit: "contain",   // contain the image within bounds
+              }}
             />
           </Grid.Col>
-
         </Grid>
       </Container>
 
-      {/* ✅ BOTTOM LINE + PHOTOGRAPHER + STYLE BUTTON */}
-      <div size="xl" style={{ marginTop: "4rem" }}>
-        {/* ✅ Bottom row aligned in one line */}
+      {/* BOTTOM LINE + PHOTOGRAPHER + STYLE BUTTON */}
+      {/* BOTTOM LINE + PHOTOGRAPHER + STYLE BUTTON */}
+      <div
+        style={{
+          marginTop: "-6rem", // move it upward to overlap rectangle
+          zIndex: 10,         // make sure it's above the rectangle
+          position: "relative",
+        }}
+      >
         <div
           style={{
             display: "flex",
@@ -137,8 +147,9 @@ const AboutMeSection = () => {
           {/* LEFT — Line */}
           <div
             style={{
-              height: "25px", background: "#000",
-              width: "20%",
+              height: "clamp(.5rem, 1.5vw, 2rem)",
+              background: "#000",
+              width: "30%",
             }}
           ></div>
 
@@ -164,13 +175,12 @@ const AboutMeSection = () => {
               fontSize: "3rem",
               whiteSpace: "nowrap",
             }}
-
-
           >
             STYLE
           </div>
         </div>
       </div>
+
 
     </section>
   );

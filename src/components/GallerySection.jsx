@@ -16,49 +16,51 @@ import img12 from "../assets/images/gallery12.jpg";
 
 export default function GallerySection() {
   const images = [
-    img1, img2, img7, img3, img4, img5, img6,
-    img8, img9, img10, img11, img12
+    img3, img4, img5, img1, img2, img7, img6,
+    img8, img9, img10, img11, img12, img3, img4, img5,
   ];
 
   return (
     <section
       id="gallery"
       style={{
-        backgroundColor: "#F5F1E8",
         padding: "5rem 0",
       }}
     >
       <Container size="lg">
         {/* Title */}
-        <Title
-          order={1}
-          style={{
-            fontFamily: "Fjalla One, sans-serif",
-            fontSize: "clamp(3rem, 8vw, 8rem)",
-            letterSpacing: "2px",
-            color: "#111",
-            marginBottom: "0.5rem",
-          }}
-        >
-          GALLERY
-        </Title>
+        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <Title
+            order={1}
+            style={{
+              fontFamily: "Fjalla One, sans-serif",
+              fontSize: "clamp(1.5rem, 6vw, 5rem)",
+              fontWeight: 800,
+              letterSpacing: "2px",
+              color: "#111",
+              marginBottom: "0.5rem",
+            }}
+          >
+            GALLERY
+          </Title>
 
-        {/* Description */}
-        <Text
-          style={{
-            maxWidth: "700px",
-            color: "#111",
-            fontFamily: "Instrument Serif, serif",
-            fontSize: "1.5rem",
-            lineHeight: 1.6,
-            marginBottom: "3rem",
-          }}
-        >
-          Step into our gallery and immerse yourself in a visual feast of
-          captivating imagery crafted by passionate souls. Here, we present a
-          curated selection of our finest photography, showcasing the beauty,
-          emotion, and artistry that define our work.
-        </Text>
+          <Text
+            style={{
+              maxWidth: "700px",
+              margin: "0 auto", // centers the block within wrapper
+              color: "#111",
+              fontFamily: "Instrument Serif, serif",
+              fontSize: "clamp(.5rem, 4vw, 1.3rem)",
+              lineHeight: 1.3,
+            }}
+          >
+            Step into our gallery and immerse yourself in a visual feast of
+            captivating imagery crafted by passionate souls. Here, we present a
+            curated selection of our finest photography, showcasing the beauty,
+            emotion, and artistry that define our work.
+          </Text>
+        </div>
+
 
         {/* Gallery Grid */}
         <SimpleGrid
@@ -76,19 +78,20 @@ export default function GallerySection() {
                 alt={`Gallery Image ${index + 1}`}
                 fit="cover"
                 style={{
-                  filter: "grayscale(80%) sepia(20%) contrast(1.1)",
+                  filter: "grayscale(80%) saturate(50%) contrast(1.1)", // washed-out look
                   transition: "transform 0.4s ease, filter 0.4s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.05)";
-                  e.currentTarget.style.filter = "grayscale(0%) sepia(0%)";
+                  e.currentTarget.style.filter = "grayscale(0%) saturate(100%) contrast(1.1)"; // full color on hover
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.filter = "grayscale(80%) sepia(20%) contrast(1.1)";
+                  e.currentTarget.style.filter = "grayscale(80%) saturate(50%) contrast(1.1)";
                 }}
               />
             </div>
+
           ))}
         </SimpleGrid>
       </Container>

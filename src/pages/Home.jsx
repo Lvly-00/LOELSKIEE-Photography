@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 import AboutMeSection from '../components/AboutMeSection'
 import OurServices from '../components/OurServices'
 import GallerySection from '../components/GallerySection'
+import HeroSection2 from '../components/HeroSection2'
 
 
 function Home() {
@@ -17,9 +18,11 @@ function Home() {
             <HeroSection />
             <BookNowSection />
             {/* <AboutMeSection />  */}
-            {/* <OurServices />
-            <GallerySection /> */}
-            {/* <Footer /> */}
+            {/* * <OurServices /> */}
+            <GallerySection />
+            <HeroSection2 />
+
+            <Footer />
         </>
     )
 }

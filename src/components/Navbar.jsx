@@ -32,7 +32,7 @@ const Navbar = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
-                        padding:"0"
+                        padding: "0"
 
                     }}
                 >
@@ -130,6 +130,8 @@ const Navbar = () => {
                     header: {
                         backgroundColor: "#000",
                         color: "#fff",
+                        paddingBottom: "4rem",
+
                     },
                 }}
             >
@@ -162,14 +164,8 @@ const Navbar = () => {
                                             backgroundColor: "transparent",
                                             color: isHome ? "#FFB700" : "#fff",
                                             fontWeight: 700,
-                                            fontSize: "2rem",
+                                            fontSize: "clamp(1.8rem, 4vw, 2rem)"
 
-                                            "@media (max-width: 768px)": {
-                                                fontSize: "1rem",
-                                            },
-                                            "@media (max-width: 480px)": {
-                                                fontSize: "0.5rem",
-                                            },
                                         },
                                     }}
                                     onClick={() => setOpened(false)}
@@ -182,11 +178,11 @@ const Navbar = () => {
 
                     {/*  Reach Out Button at the Bottom */}
                     <Button
-                        fullWidth
                         radius="xl"
-                        size="lg"
+                        size="3rem"
                         style={{
                             backgroundColor: "#FFB700",
+                            fontSize: "clamp(2rem, 3.5vw, 2.2rem)",
                             color: "#000",
                             fontWeight: 800,
                         }}
@@ -195,7 +191,7 @@ const Navbar = () => {
                         REACH OUT
                     </Button>
                 </Group>
-            </Drawer>
+            </Drawer >
 
         </>
     );
