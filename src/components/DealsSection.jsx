@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Grid, Text, Button, Image, Paper, Center } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Carousel } from "@mantine/carousel";
+import { Link } from "react-router-dom";
+
 
 import PhotoImg from "../assets/images/Photo.png";
 import VideoImg from "../assets/images/Video.png";
@@ -91,12 +93,23 @@ const DealsSection = () => {
       </Text>
 
       <Center mt={deal.buttonMargin}>
-        <Button variant="outline" color="black" radius="xl" style={{ fontWeight: 600 }}>
-          EXPLORE
-        </Button>
+        <Link
+          to={`/${deal.title.toLowerCase()}`}
+          style={{ textDecoration: "none" }}
+        >
+          <Button
+            variant="outline"
+            color="black"
+            radius="xl"
+            style={{ fontWeight: 600 }}
+          >
+            EXPLORE
+          </Button>
+        </Link>
       </Center>
     </Paper>
   );
+
 
   return (
     <section style={{ fontFamily: "'Sora', sans-serif", backgroundColor: bgColor }}>
@@ -110,7 +123,7 @@ const DealsSection = () => {
 
             <Grid.Col span={{ base: 12, md: 8 }}>
               <Text
-              visibleFrom="md"
+                visibleFrom="md"
                 style={{
                   marginLeft: "10rem",
                   fontSize: "1.2rem",

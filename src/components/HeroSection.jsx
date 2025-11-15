@@ -8,7 +8,7 @@ const HeroSection = () => {
             {/*  BLACK TOP SECTION */}
             <section
                 style={{
-                    backgroundColor: "#000",
+                    backgroundColor: "#000000ff",
                     paddingTop: "clamp(7rem, 15vw, 10rem)",
                     paddingBottom: "10rem",
                     color: "#fff",
