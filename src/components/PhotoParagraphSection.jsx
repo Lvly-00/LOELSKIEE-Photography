@@ -3,7 +3,7 @@ import { Container, Grid, Text, Title, Paper, Stack } from "@mantine/core";
 
 export default function PhotoParagraphSection() {
     return (
-        <div style={{ backgroundColor: "#1E1E1E", padding: "80px 0" }}>
+        <div style={{ backgroundColor: "#1E1E1E", padding: "80px 20px" }}>
             <Container size="lg">
                 {/* TOP TEXT SECTION */}
                 <Grid justify="space-between" align="start">
@@ -53,13 +53,13 @@ export default function PhotoParagraphSection() {
                 {/* FEATURE CARDS */}
                 <Grid
                     mt={40}
-                    gutter={30}
+                    gutter={20}
                     justify="center"
                     align="stretch"
                     style={{ marginBottom: 40 }}
                 >
                     {/* ---- Card 1 ---- */}
-                    <Grid.Col span={{ base: 12, md: 4 }}>
+                    <Grid.Col span={{ base: 12, sm: 4 }}>
                         <Paper
                             p="xl"
                             radius="0px 0px 60px 0px"
@@ -82,10 +82,10 @@ export default function PhotoParagraphSection() {
                     </Grid.Col>
 
                     {/* ---- Card 2 ---- */}
-                    <Grid.Col span={{ base: 12, md: 4 }}>
+                    <Grid.Col span={{ base: 12, sm: 4 }}>
                         <Paper p="xl" radius="md" style={{ background: "#F4F1EC", height: "100%" }}>
                             <Stack gap={10}>
-                                <Title order={3} style={{ fontWeight: 700 }}>
+                                <Title order={3} style={{ fontWeight: 1200 }}>
                                     Expertise
                                 </Title>
                                 <Text size="sm" c="dark">
@@ -99,7 +99,7 @@ export default function PhotoParagraphSection() {
                     </Grid.Col>
 
                     {/* ---- Card 3 ---- */}
-                    <Grid.Col span={{ base: 12, md: 4 }}>
+                    <Grid.Col span={{ base: 12, sm: 4 }}>
                         <Paper
                             p="xl"
                             radius="60px 0px 0px 0px"

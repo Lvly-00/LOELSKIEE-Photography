@@ -24,14 +24,14 @@ function PhotoPricing() {
 
                 {/* Big Divider */}
                 <Divider
-                    size="md"
+                    size="xl"
                     color="#ffffffff"
                     mb={40}
                 />
 
-                <Grid gutter={20}>
+                <Grid gutter={30} p="0 30px" >
                     {/* LEFT SIDE – PRICE */}
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col span={{ base: 12, sm: 6 }}>
                         <Text size="md" fw={400} mb={30} c="white">
                             PHOTO COVERAGE
                         </Text>
@@ -59,14 +59,14 @@ function PhotoPricing() {
                     </Grid.Col>
 
                     {/* RIGHT SIDE – INCLUSION */}
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col span={{ base: 12, sm: 6 }}>
                         <Text fw={800} mt={60} mb={20} c="white" style={{
                             fontSize: "2.5rem"
                         }}>
                             INCLUSION
                         </Text>
 
-                        <List spacing="sm" size="md">
+                        <List spacing="xs" size="md">
                             <List.Item>Including 1 Photographer.</List.Item>
                             <List.Item>Photo Highlights Event Coverage.</List.Item>
                             <List.Item>Unlimited shots + Enhancing photos.</List.Item>

@@ -42,8 +42,9 @@ function PhotoPackages() {
                     src={Packages}
                     alt="Photography Sample"
                     fit="cover"
-                    h={550}
+                    h="clamp(100px, 100vw, 550px)"
                     w="100%"
+
                 />
             </Box>
         </Box>

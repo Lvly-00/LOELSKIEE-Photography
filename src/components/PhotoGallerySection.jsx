@@ -58,7 +58,7 @@ export default function PhotoGallerySection() {
                   margin: "0 auto",
                   color: "#ffffff",
                   fontFamily: "Instrument Serif, serif",
-                  fontSize: "clamp(.5rem, 4vw, 1.2rem)",
+                  fontSize: "clamp(.4rem, 4vw, 1.2rem)",
                   lineHeight: 1.3,
                 }}
               >
