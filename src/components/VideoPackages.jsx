@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Grid, Title, Image, Box } from "@mantine/core";
-import Packages from "../assets/images/Photo-Packages.png";
+import Packages from "../assets/images/Video-Packages.png";
 
 function PhotoPackages() {
     return (

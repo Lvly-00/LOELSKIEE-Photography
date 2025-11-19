@@ -12,7 +12,7 @@ import SdeImg from "../assets/images/SDE.png";
 import Deals from "../assets/images/Deals.png";
 
 const DealsSection = () => {
-  const isSmallScreen = useMediaQuery("(max-width: 990px)"); // mobile breakpoint
+  const isSmallScreen = useMediaQuery("(max-width: 769px)"); // mobile breakpoint
 
   // Set background color based on screen size
   const bgColor = isSmallScreen ? "#fff" : "#000";

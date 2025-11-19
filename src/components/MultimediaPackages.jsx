@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Grid, Title, Image, Box } from "@mantine/core";
-import Packages from "../assets/images/Photo-Packages.png";
+import Packages from "../assets/images/Multimedia-Packages.png";
 
-function PhotoPackages() {
+function MultimediaPackages() {
     return (
         <Box bg="#1E1E1E" pt={60} pb={80}>
             {/* HEADER */}
@@ -51,4 +51,4 @@ function PhotoPackages() {
     );
 }
 
-export default PhotoPackages;
+export default MultimediaPackages;

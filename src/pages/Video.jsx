@@ -1,12 +1,18 @@
 import React from 'react'
+import VideoHeroSection from '../components/VideoHeroSection'
+import VideoParagraphSection from '../components/VideoParagraphSection'
+import VideoPackages from '../components/VideoPackages'
+import VideoPricing from '../components/VideoPricing'
 
 function Video() {
     return (
-        <div>
-            <h1>Video</h1>
-
-        </div>
+        <>
+            <VideoHeroSection />
+            <VideoParagraphSection />
+            <VideoPackages />
+            <VideoPricing/>
+        </>
     )
 }
 
-export default Video
+export default Video;

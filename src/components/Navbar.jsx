@@ -58,16 +58,18 @@ const Navbar = () => {
             padding: "0",
           }}
         >
-          <img
-            src={LOGO}
-            alt="Loelskiee Logo"
-            style={{
-              width: "clamp(100px, 15vw, 180px)",
-              height: "auto",
-              transition: "0.3s ease",
-            }}
-          />
-
+          <Link to="/">
+            <img
+              src={LOGO}
+              alt="Loelskiee Logo"
+              style={{
+                width: "clamp(100px, 15vw, 180px)",
+                height: "auto",
+                transition: "0.3s ease",
+                cursor: "pointer", 
+              }}
+            />
+          </Link>
           {/* BURGER only on HOME */}
           {isHome && (
             <Burger
