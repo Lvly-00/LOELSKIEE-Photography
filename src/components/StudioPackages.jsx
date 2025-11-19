@@ -1,15 +1,15 @@
 import React from "react";
 import { Container, Grid, Title, Image, Box } from "@mantine/core";
-import Packages from "../assets/images/SDE-Packages.png";
+import Packages from "../assets/images/Studio-Packages.png";
 
-function SDEPackages() {
+function StudioPackages() {
     return (
-        <Box bg="#1E1E1E" pt={60} pb={80}>
+        <Box pt={60} pb={80}>
             {/* HEADER */}
             <Container size="lg">
                 <Box ta="center" mb={40}>
-                    <Title order={1} c="white" fw={700} style={{ letterSpacing: 1 }}>
-                        SAME DAY EDIT
+                    <Title order={1} c="black" fw={700} style={{ letterSpacing: 1 }}>
+                        BOOTH & STUDIO
                         <br />
                         COVERAGE PACKAGES
                     </Title>
@@ -51,4 +51,4 @@ function SDEPackages() {
     );
 }
 
-export default SDEPackages;
+export default StudioPackages;
