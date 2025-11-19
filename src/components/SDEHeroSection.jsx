@@ -1,5 +1,5 @@
 import { Box, Overlay, Title, Button, Stack, Badge } from "@mantine/core";
-import HeroSection from "../assets/images/Multimedia-Hero-Section.png"
+import HeroSection from "../assets/images/SDE-Hero-Section.png"
 
 
 function SDEHeroSection() {
@@ -44,7 +44,7 @@ function SDEHeroSection() {
                         padding: 0
                     }}
                 >
-                    MULTIMEDIA
+                    SAME DAY EDIT
                 </Title>
 
                 <Badge

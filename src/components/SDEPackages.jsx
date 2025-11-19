@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Grid, Title, Image, Box } from "@mantine/core";
-import Packages from "../assets/images/Multimedia-Packages.png";
+import Packages from "../assets/images/SDE-Packages.png";
 
 function SDEPackages() {
     return (
@@ -9,7 +9,7 @@ function SDEPackages() {
             <Container size="lg">
                 <Box ta="center" mb={40}>
                     <Title order={1} c="white" fw={700} style={{ letterSpacing: 1 }}>
-                        PHOTOGRAPHY &
+                        SAME DAY EDIT &
                         <br />
                         COVERAGE PACKAGES
                     </Title>

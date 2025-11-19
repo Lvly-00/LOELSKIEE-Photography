@@ -33,19 +33,19 @@ function SDEPricing() {
                     {/* LEFT SIDE – PRICE */}
                     <Grid.Col span={{ base: 12, sm: 6 }}>
                         <Text size="md" fw={400} mb={30} c="white">
-                            MULTIMEDIA COVERAGE
+                            SAME DAY EDIT COVERAGE
                         </Text>
 
                         <Text fw={800} mb={20} c="white" style={{
                             fontSize: "2.5rem"
                         }}>
-                            ₱12,999
+                            ₱44,999
                         </Text>
 
                         <Text size="md" mb={25} style={{ maxWidth: 350, lineHeight: 1.6 }}>
-                            Every shot tells a story, and every frame holds emotion. Through our
-                            photo and video coverage, we capture not just what happened, but how it
-                            felt — turning your moments into memories you’ll want to relive again and again.
+                            Your best moments deserve to be remembered instantly. Our Same Day
+                            Edit turns your photos and videos into a cinematic story — capturing
+                            the emotion of today, for you to relive before the day even ends.
                         </Text>
 
                         <Button
@@ -67,13 +67,12 @@ function SDEPricing() {
                         </Text>
 
                         <List spacing="xs" size="md">
-                            <List.Item>1 Photographer/Drone pilot & 1 Videographer.</List.Item>
+                            <List.Item>1 Photographer/Drone pilot, 2 Videographer, 1 Editor & 1 Assistant.</List.Item>
                             <List.Item>Photo Highlights Event Coverage.</List.Item>
-                            <List.Item>MTV Highlights Video Edited.</List.Item>
+                            <List.Item>Video Highlights Event Coverage MTV Highlights.</List.Item>
                             <List.Item>Unlimited shots + Enhancing photos.</List.Item>
-                            <List.Item>Uploading photos thru Google Drive after the event.</List.Item>
-                            <List.Item>Additional 1k per succeeding hours.</List.Item>
-                            <List.Item>Good for the first 2 hours.</List.Item>
+                            <List.Item>Google Drive space for quick and easy to download.</List.Item>
+                            <List.Item>Transportation fee is included.</List.Item>
                             <List.Item>With BIR Original Receipt Invoice.</List.Item>
 
                         </List>
