@@ -41,14 +41,13 @@ const Navbar = () => {
           zIndex: 200,
           padding: "1rem 1.5rem",
 
-          backgroundColor: `rgba(0, 0, 0, ${0.15 + scrollRatio * 0.85})`,
-          backdropFilter: `blur(${16 * (1 - scrollRatio)}px)`,
-          WebkitBackdropFilter: `blur(${16 * (1 - scrollRatio)}px)`,
-
+          // fully transparent initially
+          backgroundColor: `rgba(0, 0, 0, ${scrollRatio ? 0.5 + scrollRatio * 0.5 : 0})`,
           transition:
             "background-color 0.25s ease, backdrop-filter 0.25s ease, padding 0.25s ease",
         }}
       >
+
         <Container
           size="xl"
           style={{

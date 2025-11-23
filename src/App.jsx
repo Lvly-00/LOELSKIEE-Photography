@@ -10,10 +10,12 @@ import Layout from "./components/Layout";
 
 import '@mantine/carousel/styles.css';
 import "./App.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
 
