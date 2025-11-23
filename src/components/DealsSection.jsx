@@ -46,13 +46,13 @@ const DealsSection = () => {
       text: "We offer professional video services with same-day edit — capturing your moments and turning them into cinematic stories with creativity and style.",
       buttonMargin: "1rem",
     },
-    {
-      title: "STUDIO",
-      img: SdeImg,
-      bg: "#F2EDED",
-      text: "We offer professional photobooth and studio services perfect for birthdays, weddings, corporate events, and more. Whether you want fun, candid shots or elegant studio portraits, our team provides high-quality photos, creative backdrops, and instant prints to make your memories last a lifetime.",
-      buttonMargin: "1rem",
-    },
+    // {
+    //   title: "STUDIO",
+    //   img: SdeImg,
+    //   bg: "#F2EDED",
+    //   text: "We offer professional photobooth and studio services perfect for birthdays, weddings, corporate events, and more. Whether you want fun, candid shots or elegant studio portraits, our team provides high-quality photos, creative backdrops, and instant prints to make your memories last a lifetime.",
+    //   buttonMargin: "1rem",
+    // },
   ];
 
   const renderCard = (deal, isCarousel = false) => (

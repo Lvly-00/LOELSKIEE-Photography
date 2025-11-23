@@ -63,10 +63,10 @@ const Navbar = () => {
               src={LOGO}
               alt="Loelskiee Logo"
               style={{
-                width: "clamp(100px, 15vw, 180px)",
+                width: "clamp(90px, 12vw, 150px)",
                 height: "auto",
                 transition: "0.3s ease",
-                cursor: "pointer", 
+                cursor: "pointer",
               }}
             />
           </Link>
@@ -119,9 +119,13 @@ const Navbar = () => {
                   fontSize: "1rem",
                   letterSpacing: "0.5px",
                 }}
+                onClick={() =>
+                  window.open("https://www.facebook.com/Loelskieez", "_blank")
+                }
               >
                 REACH OUT
               </Button>
+
             </Group>
           ) : (
             // OTHER PAGES — ONLY REACH OUT
@@ -135,9 +139,13 @@ const Navbar = () => {
                 fontSize: "1rem",
                 letterSpacing: "0.5px",
               }}
+              onClick={() =>
+                window.open("https://www.facebook.com/Loelskieez", "_blank")
+              }
             >
               REACH OUT
             </Button>
+
           )}
         </Container>
       </header>
@@ -223,10 +231,13 @@ const Navbar = () => {
                 color: "#000",
                 fontWeight: 800,
               }}
-              onClick={() => setOpened(false)}
+              onClick={() =>
+                window.open("https://www.facebook.com/Loelskieez", "_blank")
+              }
             >
               REACH OUT
             </Button>
+
           </Group>
         </Drawer>
       )}

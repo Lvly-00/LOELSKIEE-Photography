@@ -9,6 +9,7 @@ import OurServices from '../components/OurServices'
 import GallerySection from '../components/GallerySection'
 import HeroSection2 from '../components/HeroSection2'
 import DealsSection from '../components/DealsSection'
+import StudioSection from '../components/StudioSection'
 
 
 function Home() {
@@ -17,9 +18,10 @@ function Home() {
         <>
             <HeroSection />
             <BookNowSection />
-            {/* <AboutMeSection />  */}
+            <AboutMeSection /> 
             {/* * <OurServices /> */}
             <DealsSection />
+            <StudioSection/>
             <GallerySection />
             <HeroSection2 />
         </>
