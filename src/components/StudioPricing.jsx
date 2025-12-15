@@ -61,12 +61,22 @@ Best regards,`;
 
 function StudioPricing() {
     return (
-        <Box pt={80} pb={120}>
+        <Box
+            py="clamp(4rem, 8vw, 6rem)"
+            style={{ fontFamily: "'Sora', sans-serif" }}
+        >
             <Container size="lg">
 
                 {/* HEADER */}
                 <Box ta="center" mb={50}>
-                    <Title order={1} fw={700} style={{ letterSpacing: 1 }}>
+                    <Title
+                        order={1}
+                        fw={700}
+                        style={{
+                            letterSpacing: 1,
+                            fontSize: "clamp(2.5rem, 5vw, 4rem)"
+                        }}
+                    >
                         PRICING
                     </Title>
                     <div
@@ -88,19 +98,31 @@ function StudioPricing() {
                 {/* ----------------------------------------------------- */}
                 <Grid gutter={30} p="0 30px" mb={80}>
                     <Grid.Col span={{ base: 12, sm: 6 }}>
-                        <Text size="md" mb={30}>PHOTO BOOTH</Text>
-                        <Title order={2} fw={800} mb={20} style={{ fontSize: "2.5rem" }}>
+                        <Text size="md" fw={400} mb={30} >PHOTO BOOTH</Text>
+                        <Text
+                            fw={800}
+                            mb={20}
+                            style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }} // Standard Price Size
+                        >
                             ₱4,999
-                        </Title>
-                        <Text size="md" mb={25} style={{ maxWidth: 350, lineHeight: 1.6 }}>
+                        </Text>
+                        <Text
+                            size="md"
+                            mb={30}
+                            style={{
+                                maxWidth: 400,
+                                lineHeight: 1.6,
+                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)"
+                            }}
+                        >
                             Get unlimited high-quality portraits and instant memories with our complete
                             photo booth package, handled by a professional photographer.
                         </Text>
 
                         {/* SMART BUTTON 1 */}
-                        <SmartBookButton 
-                            subject="Booking: Photo Booth Package (₱4,999)" 
-                            body={getEmailBody("Photo Booth", "₱4,999")} 
+                        <SmartBookButton
+                            subject="Booking: Photo Booth Package (₱4,999)"
+                            body={getEmailBody("Photo Booth", "₱4,999")}
                         />
                     </Grid.Col>
 
@@ -108,7 +130,7 @@ function StudioPricing() {
                         <Title order={2} fw={800} mt={60} mb={20} style={{ fontSize: "2.5rem" }}>
                             PACKAGE
                         </Title>
-                        <List spacing="xs" size="md">
+                        <List spacing="md" size="md">
                             <List.Item>Complete Photo Booth Experience.</List.Item>
                             <List.Item>2 Hours of Unlimited Portrait Session.</List.Item>
                             <List.Item>Capture as many high-quality portraits as you like.</List.Item>
@@ -125,20 +147,32 @@ function StudioPricing() {
                 {/* ----------------------------------------------------- */}
                 <Grid gutter={30} p="0 30px" mb={80}>
                     <Grid.Col span={{ base: 12, sm: 6 }}>
-                        <Text size="md" mb={30}>PHOTO STUDIO</Text>
-                        <Title order={2} fw={800} mb={20} style={{ fontSize: "2.5rem" }}>
+                        <Text size="md" fw={400} mb={30} >PHOTO STUDIO</Text>
+                        <Text
+                            fw={800}
+                            mb={20}
+                            style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }} // Standard Price Size
+                        >
                             ₱7,999
-                        </Title>
-                        <Text size="md" mb={25} style={{ maxWidth: 350, lineHeight: 1.6 }}>
+                        </Text>
+                        <Text
+                            size="md"
+                            mb={30}
+                            style={{
+                                maxWidth: 400,
+                                lineHeight: 1.6,
+                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)"
+                            }}
+                        >
                             Enjoy a full studio-style booth setup with unlimited portraits,
                             professional lighting, and quick delivery—perfect for events that want
                             polished, high-quality photos.
                         </Text>
 
                         {/* SMART BUTTON 2 */}
-                        <SmartBookButton 
-                            subject="Booking: Photo Studio Package (₱7,999)" 
-                            body={getEmailBody("Photo Studio", "₱7,999")} 
+                        <SmartBookButton
+                            subject="Booking: Photo Studio Package (₱7,999)"
+                            body={getEmailBody("Photo Studio", "₱7,999")}
                         />
                     </Grid.Col>
 
@@ -146,7 +180,7 @@ function StudioPricing() {
                         <Title order={2} fw={800} mt={60} mb={20} style={{ fontSize: "2.5rem" }}>
                             PACKAGE
                         </Title>
-                        <List spacing="xs" size="md">
+                        <List spacing="md" size="md">
                             <List.Item>Complete Studio Booth Experience.</List.Item>
                             <List.Item>2 Hours of Unlimited Portrait Session.</List.Item>
                             <List.Item>Capture as many portraits as you like.</List.Item>
@@ -163,20 +197,32 @@ function StudioPricing() {
                 {/* ----------------------------------------------------- */}
                 <Grid gutter={30} p="0 30px" mb={80}>
                     <Grid.Col span={{ base: 12, sm: 6 }}>
-                        <Text size="md" mb={30}>STUDIO BOOTH</Text>
-                        <Title order={2} fw={800} mb={20} style={{ fontSize: "2.5rem" }}>
+                        <Text size="md" fw={400} mb={30} >STUDIO BOOTH</Text>
+                        <Text
+                            fw={800}
+                            mb={20}
+                            style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }} // Standard Price Size
+                        >
                             ₱12,999
-                        </Title>
-                        <Text size="md" mb={25} style={{ maxWidth: 350, lineHeight: 1.6 }}>
+                        </Text>
+                        <Text
+                            size="md"
+                            mb={30}
+                            style={{
+                                maxWidth: 400,
+                                lineHeight: 1.6,
+                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)"
+                            }}
+                        >
                             A complete studio booth experience with unlimited portraits,
                             enhanced 4R photos, and quick digital delivery—handled by a
                             professional photographer and editor.
                         </Text>
 
                         {/* SMART BUTTON 3 */}
-                        <SmartBookButton 
-                            subject="Booking: Studio Booth Package (₱12,999)" 
-                            body={getEmailBody("Studio Booth", "₱12,999")} 
+                        <SmartBookButton
+                            subject="Booking: Studio Booth Package (₱12,999)"
+                            body={getEmailBody("Studio Booth", "₱12,999")}
                         />
                     </Grid.Col>
 
@@ -184,7 +230,7 @@ function StudioPricing() {
                         <Title order={2} fw={800} mt={60} mb={20} style={{ fontSize: "2.5rem" }}>
                             PACKAGE
                         </Title>
-                        <List spacing="xs" size="md">
+                        <List spacing="md" size="md">
                             <List.Item>Complete Studio Booth Experience.</List.Item>
                             <List.Item>2 Hours of Unlimited Portrait Session.</List.Item>
                             <List.Item>Capture unlimited high-quality portraits.</List.Item>
@@ -202,19 +248,31 @@ function StudioPricing() {
                 {/* ----------------------------------------------------- */}
                 <Grid gutter={30} p="0 30px">
                     <Grid.Col span={{ base: 12, sm: 6 }}>
-                        <Text size="md" mb={30}>LIVE FEED BROADCAST</Text>
-                        <Title order={2} fw={800} mb={20} style={{ fontSize: "2.5rem" }}>
+                        <Text size="md" fw={400} mb={30} >LIVE FEED BROADCAST</Text>
+                        <Text
+                            fw={800}
+                            mb={20}
+                            style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }} // Standard Price Size
+                        >
                             ₱79,999
-                        </Title>
-                        <Text size="md" mb={25} style={{ maxWidth: 350, lineHeight: 1.6 }}>
+                        </Text>
+                        <Text
+                            size="md"
+                            mb={30}
+                            style={{
+                                maxWidth: 400,
+                                lineHeight: 1.6,
+                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)"
+                            }}
+                        >
                             Experience seamless live feed broadcast with a full multi-camera
                             setup and a professional team ensuring smooth real-time coverage.
                         </Text>
 
                         {/* SMART BUTTON 4 */}
-                        <SmartBookButton 
-                            subject="Booking: Live Feed Broadcast (₱79,999)" 
-                            body={getEmailBody("Live Feed Broadcast", "₱79,999")} 
+                        <SmartBookButton
+                            subject="Booking: Live Feed Broadcast (₱79,999)"
+                            body={getEmailBody("Live Feed Broadcast", "₱79,999")}
                         />
                     </Grid.Col>
 
@@ -222,7 +280,7 @@ function StudioPricing() {
                         <Title order={2} fw={800} mt={60} mb={20} style={{ fontSize: "2.5rem" }}>
                             PACKAGE
                         </Title>
-                        <List spacing="xs" size="md">
+                        <List spacing="md" size="md">
                             <List.Item>Complete Live Feed Broadcast Experience.</List.Item>
                             <List.Item>3-Man Camera Setup.</List.Item>
                             <List.Item>Smooth & Reliable Coverage from Start to End.</List.Item>
