@@ -37,7 +37,7 @@ const HeroSection2 = () => {
                     <Title
                         style={{
                             color: "#fff",
-                            fontSize: "clamp(2rem, 5vw, 4rem)", // Uniform Header
+                            fontSize: "clamp(2rem, 4vw, 3rem)", // Uniform Header
                             fontWeight: 800,
                             lineHeight: 1.1,
                         }}
@@ -55,7 +55,7 @@ const HeroSection2 = () => {
                             color: "#000",
                             fontWeight: 800,
                             height: "3.5rem",
-                            padding: "0 2.5rem",
+                            padding: "0 2rem",
                             fontSize: "1rem",
                             marginTop: "1rem"
                         }}

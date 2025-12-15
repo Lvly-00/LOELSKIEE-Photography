@@ -23,7 +23,7 @@ const Footer = () => {
         <div
           style={{
             background: "#FEF9F6",
-            padding: "4rem 0",
+            padding: "4rem 0 2rem 0", // Adjusted padding for copyright at bottom
             marginTop: "clamp(-150px, -10vw, -10px)",
           }}
         >
@@ -101,7 +101,7 @@ const Footer = () => {
                   style={{
                     fontWeight: 800,
                     fontSize: "clamp(0.5rem, 2.5vw, 1rem)",
-                    marginBottom: "clamp(0.2rem, 2.5vw, 1rem)",
+                    marginBottom: "clamp(0.2rem, 2.5vw, 0.5rem)",
                   }}
                 >
                   CONTACT INFORMATION
@@ -112,6 +112,7 @@ const Footer = () => {
                     listStyle: "disc",
                     lineHeight: 1.6,
                     fontSize: "clamp(0.5rem, 2.5vw, 1rem)",
+                    marginLeft: "1rem", // Added indent for bullet points
                   }}
                 >
                   <li>Manila, Philippines</li>
@@ -121,16 +122,16 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* RIGHT COLUMN */}
+              {/* RIGHT COLUMN - REPLACED */}
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <Text
                   style={{
                     fontWeight: 800,
                     fontSize: "clamp(0.5rem, 2.5vw, 1rem)",
-                    marginBottom: "1rem",
+                    marginBottom: "clamp(0.2rem, 2.5vw, 0.5rem)",
                   }}
                 >
-                  DEV TEAM
+                  OUR SERVICES
                 </Text>
 
                 <ul
@@ -138,14 +139,26 @@ const Footer = () => {
                     listStyle: "disc",
                     lineHeight: 1.6,
                     fontSize: "clamp(0.5rem, 2.5vw, 1rem)",
+                    marginLeft: "1rem",
                   }}
                 >
-                  <li>Fernandez, Jamela D.</li>
-                  <li>Pintes, Lovely Heart V.</li>
-                  <li>Dungca, Allain Francois D.</li>
+                  <li>Photography</li>
+                  <li>Videography</li>
+                  <li>Multimedia</li>
+                  <li>Same Day Edit</li>
+                  <li>Studio</li>
+
                 </ul>
               </div>
             </SimpleGrid>
+
+            {/* COPYRIGHT SECTION */}
+            <div style={{ marginTop: "3rem", borderTop: "1px solid #ddd", paddingTop: "1rem", textAlign: "center" }}>
+              <Text size="sm" color="dimmed" style={{ fontSize: "clamp(0.5rem, 2vw, 0.8rem)" }}>
+                © {new Date().getFullYear()} Loelskiee Photography. All rights reserved.
+              </Text>
+            </div>
+
           </Container>
         </div>
       </div>
