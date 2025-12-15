@@ -24,16 +24,24 @@ export default function MultimediaGallerySection() {
     <section
       id="gallery"
       style={{
-        padding: "5rem 0",
+        padding: "clamp(4rem, 8vw, 6rem) 0", // Uniform Padding
         backgroundColor: "#1E1E1E",
+        fontFamily: "'Sora', sans-serif"
       }}
     >
       <Container size="lg">
 
         {/* Title & Description */}
-        <Box ta="center" mb={40}>
-          <Title order={1} c="white" fw={700} style={{ letterSpacing: 1 }}>
-            GALLERY
+        <Box ta="center" mb={60}>
+          <Title
+            order={1}
+            c="white"
+            fw={700}
+            style={{
+              letterSpacing: 1,
+              fontSize: "clamp(2.5rem, 5vw, 4rem)" // Standardized Gallery Title
+            }}
+          >            GALLERY
           </Title>
 
           {/* underline */}
@@ -47,19 +55,19 @@ export default function MultimediaGallerySection() {
             }}
           />
 
-          <Grid justify="center" align="center" mt="md">
+
+          <Grid justify="center" align="center" mt="xl">
             <Grid.Col span={{ base: 12, md: 8 }}>
               <Text
                 fw={300}
                 ta="center"
                 style={{
-                  paddingTop: "1rem",
-                  maxWidth: "700px",
+                  maxWidth: "750px",
                   margin: "0 auto",
                   color: "#ffffff",
-                  fontFamily: "Instrument Serif, serif",
-                  fontSize: "clamp(.4rem, 4vw, 1.2rem)",
-                  lineHeight: 1.3,
+                  fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)", // Uniform Body Text
+                  lineHeight: 1.6,
+                  opacity: 0.9
                 }}
               >
                 Step into our gallery and immerse yourself in a visual feast of
@@ -81,7 +89,7 @@ export default function MultimediaGallerySection() {
           ]}
         >
           {images.map((src, index) => (
-            <div key={index} style={{ overflow: "hidden", borderRadius: "4px" }}>
+            <div key={index} style={{ overflow: "hidden", borderRadius: "8px" }}>
               <Image
                 src={src}
                 alt={`Gallery Image ${index + 1}`}
@@ -89,16 +97,16 @@ export default function MultimediaGallerySection() {
                 style={{
                   filter: "grayscale(80%) saturate(50%) contrast(1.1)",
                   transition: "transform 0.4s ease, filter 0.4s ease",
+                  height: "100%",
+                  minHeight: "250px"
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.05)";
-                  e.currentTarget.style.filter =
-                    "grayscale(0%) saturate(100%) contrast(1.1)";
+                  e.currentTarget.style.filter = "grayscale(0%) saturate(100%) contrast(1.1)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.filter =
-                    "grayscale(80%) saturate(50%) contrast(1.1)";
+                  e.currentTarget.style.filter = "grayscale(80%) saturate(50%) contrast(1.1)";
                 }}
               />
             </div>

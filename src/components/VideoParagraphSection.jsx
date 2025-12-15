@@ -160,7 +160,7 @@ export default function VideoParagraphSection() {
                             }}
                         >
                             <Stack gap={10}>
-                                <Title order={3} style={{ fontWeight: 700 }}>
+                                <Title order={3} style={{ fontWeight: 700, fontSize: "1.25rem" }}>
                                     Creative Precision
                                 </Title>
                                 <Text size="md" c="dark">
@@ -176,7 +176,7 @@ export default function VideoParagraphSection() {
                     <Grid.Col span={{ base: 12, sm: 4 }}>
                         <Paper p="xl" radius="md" style={{ background: "#F4F1EC", height: "100%" }}>
                             <Stack gap={10}>
-                                <Title order={3} style={{ fontWeight: 1200 }}>
+                                <Title order={3} style={{ fontWeight: 700, fontSize: "1.25rem" }}>
                                     Expertise
                                 </Title>
                                 <Text size="md" c="dark">
@@ -200,7 +200,7 @@ export default function VideoParagraphSection() {
                             }}
                         >
                             <Stack gap={10}>
-                                <Title order={3} style={{ fontWeight: 700 }}>
+                                <Title order={3} style={{ fontWeight: 700, fontSize: "1.25rem" }}>
                                     Seamless Process
                                 </Title>
                                 <Text size="md" c="dark">

@@ -50,7 +50,7 @@ function VideoHeroSection() {
 
                 <Badge
                     radius="xl"
-                    size="lg"
+                    size="xl"
                     variant="white"
                     color="black"
                     style={{

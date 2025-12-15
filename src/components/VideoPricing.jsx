@@ -89,7 +89,7 @@ Best regards,`;
                     mb={50}
                 />
 
-                <Grid gutter={30} p="0 20px" >
+                <Grid gutter={50} p="0 20px" >
                     {/* LEFT SIDE – PRICE */}
                     <Grid.Col span={{ base: 12, sm: 6 }}>
                         <Text size="md" fw={400} mb={30} c="white">
