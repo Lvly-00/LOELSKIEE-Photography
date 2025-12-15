@@ -1,14 +1,27 @@
 import React from "react";
-import { Container, Grid, Title, Image, Box } from "@mantine/core";
+import { Container, Title, Image, Box } from "@mantine/core";
 import Packages from "../assets/images/Photo-Packages.png";
 
 function PhotoPackages() {
     return (
-        <Box bg="#1E1E1E" pt={60} pb={80}>
+        <Box 
+            bg="#1E1E1E" 
+            py="clamp(4rem, 8vw, 6rem)" 
+            style={{ fontFamily: "'Sora', sans-serif" }}
+        >
             {/* HEADER */}
             <Container size="lg">
-                <Box ta="center" mb={40}>
-                    <Title order={1} c="white" fw={700} style={{ letterSpacing: 1 }}>
+                <Box ta="center" mb={50}>
+                    <Title 
+                        order={1} 
+                        c="white" 
+                        fw={700} 
+                        style={{ 
+                            letterSpacing: 1,
+                            fontSize: "clamp(2.5rem, 5vw, 4rem)", // Standardized Title
+                            lineHeight: 1.1
+                        }}
+                    >
                         PHOTOGRAPHY &
                         <br />
                         COVERAGE PACKAGES
@@ -32,19 +45,15 @@ function PhotoPackages() {
                 style={{
                     width: "100%",
                     position: "relative",
-                    left: "50%",
-                    right: "50%",
-                    marginLeft: "-50%",
-                    marginRight: "-50%",
+                    overflow: "hidden"
                 }}
             >
                 <Image
                     src={Packages}
                     alt="Photography Sample"
                     fit="cover"
-                    h="clamp(100px, 100vw, 550px)"
+                    h="clamp(200px, 40vw, 550px)" // Adjusted clamp for better mobile view
                     w="100%"
-
                 />
             </Box>
         </Box>

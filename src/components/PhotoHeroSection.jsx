@@ -1,32 +1,27 @@
-import { Box, Overlay, Title, Button, Stack, Badge } from "@mantine/core";
-import HeroSection from "../assets/images/Photo-Hero-Section.png"
-
+import { Box, Overlay, Title, Stack, Badge } from "@mantine/core";
+import HeroSection from "../assets/images/Photo-Hero-Section.png";
 
 function PhotoHeroSection() {
     return (
         <Box
             style={{
                 position: "relative",
-                height: "90vh",
+                height: "100vh", // Standardized hero height
                 width: "100%",
                 backgroundImage: `url(${HeroSection})`,
-
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                fontFamily: "'Sora', sans-serif",
             }}
         >
             {/* Dark overlay */}
-            <Overlay
-                opacity={0.45}
-                color="#1E1E1E"
-                zIndex={1}
-            />
+            <Overlay opacity={0.45} color="#1E1E1E" zIndex={1} />
 
             {/* Center Content */}
             <Stack
                 align="center"
                 justify="center"
-                gap={0}
+                gap="md"
                 style={{
                     height: "100%",
                     position: "relative",
@@ -38,10 +33,12 @@ function PhotoHeroSection() {
                     order={1}
                     style={{
                         color: "#fff",
-                        fontSize: "clamp(2.8rem, 8vw, 10rem)",
+                        // Uniform Hero Title size
+                        fontSize: "clamp(3.5rem, 8vw, 9rem)", 
                         fontWeight: 900,
                         letterSpacing: "2px",
-                        padding: 0
+                        padding: 0,
+                        lineHeight: 1,
                     }}
                 >
                     PHOTO
@@ -49,19 +46,19 @@ function PhotoHeroSection() {
 
                 <Badge
                     radius="xl"
-                    size="lg"
+                    size="xl"
                     variant="white"
                     color="black"
                     style={{
-                        fontSize: "clamp(0.9rem, 2vw, 1.2rem)",
+                        fontSize: "clamp(0.9rem, 1.5vw, 1.2rem)",
                         fontWeight: 700,
-                        padding: "clamp(0.7rem, 1.8vw, 0.9rem) clamp(1.6rem, 4vw, 2.4rem)",
+                        padding: "1.2rem 2.5rem", // More comfortable padding
                         textTransform: "uppercase",
+                        letterSpacing: "1px"
                     }}
                 >
                     Services
                 </Badge>
-
             </Stack>
         </Box>
     );

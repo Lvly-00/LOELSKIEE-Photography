@@ -14,15 +14,22 @@ export default function VideoParagraphSection() {
                     <Grid.Col span={{ base: 12, md: 5 }}>
                         <Title
                             order={2}
-                            style={{ color: "white", lineHeight: 1.3, fontWeight: 300 }}
+                            style={{
+                                color: "white",
+                                lineHeight: 1.3,
+                                fontWeight: 300,
+                                fontSize: "clamp(1.5rem, 3vw, 2.5rem)"
+                            }}
                         >
-                            Our videos go beyond simple coverage — we capture real emotions,
-                            tell your story, and turn every moment into a  <span style={{ fontWeight: 600 }}>timeless</span> visual experience.
+                            "We capture real emotions and turn every moment into a <span style={{ fontWeight: 700 }}>timeless</span> visual experience."
                         </Title>
                     </Grid.Col>
 
-                    <Grid.Col span={{ base: 12, md: 5 }}>
-                        <Text c="gray.3" size="sm" style={{ lineHeight: 1.7 }}>
+                    <Grid.Col span={{ base: 12, md: 6 }}>
+                        <Text c="gray.3" style={{
+                            lineHeight: 1.8,
+                            fontSize: "clamp(0.9rem, 1.1vw, 1rem)" // Uniform Body Text
+                        }}>
                             Professional videography turns ordinary moments into unforgettable stories.
                             From personal milestones to brand showcases, every shot and frame is
                             crafted to highlight emotion, atmosphere, and connection.
@@ -90,7 +97,7 @@ export default function VideoParagraphSection() {
                                             HIGHLIGHT <br /> REEL
                                         </Title>
 
-                                        <Text c="gray.4" size="sm">
+                                        <Text c="gray.4" size="md">
                                             From events to creative projects, our videography brings your story
                                             to life with motion, sound, and emotion that leave a lasting impression.
                                         </Text>
@@ -113,7 +120,10 @@ export default function VideoParagraphSection() {
 
                 {/* WHY CAPTURE TITLE */}
                 <div style={{ textAlign: "center", marginTop: 90 }}>
-                    <Title order={1} c="white" fw={700} style={{ letterSpacing: 1 }}>
+                    <Title order={1} c="white" fw={700} style={{
+                        letterSpacing: 1,
+                        fontSize: "clamp(2.5rem, 5vw, 4rem)" // Standardized Section Title
+                    }}>
 
                         WHY CAPTURE YOUR <br /> MOMENTS WITH US?
                     </Title>
@@ -153,7 +163,7 @@ export default function VideoParagraphSection() {
                                 <Title order={3} style={{ fontWeight: 700 }}>
                                     Creative Precision
                                 </Title>
-                                <Text size="sm" c="dark">
+                                <Text size="md" c="dark">
                                     Great photos don’t happen by chance. From composition to
                                     post-editing, I focus on every detail to make sure each image
                                     reflects quality, emotion, and style that fits your vision.
@@ -169,7 +179,7 @@ export default function VideoParagraphSection() {
                                 <Title order={3} style={{ fontWeight: 1200 }}>
                                     Expertise
                                 </Title>
-                                <Text size="sm" c="dark">
+                                <Text size="md" c="dark">
                                     With years of hands-on experience, I’ve developed the skill to
                                     capture authentic and meaningful moments — whether it’s
                                     portraits, events, or lifestyle shoots. Every click is guided
@@ -193,7 +203,7 @@ export default function VideoParagraphSection() {
                                 <Title order={3} style={{ fontWeight: 700 }}>
                                     Seamless Process
                                 </Title>
-                                <Text size="sm" c="dark">
+                                <Text size="md" c="dark">
                                     From planning to final delivery, I ensure a smooth and
                                     stress-free experience. Enjoy a guided workflow that brings
                                     your vision to life with clarity and ease.
