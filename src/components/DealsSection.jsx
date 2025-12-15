@@ -4,6 +4,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { Carousel } from "@mantine/carousel";
 import { Link } from "react-router-dom";
 
+// Images imports remain the same...
 import PhotoImg from "../assets/images/Photo.png";
 import VideoImg from "../assets/images/Video.png";
 import MultiImg from "../assets/images/Multimedia.png";
@@ -11,35 +12,14 @@ import SdeImg from "../assets/images/SDE.png";
 import Deals from "../assets/images/Deals.png";
 
 const DealsSection = () => {
-  const isSmallScreen = useMediaQuery("(max-width: 769px)"); // mobile breakpoint
-
+  const isSmallScreen = useMediaQuery("(max-width: 769px)");
   const bgColor = isSmallScreen ? "#fff" : "#000";
 
   const deals = [
-    {
-      title: "PHOTO",
-      img: PhotoImg,
-      bg: "#95A795",
-      text: "We offer professional video services that bring your stories to life with creativity, precision, and style.",
-    },
-    {
-      title: "VIDEO",
-      img: VideoImg,
-      bg: "#CBAEB6",
-      text: "We offer professional photo and video services that capture your best moments with creativity, precision, and style.",
-    },
-    {
-      title: "MULTIMEDIA",
-      img: MultiImg,
-      bg: "#C9CDD2",
-      text: "We offer professional photo and video services that capture your best moments with creativity, precision, and style.",
-    },
-    {
-      title: "SDE",
-      img: SdeImg,
-      bg: "#F2EDED",
-      text: "We offer professional video services with same-day edit — capturing your moments and turning them into cinematic stories with creativity and style.",
-    },
+    { title: "PHOTO", img: PhotoImg, bg: "#95A795", text: "We offer professional photo services that capture your best moments with creativity, precision, and style." },
+    { title: "VIDEO", img: VideoImg, bg: "#CBAEB6", text: "We offer professional video services that bring your stories to life with creativity, precision, and style." },
+    { title: "MULTIMEDIA", img: MultiImg, bg: "#C9CDD2", text: "We offer professional photo and video services that capture your best moments with creativity, precision, and style." },
+    { title: "SDE", img: SdeImg, bg: "#F2EDED", text: "We offer professional video services with same-day edit — capturing your moments and turning them into cinematic stories with creativity and style." },
   ];
 
   const renderCard = (deal, isCarousel = false) => (
@@ -49,131 +29,102 @@ const DealsSection = () => {
       radius={isCarousel ? 20 : 0}
       style={{
         background: deal.bg,
-        // Responsive Height: 
-        // On desktop, stick to a fixed height to align columns. 
-        // On mobile carousel, let it grow naturally but min-height helps look uniform.
-        height: "100%", 
-        minHeight: isCarousel ? "550px" : "650px", 
+        height: "100%",
+        minHeight: "600px", // Uniform height
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between", // Pushes button to bottom
-        overflow: "hidden",
+        justifyContent: "space-between",
+        fontFamily: "'Sora', sans-serif",
       }}
     >
       <Box>
         <Text
-            fw={800}
-            style={{
-            fontSize: deal.title === "MULTIMEDIA" ? "clamp(2rem, 2.5vw, 2.5rem)" : "clamp(2.5rem, 3vw, 3rem)",
-            marginBottom: "1rem",
+          fw={800}
+          style={{
+            fontSize: "clamp(2rem, 3vw, 3rem)", // Uniform Card Title
+            marginBottom: "1.5rem",
             textAlign: "center",
-            }}
+            color: "#000"
+          }}
         >
-            {deal.title}
+          {deal.title}
         </Text>
 
         <Image
-            src={deal.img}
-            alt={`${deal.title} Service`}
-            radius={isCarousel ? "md" : 0}
-            w="100%"
-            h="auto"
-            fit="contain"
-            style={{ maxHeight: "250px", objectFit: "contain" }}
+          src={deal.img}
+          alt={deal.title}
+          fit="contain"
+          h={250}
+          w="100%"
+          style={{ objectFit: "contain" }}
         />
 
         <Text
-            mt="lg"
-            style={{
-            fontSize: "0.95rem",
-            lineHeight: 1.5,
+          mt="xl"
+          style={{
+            fontSize: "1rem", // Standard body size
+            lineHeight: 1.6,
             textAlign: "center",
-            }}
+            color: "#000"
+          }}
         >
-            {deal.text}
+          {deal.text}
         </Text>
       </Box>
 
-      <Center mt="xl" mb="md">
-        <Link
+      <Center mt="xl">
+        <Button
+          component={Link}
           to={`/${deal.title.toLowerCase()}`}
-          style={{ textDecoration: "none" }}
+          variant="outline"
+          color="black"
+          radius="xl"
+          size="md"
+          style={{ borderWidth: "2px", fontWeight: 700 }}
         >
-          <Button
-            variant="outline"
-            color="black"
-            radius="xl"
-            size="md"
-            style={{ fontWeight: 700, borderWidth: "2px" }}
-          >
-            EXPLORE
-          </Button>
-        </Link>
+          EXPLORE
+        </Button>
       </Center>
     </Paper>
   );
 
   return (
     <section style={{ fontFamily: "'Sora', sans-serif", backgroundColor: bgColor }}>
-      {/* TOP HEADER */}
-      <Box 
-        py="3rem" 
-        style={{ 
-            color: isSmallScreen ? "#000" : "#fff",
-        }}
-      >
+
+      {/* HEADER SECTION */}
+      <Box py="clamp(3rem, 5vw, 5rem)" style={{ color: isSmallScreen ? "#000" : "#fff" }}>
         <Container size="xl">
           <Grid align="center" gutter="xl">
-            {/* DEALS IMAGE TITLE */}
             <Grid.Col span={{ base: 12, md: 4 }}>
-                <Center>
-                    <Image 
-                        src={Deals} 
-                        alt="Deals" 
-                        radius="md" 
-                        fit="contain" 
-                        w={{ base: "80%", md: "100%" }} 
-                        maw={500} 
-                    />
-                </Center>
+              <Center>
+                <Image src={Deals} alt="Deals" fit="contain" w={{ base: "60%", md: "100%" }} maw={400} />
+              </Center>
             </Grid.Col>
 
-            {/* HEADER DESCRIPTION */}
             <Grid.Col span={{ base: 12, md: 8 }}>
               <Text
-                ta={{ base: "center", md: "left" }} // Center on mobile, Left on Desktop
-                pl={{ md: "4rem" }} // Add padding only on desktop
+                ta={{ base: "center", md: "left" }}
                 style={{
-                  fontSize: "clamp(1rem, 2vw, 1.25rem)",
+                  fontSize: "clamp(1rem, 1.5vw, 1.25rem)", // Slightly larger intro text
                   lineHeight: 1.6,
-                  opacity: 0.9,
-                  maxWidth: "800px",
-                  margin: "0 auto", // Center horizontally on mobile if needed
-                  color: isSmallScreen ? "#000" : "#fff",
+                  maxWidth: "700px",
+                  margin: "0 auto",
+                  opacity: 0.9
                 }}
               >
-                We offer professional photo services that capture your best moments with creativity, precision, and style.
-              </Text>
+                We offer various services including photography, videography, and same-day edit — capturing every moment with creativity and passion.              </Text>
             </Grid.Col>
           </Grid>
         </Container>
       </Box>
 
-      {/* MAIN DEALS GRID / CAROUSEL */}
+      {/* CAROUSEL / GRID */}
       <Container size="xl" p={0} fluid={!isSmallScreen} style={{ paddingBottom: "4rem" }}>
         {isSmallScreen ? (
           <Box px="md">
-            <Carousel 
-                withIndicators 
-                height="100%" 
-                slideGap="md" 
-                slideSize="85%" // Shows a peek of the next card
-                align="center"
-            >
+            <Carousel withIndicators height="100%" slideGap="md" slideSize="85%" align="center">
               {deals.map((deal) => (
-                <Carousel.Slide key={deal.title}>
-                    {renderCard(deal, true)}
-                </Carousel.Slide>
+                <Carousel.Slide key={deal.title}>{renderCard(deal, true)}</Carousel.Slide>
               ))}
             </Carousel>
           </Box>

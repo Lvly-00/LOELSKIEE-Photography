@@ -21,24 +21,18 @@ export default function GallerySection() {
   ];
 
   return (
-    <section
-      id="gallery"
-      style={{
-        padding: "5rem 0",
-      }}
-    >
+    <section id="gallery" style={{ padding: "clamp(4rem, 8vw, 6rem) 0", fontFamily: "'Sora', sans-serif" }}>
       <Container size="lg">
-        {/* Title */}
+
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
           <Title
             order={1}
             style={{
-              fontFamily: "Fjalla One, sans-serif",
-              fontSize: "clamp(1.5rem, 6vw, 5rem)",
+              fontSize: "clamp(2.5rem, 6vw, 5rem)", // Uniform Header
               fontWeight: 800,
-              letterSpacing: "2px",
+              letterSpacing: "1px",
               color: "#111",
-              marginBottom: "0.5rem",
+              marginBottom: "1rem",
             }}
           >
             GALLERY
@@ -47,30 +41,17 @@ export default function GallerySection() {
           <Text
             style={{
               maxWidth: "700px",
-              margin: "0 auto", // centers the block within wrapper
-              color: "#111",
-              fontFamily: "Instrument Serif, serif",
-              fontSize: "clamp(.5rem, 4vw, 1.3rem)",
-              lineHeight: 1.3,
+              margin: "0 auto",
+              color: "#333",
+              fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)", // Uniform Body
+              lineHeight: 1.6,
             }}
           >
-            Step into our gallery and immerse yourself in a visual feast of
-            captivating imagery crafted by passionate souls. Here, we present a
-            curated selection of our finest photography, showcasing the beauty,
-            emotion, and artistry that define our work.
+            Step into our gallery and immerse yourself in a visual feast of captivating imagery crafted by passionate souls. Here, we present a curated selection of our finest photography, showcasing the beauty, emotion, and artistry that define our work.
           </Text>
         </div>
 
-
-        {/* Gallery Grid */}
-        <SimpleGrid
-          cols={3}
-          spacing="md"
-          breakpoints={[
-            { maxWidth: "md", cols: 2 },
-            { maxWidth: "sm", cols: 1 },
-          ]}
-        >
+        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="md">
           {images.map((src, index) => (
             <div key={index} style={{ overflow: "hidden", borderRadius: "4px" }}>
               <Image

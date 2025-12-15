@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Text, Title, Button, Stack, Center } from "@mantine/core";
-import HeroImg from "../assets/images/hero-bg.jpg"; // replace with your image path
+import { Container, Text, Title, Button, Stack } from "@mantine/core";
+import HeroImg from "../assets/images/hero-bg.jpg"; 
 
 const HeroSection2 = () => {
     return (
@@ -10,40 +10,25 @@ const HeroSection2 = () => {
                 backgroundImage: `url(${HeroImg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                height: "70vh",
+                height: "70vh", // Adjusted height
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                margin: "8rem 0",
+                margin: "4rem 0 0 0",
+                fontFamily: "'Sora', sans-serif"
             }}
         >
-            {/* Overlay */}
-            <div
-                style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    backgroundColor: "rgba(0,0,0,0.5)",
-                    zIndex: 1,
-                }}
-            />
+            <div style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.6)", zIndex: 1 }} />
 
-            <Container
-                style={{
-                    position: "relative",
-                    zIndex: 2,
-                    textAlign: "center",
-                }}
-            >
-                <Stack spacing="sm" align="center">
+            <Container style={{ position: "relative", zIndex: 2, textAlign: "center" }}>
+                <Stack spacing="lg" align="center">
                     <Text
                         style={{
                             color: "#fff",
-                            fontSize: "clamp(0.8rem, 1.5vw, 1rem)",
-                            fontWeight: 400,
-                            marginBottom: "1rem"
+                            fontSize: "1rem",
+                            fontWeight: 600,
+                            letterSpacing: "2px",
+                            textTransform: "uppercase"
                         }}
                     >
                         BOOK YOUR CONSULTATION NOW
@@ -52,26 +37,29 @@ const HeroSection2 = () => {
                     <Title
                         style={{
                             color: "#fff",
-                            fontSize: "clamp(2rem, 5vw, 3rem)",
+                            fontSize: "clamp(2rem, 5vw, 4rem)", // Uniform Header
                             fontWeight: 800,
-                            lineHeight: 1.2,
+                            lineHeight: 1.1,
                         }}
                     >
-                        <span style={{ color: "#fbb03b" }}>  ARE YOU READY</span> TO GET STARTED
-                        <br />
+                        <span style={{ color: "#FFB700" }}>ARE YOU READY</span> TO GET STARTED<br />
                         TELLING YOUR STORY?
                     </Title>
 
+                    {/* Standardized Button Size */}
                     <Button
                         radius="xl"
-                        size="clamp(2rem, 5vw, 3rem)"
+                        size="xl" 
                         style={{
                             backgroundColor: "#fff",
                             color: "#000",
-                            fontWeight: 700,
-                            padding: "0.5rem 2rem",
-                            fontSize: "clamp(0.8rem, 1.5vw, 1rem)",
+                            fontWeight: 800,
+                            height: "3.5rem",
+                            padding: "0 2.5rem",
+                            fontSize: "1rem",
+                            marginTop: "1rem"
                         }}
+                        onClick={() => window.open("https://www.facebook.com/Loelskieez", "_blank")}
                     >
                         SEND A MESSAGE
                     </Button>

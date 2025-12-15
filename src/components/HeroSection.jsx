@@ -1,77 +1,63 @@
 import React from "react";
-import { Container, Image, Text, Title } from "@mantine/core";
+import { Container, Image, Text, Title, Box } from "@mantine/core";
 import HeroBanner from "../assets/images/HERO-SECTION.png";
 
 const HeroSection = () => {
     return (
         <>
-            {/*  BLACK TOP SECTION */}
+            {/* BLACK TOP SECTION */}
             <section
                 style={{
-                    backgroundColor: "#000000ff",
-                    paddingTop: "clamp(7rem, 15vw, 10rem)",
-                    paddingBottom: "10rem",
+                    backgroundColor: "#000000",
+                    paddingTop: "clamp(6rem, 12vw, 9rem)", // Standardized top padding
+                    paddingBottom: "10rem", // Room for image overlap
                     color: "#fff",
-                    position: "relative",
+                    fontFamily: "'Sora', sans-serif",
                 }}
             >
-                {/*  TEXT BLOCK */}
-                <Container
-                    className="hero-text-block"
-                    size="xl"
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        flexWrap: "wrap"
-                    }}>
-
-                    <div
+                {/* TEXT BLOCK */}
+                <Container size="xl">
+                    <Box
                         style={{
-                            flex: "1 1 100px",
-                            minWidth: "250px",
-                            textAlign: "left",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "flex-end",
+                            flexWrap: "wrap",
+                            gap: "2rem",
                         }}
                     >
-                        <Title
+                        <div style={{ flex: "1 1 300px" }}>
+                            <Title
+                                style={{
+                                    fontSize: "clamp(3rem, 7vw, 6rem)", // Uniform Hero Size
+                                    fontWeight: 900,
+                                    lineHeight: 0.9,
+                                    color: "#fff",
+                                    letterSpacing: "-2px",
+                                }}
+                            >
+                                LOELSKIEE
+                                <br />
+                                PHOTOGRAPHY
+                            </Title>
+                        </div>
+
+                        <Text
                             style={{
-                                fontSize: "clamp(2.5rem, 6vw, 6rem)",
-                                fontWeight: 900,
-                                lineHeight: 1,
-                                color: "#fff",
+                                flex: "1 1 300px",
+                                maxWidth: "600px",
+                                fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)", // Uniform Body Size
+                                lineHeight: 1.6,
+                                opacity: 0.8,
+                                textAlign: "right", // Alignment matches design
                             }}
                         >
-                            LOELSKIEE
-                        </Title>
-
-                        <Title
-                            style={{
-                                fontSize: "clamp(2.5rem, 6vw, 6rem)",
-                                fontWeight: 900,
-                                lineHeight: 1,
-                                marginTop: "0.5rem",
-                                color: "#fff",
-                            }}
-                        >
-                            PHOTOGRAPHY
-                        </Title>
-                    </div>
-
-                    <Text
-                        style={{
-                            flex: "1 1 100px",
-                            minWidth: "200px",
-                            maxWidth: "clamp(450px, 36%, 700px)",
-                            fontSize: "clamp(0.7rem, 2vw, 1rem)",
-                            lineHeight: 1.4,
-                            opacity: 0.9,
-                            textAlign: "right",
-                        }}
-                    >
-                        From weddings to JS proms and every special occasion in between,
-                        Loelskiee Photography captures each moment with creativity and passion.
-                        We offer a wide range of photography and video services to make every memory
-                        last a lifetime
-                    </Text>
+                            From weddings to JS proms and every special occasion in between,
+                            Loelskiee Photography captures each moment with creativity and passion.
+                            We offer a wide range of photography and video services to make every memory
+                            last a lifetime.
+                        </Text>
+                    </Box>
                 </Container>
 
                 {/*  IMAGE */}
