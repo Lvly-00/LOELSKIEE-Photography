@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom"; // Added useNavigate
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Container,
   Group,
   Button,
   Burger,
   Drawer,
+  Stack,
+  Box,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import LOGO from "../assets/images/LOGO.png";
 
 const Navbar = () => {
@@ -15,42 +18,66 @@ const Navbar = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  // Check if we are on the home page (including /home)
   const isHome = location.pathname === "/" || location.pathname === "/home";
 
-  // Define your navigation items and their target IDs
   const navItems = [
     { label: "HOME", id: "home" },
     { label: "ABOUT ME", id: "aboutme" },
     { label: "DEALS", id: "deals" },
   ];
 
-  // Function to handle smooth scrolling with offset
-  const scrollToSection = (id) => {
-    // If we are not on home, go there first (optional logic)
-    if (!isHome) {
-      navigate("/");
-      setTimeout(() => scrollToSection(id), 100);
-      return;
-    }
-
+  // 1. REUSABLE SCROLL FUNCTION
+  // This performs the actual scrolling calculation
+  const performSmoothScroll = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      // Calculate offset to account for fixed header (approx 80px-100px)
-      const headerOffset = 100; 
+      const headerOffset = 90; 
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
 
-      setOpened(false); // Close mobile drawer if open
+      setOpened(false); // Close drawer if open
     }
   };
 
-  // Detect scrolling with long fade
+  // 2. HANDLER FOR CLICKS
+  const handleNavigation = (id) => {
+    if (isHome) {
+      // If we are already home, scroll immediately
+      performSmoothScroll(id);
+    } else {
+      // If NOT home, navigate to home and pass the target ID in 'state'
+      navigate("/", { state: { targetId: id } });
+    }
+  };
+
+  // 3. LISTEN FOR ARRIVAL FROM OTHER PAGES
+  useEffect(() => {
+    // If we are on home AND we have a targetId in the history state...
+    if (isHome && location.state && location.state.targetId) {
+      
+      // Small delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        performSmoothScroll(location.state.targetId);
+        
+        // OPTIONAL: Clear the state so it doesn't scroll again on refresh
+        // We use 'replace: true' to update the history without adding a new entry
+        navigate(location.pathname, { replace: true, state: {} });
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isHome, location, navigate]);
+
+
+  // Scroll opacity effect
   useEffect(() => {
     const handleScroll = () => {
       const fadeDistance = 550;
@@ -64,7 +91,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* NAVBAR HEADER */}
       <header
         style={{
           position: "fixed",
@@ -72,58 +98,60 @@ const Navbar = () => {
           left: 0,
           width: "100%",
           zIndex: 200,
-          padding: "1rem 1.5rem",
-          // fully transparent initially
-          backgroundColor: `rgba(0, 0, 0, ${scrollRatio ? 0.5 + scrollRatio * 0.5 : 0})`,
-          transition:
-            "background-color 0.25s ease, backdrop-filter 0.25s ease, padding 0.25s ease",
+          padding: isMobile ? "0.8rem 1rem" : "1rem 1.5rem",
+          backgroundColor: `rgba(0, 0, 0, ${
+            scrollRatio ? 0.6 + scrollRatio * 0.4 : 0
+          })`,
+          backdropFilter: scrollRatio > 0 ? "blur(5px)" : "none",
+          transition: "all 0.3s ease",
         }}
       >
-
         <Container
           size="xl"
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "0",
+            padding: 0,
           }}
         >
-          {/* Logo scrolls to top if on home */}
-          <div onClick={() => scrollToSection('home')} style={{ cursor: "pointer" }}>
+          {/* LOGO */}
+          <div
+            onClick={() => handleNavigation("home")}
+            style={{ cursor: "pointer", zIndex: 201 }}
+          >
             <img
               src={LOGO}
               alt="Loelskiee Logo"
               style={{
-                width: "clamp(90px, 12vw, 150px)",
+                width: "clamp(80px, 10vw, 150px)",
                 height: "auto",
                 transition: "0.3s ease",
+                display: "block",
               }}
             />
           </div>
 
-          {/* BURGER only on HOME */}
+          {/* BURGER (Mobile) - Only on Home */}
           {isHome && (
             <Burger
               opened={opened}
-              onClick={() => setOpened(true)}
+              onClick={() => setOpened((o) => !o)}
               color="white"
               hiddenFrom="md"
+              size="sm"
             />
           )}
 
-          {/* DESKTOP NAVIGATION only on HOME */}
+          {/* DESKTOP NAV - Only on Home */}
           {isHome ? (
-            <Group spacing="lg" visibleFrom="md">
+            <Group gap="lg" visibleFrom="md">
               {navItems.map((item) => {
                 const isHomeBtn = item.label === "HOME";
-
                 return (
                   <Button
                     key={item.label}
-                    // REMOVED: component={Link} and to={...}
-                    // ADDED: onClick handler
-                    onClick={() => scrollToSection(item.id)} 
+                    onClick={() => handleNavigation(item.id)}
                     radius="xl"
                     size="md"
                     styles={{
@@ -132,12 +160,15 @@ const Navbar = () => {
                         color: isHomeBtn ? "#000" : "#ffffff",
                         border: isHomeBtn ? "none" : "2px solid #fff",
                         fontWeight: 700,
-                        fontSize: "1rem",
-                        padding: "0.6rem 1.6rem",
-                        transition: "all 0.3s ease", // Added smooth hover transition
-                        '&:hover': {
-                           backgroundColor: isHomeBtn ? "#eee" : "rgba(255,255,255,0.1)"
-                        }
+                        fontSize: "0.95rem",
+                        padding: "0.5rem 1.5rem",
+                        transition: "all 0.2s ease",
+                        "&:hover": {
+                          backgroundColor: isHomeBtn
+                            ? "#e6e6e6"
+                            : "rgba(255,255,255,0.15)",
+                          transform: "translateY(-2px)",
+                        },
                       },
                     }}
                   >
@@ -149,36 +180,45 @@ const Navbar = () => {
               <Button
                 radius="xl"
                 size="md"
-                style={{
-                  backgroundColor: "#FFB700",
-                  color: "#000",
-                  fontWeight: 800,
-                  fontSize: "1rem",
-                  letterSpacing: "0.5px",
-                }}
                 onClick={() =>
                   window.open("https://www.facebook.com/Loelskieez", "_blank")
                 }
+                styles={{
+                  root: {
+                    backgroundColor: "#FFB700",
+                    color: "#000",
+                    fontWeight: 800,
+                    letterSpacing: "0.5px",
+                    transition: "all 0.2s ease",
+                    "&:hover": {
+                      backgroundColor: "#ffc933",
+                      transform: "translateY(-2px)",
+                    },
+                  },
+                }}
               >
                 REACH OUT
               </Button>
-
             </Group>
           ) : (
-            // OTHER PAGES — ONLY REACH OUT
+            // NOT HOME PAGE - Show Reach Out
             <Button
               radius="xl"
-              size="md"
-              style={{
-                backgroundColor: "#FFB700",
-                color: "#000",
-                fontWeight: 800,
-                fontSize: "1rem",
-                letterSpacing: "0.5px",
-              }}
+              size={isMobile ? "sm" : "md"}
               onClick={() =>
                 window.open("https://www.facebook.com/Loelskieez", "_blank")
               }
+              styles={{
+                root: {
+                  backgroundColor: "#FFB700",
+                  color: "#000",
+                  fontWeight: 800,
+                  letterSpacing: "0.5px",
+                  "&:hover": {
+                    backgroundColor: "#ffc933",
+                  },
+                },
+              }}
             >
               REACH OUT
             </Button>
@@ -186,94 +226,104 @@ const Navbar = () => {
         </Container>
       </header>
 
-      {/* MOBILE DRAWER — ONLY SHOW ON HOME */}
+      {/* MOBILE DRAWER */}
       {isHome && (
         <Drawer
           opened={opened}
           onClose={() => setOpened(false)}
-          size="md"
+          size="100%"
           hiddenFrom="md"
           position="right"
+          withCloseButton={false}
+          transitionProps={{ transition: "slide-left", duration: 250 }}
           styles={{
-            drawer: {
-              backgroundColor: "#000",
-              color: "#fff",
-              height: "75vh",
-              "@media (max-width: 768px)": {
-                width: "60% !important",
-              },
-              "@media (max-width: 480px)": {
-                width: "80% !important",
-              },
-              "@media (max-width: 360px)": {
-                width: "100% !important",
-              },
-            },
             body: {
               height: "100%",
               backgroundColor: "#000",
+              padding: "0",
+              display: "flex",
+              flexDirection: "column",
             },
-            header: {
+            content: {
               backgroundColor: "#000",
-              color: "#fff",
-              paddingBottom: "4rem",
             },
           }}
         >
-          <Group
-            direction="column"
-            spacing="md"
+          <Container
+            size="xl"
             style={{
               display: "flex",
-              flexDirection: "column",
+              alignItems: "center",
               justifyContent: "space-between",
-              height: "100%",
+              padding: "0.8rem 1rem",
+              width: "100%",
             }}
           >
-            <div>
-              {navItems.map((item) => {
-                const isHomeBtn = item.label === "HOME";
+             <div onClick={() => { handleNavigation('home'); setOpened(false); }}>
+               <img src={LOGO} alt="Logo" style={{ width: "80px", height: "auto" }} />
+             </div>
+             <Burger opened={opened} onClick={() => setOpened(false)} color="white" size="sm" />
+          </Container>
 
-                return (
-                  <Button
-                    fullWidth
-                    key={item.label}
-                    // REMOVED Link, Added onClick
-                    onClick={() => scrollToSection(item.id)}
-                    radius="xl"
-                    size="lg"
-                    styles={{
-                      root: {
+          <Stack
+            justify="center"
+            align="center"
+            style={{
+              flex: 1,
+              paddingBottom: "4rem",
+            }}
+            gap="xl"
+          >
+            {navItems.map((item) => {
+              const isHomeBtn = item.label === "HOME";
+              return (
+                <Button
+                  key={item.label}
+                  onClick={() => handleNavigation(item.id)}
+                  variant="subtle"
+                  styles={{
+                    root: {
+                      backgroundColor: "transparent",
+                      color: isHomeBtn ? "#FFB700" : "#fff",
+                      fontWeight: 800,
+                      fontSize: "clamp(2rem, 5vw, 3rem)",
+                      height: "auto",
+                      "&:hover": {
                         backgroundColor: "transparent",
-                        color: isHomeBtn ? "#FFB700" : "#fff",
-                        fontWeight: 700,
-                        fontSize: "clamp(1.8rem, 4vw, 2rem)",
+                        opacity: 0.8,
                       },
-                    }}
-                  >
-                    {item.label}
-                  </Button>
-                );
-              })}
-            </div>
+                    },
+                  }}
+                >
+                  {item.label}
+                </Button>
+              );
+            })}
 
-            <Button
-              radius="xl"
-              size="3rem"
-              style={{
-                backgroundColor: "#FFB700",
-                fontSize: "clamp(1rem, 3vw, 2rem)",
-                color: "#000",
-                fontWeight: 800,
-              }}
-              onClick={() =>
-                window.open("https://www.facebook.com/Loelskieez", "_blank")
-              }
-            >
-              REACH OUT
-            </Button>
-
-          </Group>
+            <Box mt="xl">
+              <Button
+                radius="xl"
+                size="xl"
+                onClick={() =>
+                  window.open("https://www.facebook.com/Loelskieez", "_blank")
+                }
+                styles={{
+                  root: {
+                    backgroundColor: "#FFB700",
+                    color: "#000",
+                    fontWeight: 800,
+                    fontSize: "1.5rem",
+                    padding: "0.8rem 3rem",
+                    "&:hover": {
+                      backgroundColor: "#ffc933",
+                    },
+                  },
+                }}
+              >
+                REACH OUT
+              </Button>
+            </Box>
+          </Stack>
         </Drawer>
       )}
     </>
