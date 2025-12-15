@@ -43,7 +43,7 @@ function StudioPricing() {
                             photo booth package, handled by a professional photographer.
                         </Text>
 
-                        <Button variant="outline" color="white" radius="md">
+                        <Button variant="outline" color="black" radius="md">
                             BOOK NOW
                         </Button>
                     </Grid.Col>
@@ -83,7 +83,7 @@ function StudioPricing() {
                             polished, high-quality photos.
                         </Text>
 
-                        <Button variant="outline" color="white" radius="md">
+                        <Button variant="outline" color="black" radius="md">
                             BOOK NOW
                         </Button>
                     </Grid.Col>
@@ -122,7 +122,7 @@ function StudioPricing() {
                             professional photographer and editor.
                         </Text>
 
-                        <Button variant="outline" color="white" radius="md">
+                        <Button variant="outline" color="black" radius="md">
                             BOOK NOW
                         </Button>
                     </Grid.Col>
@@ -161,7 +161,7 @@ function StudioPricing() {
                             setup and a professional team ensuring smooth real-time coverage.
                         </Text>
 
-                        <Button variant="outline" color="white" radius="md">
+                        <Button variant="outline" color="black" radius="md">
                             BOOK NOW
                         </Button>
                     </Grid.Col>
