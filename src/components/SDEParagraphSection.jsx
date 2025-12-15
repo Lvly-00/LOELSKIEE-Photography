@@ -1,7 +1,9 @@
 import React from "react";
-import { Container, Grid, Image, Text, Title, Paper, Stack, Group, Divider } from "@mantine/core";
+import { Container, Grid, AspectRatio, Text, Title, Paper, Stack, Group, Divider } from "@mantine/core";
 import { IconBrandFacebook, IconBrandInstagram, IconMail } from "@tabler/icons-react";
 import Reel from "../assets/images/MultimediaReel.png";
+import ReactPlayer from "react-player";
+
 
 export default function SDEParagraphSection() {
     return (
@@ -37,12 +39,32 @@ export default function SDEParagraphSection() {
 
                         {/* LEFT — IMAGE */}
                         <Grid.Col span={{ base: 12, md: 6 }}>
-                            <Image
-                                src={Reel}
-                                alt="Highlight Reel"
-                                radius="md"
-                                style={{ width: "100%", height: "auto" }}
-                            />
+                            <AspectRatio ratio={16 / 9}>
+                                <ReactPlayer
+                                    style={{ pointerEvents: "none" }}
+                                    width='100%'
+                                    height='100%'
+                                    src="https://www.youtube.com/embed/Ymh0Zx5V9e4"
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    playing={true}   // Autoplay
+                                    muted={true}     // Muted (Required for autoplay)
+                                    loop={true}      // Loop
+                                    controls={false} // Hide pause/play buttons
+
+                                    // YouTube Specific Config to remove UI clutter
+                                    config={{
+                                        youtube: {
+                                            playerVars: {
+                                                showinfo: 0,
+                                                modestbranding: 1,
+                                                rel: 0
+                                            }
+                                        }
+                                    }}
+                                />
+                            </AspectRatio>
                         </Grid.Col>
 
                         {/* RIGHT — TEXT + ICONS */}
