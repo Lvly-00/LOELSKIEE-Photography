@@ -1,9 +1,8 @@
 import React from "react";
-import { Container, Grid, Text, Button, Image, Paper, Center } from "@mantine/core";
+import { Container, Grid, Text, Button, Image, Paper, Center, Box } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { Carousel } from "@mantine/carousel";
 import { Link } from "react-router-dom";
-
 
 import PhotoImg from "../assets/images/Photo.png";
 import VideoImg from "../assets/images/Video.png";
@@ -14,7 +13,6 @@ import Deals from "../assets/images/Deals.png";
 const DealsSection = () => {
   const isSmallScreen = useMediaQuery("(max-width: 769px)"); // mobile breakpoint
 
-  // Set background color based on screen size
   const bgColor = isSmallScreen ? "#fff" : "#000";
 
   const deals = [
@@ -23,36 +21,25 @@ const DealsSection = () => {
       img: PhotoImg,
       bg: "#95A795",
       text: "We offer professional video services that bring your stories to life with creativity, precision, and style.",
-      buttonMargin: "3.9rem",
     },
     {
       title: "VIDEO",
       img: VideoImg,
       bg: "#CBAEB6",
       text: "We offer professional photo and video services that capture your best moments with creativity, precision, and style.",
-      buttonMargin: "2.5rem",
     },
     {
       title: "MULTIMEDIA",
       img: MultiImg,
       bg: "#C9CDD2",
       text: "We offer professional photo and video services that capture your best moments with creativity, precision, and style.",
-      buttonMargin: "3.3rem",
     },
     {
       title: "SDE",
       img: SdeImg,
       bg: "#F2EDED",
       text: "We offer professional video services with same-day edit — capturing your moments and turning them into cinematic stories with creativity and style.",
-      buttonMargin: "1rem",
     },
-    // {
-    //   title: "STUDIO",
-    //   img: SdeImg,
-    //   bg: "#F2EDED",
-    //   text: "We offer professional photobooth and studio services perfect for birthdays, weddings, corporate events, and more. Whether you want fun, candid shots or elegant studio portraits, our team provides high-quality photos, creative backdrops, and instant prints to make your memories last a lifetime.",
-    //   buttonMargin: "1rem",
-    // },
   ];
 
   const renderCard = (deal, isCarousel = false) => (
@@ -62,44 +49,52 @@ const DealsSection = () => {
       radius={isCarousel ? 20 : 0}
       style={{
         background: deal.bg,
-        minHeight: "650px",
+        // Responsive Height: 
+        // On desktop, stick to a fixed height to align columns. 
+        // On mobile carousel, let it grow naturally but min-height helps look uniform.
+        height: "100%", 
+        minHeight: isCarousel ? "550px" : "650px", 
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between", // Pushes button to bottom
         overflow: "hidden",
       }}
     >
-      <Text
-        fw={800}
-        style={{
-          fontSize: deal.title === "MULTIMEDIA" ? "2.5rem" : "3rem",
-          marginBottom: "1rem",
-          textAlign: "center",
-        }}
-      >
-        {deal.title}
-      </Text>
+      <Box>
+        <Text
+            fw={800}
+            style={{
+            fontSize: deal.title === "MULTIMEDIA" ? "clamp(2rem, 2.5vw, 2.5rem)" : "clamp(2.5rem, 3vw, 3rem)",
+            marginBottom: "1rem",
+            textAlign: "center",
+            }}
+        >
+            {deal.title}
+        </Text>
 
-      <Image
-        src={deal.img}
-        alt={`${deal.title} Service`}
-        radius={isCarousel ? "md" : 0}
-        w="100%"
-        h="auto"
-        fit="contain"
-      />
+        <Image
+            src={deal.img}
+            alt={`${deal.title} Service`}
+            radius={isCarousel ? "md" : 0}
+            w="100%"
+            h="auto"
+            fit="contain"
+            style={{ maxHeight: "250px", objectFit: "contain" }}
+        />
 
-      <Text
-        mt="lg"
-        style={{
-          fontSize: "0.9rem",
-          lineHeight: 1.6,
-          textAlign: "center",
-        }}
-      >
-        {deal.text}
-      </Text>
+        <Text
+            mt="lg"
+            style={{
+            fontSize: "0.95rem",
+            lineHeight: 1.5,
+            textAlign: "center",
+            }}
+        >
+            {deal.text}
+        </Text>
+      </Box>
 
-      <Center mt={deal.buttonMargin}>
+      <Center mt="xl" mb="md">
         <Link
           to={`/${deal.title.toLowerCase()}`}
           style={{ textDecoration: "none" }}
@@ -108,7 +103,8 @@ const DealsSection = () => {
             variant="outline"
             color="black"
             radius="xl"
-            style={{ fontWeight: 600 }}
+            size="md"
+            style={{ fontWeight: 700, borderWidth: "2px" }}
           >
             EXPLORE
           </Button>
@@ -117,26 +113,42 @@ const DealsSection = () => {
     </Paper>
   );
 
-
   return (
     <section style={{ fontFamily: "'Sora', sans-serif", backgroundColor: bgColor }}>
       {/* TOP HEADER */}
-      <div style={{ color: isSmallScreen ? "#000" : "#fff", paddingTop: "3rem" }}>
+      <Box 
+        py="3rem" 
+        style={{ 
+            color: isSmallScreen ? "#000" : "#fff",
+        }}
+      >
         <Container size="xl">
-          <Grid align="center">
-            <Grid.Col span={{ base: 12, md: 3 }}>
-              <Image src={Deals} alt="Deals" radius="md" fit="contain" w="100%" maw={600} mx="auto" />
+          <Grid align="center" gutter="xl">
+            {/* DEALS IMAGE TITLE */}
+            <Grid.Col span={{ base: 12, md: 4 }}>
+                <Center>
+                    <Image 
+                        src={Deals} 
+                        alt="Deals" 
+                        radius="md" 
+                        fit="contain" 
+                        w={{ base: "80%", md: "100%" }} 
+                        maw={500} 
+                    />
+                </Center>
             </Grid.Col>
 
+            {/* HEADER DESCRIPTION */}
             <Grid.Col span={{ base: 12, md: 8 }}>
               <Text
-                visibleFrom="md"
+                ta={{ base: "center", md: "left" }} // Center on mobile, Left on Desktop
+                pl={{ md: "4rem" }} // Add padding only on desktop
                 style={{
-                  marginLeft: "10rem",
-                  fontSize: "1.2rem",
+                  fontSize: "clamp(1rem, 2vw, 1.25rem)",
                   lineHeight: 1.6,
                   opacity: 0.9,
-                  maxWidth: "700px",
+                  maxWidth: "800px",
+                  margin: "0 auto", // Center horizontally on mobile if needed
                   color: isSmallScreen ? "#000" : "#fff",
                 }}
               >
@@ -145,22 +157,30 @@ const DealsSection = () => {
             </Grid.Col>
           </Grid>
         </Container>
-      </div>
+      </Box>
 
       {/* MAIN DEALS GRID / CAROUSEL */}
-      <Container size="xl" style={{ padding: "2rem 0 4rem 0" }}>
+      <Container size="xl" p={0} fluid={!isSmallScreen} style={{ paddingBottom: "4rem" }}>
         {isSmallScreen ? (
-          <div style={{ padding: "1rem 2rem" }}>
-            <Carousel withIndicators height="auto" slideGap="md">
+          <Box px="md">
+            <Carousel 
+                withIndicators 
+                height="100%" 
+                slideGap="md" 
+                slideSize="85%" // Shows a peek of the next card
+                align="center"
+            >
               {deals.map((deal) => (
-                <Carousel.Slide key={deal.title}>{renderCard(deal, true)}</Carousel.Slide>
+                <Carousel.Slide key={deal.title}>
+                    {renderCard(deal, true)}
+                </Carousel.Slide>
               ))}
             </Carousel>
-          </div>
+          </Box>
         ) : (
-          <Grid gutter={0}>
+          <Grid gutter={0} style={{ margin: 0, width: "100%" }}>
             {deals.map((deal) => (
-              <Grid.Col key={deal.title} span={{ base: 12, md: 3 }}>
+              <Grid.Col key={deal.title} span={{ base: 12, sm: 6, md: 3 }}>
                 {renderCard(deal)}
               </Grid.Col>
             ))}
