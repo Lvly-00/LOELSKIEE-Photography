@@ -57,11 +57,23 @@ Best regards,`;
 
 
     return (
-        <Box bg="#1E1E1E" pt={80} pb={120} c="white">
-            <Container size="lg">
+        <Box
+            bg="#1E1E1E"
+            py="clamp(4rem, 8vw, 6rem)"
+            c="white"
+            style={{ fontFamily: "'Sora', sans-serif" }}
+        >            <Container size="lg">
                 {/* HEADER */}
                 <Box ta="center" mb={50}>
-                    <Title order={1} c="white" fw={700} style={{ letterSpacing: 1 }}>
+                    <Title
+                        order={1}
+                        c="white"
+                        fw={700}
+                        style={{
+                            letterSpacing: 1,
+                            fontSize: "clamp(2.5rem, 5vw, 4rem)"
+                        }}
+                    >
                         PRICING
                     </Title>
 
@@ -83,20 +95,31 @@ Best regards,`;
                     mb={40}
                 />
 
-                <Grid gutter={30} p="0 30px" >
+                <Grid gutter={50} p="0 20px" >
                     {/* LEFT SIDE – PRICE */}
                     <Grid.Col span={{ base: 12, sm: 6 }}>
                         <Text size="md" fw={400} mb={30} c="white">
                             SAME DAY EDIT COVERAGE
                         </Text>
 
-                        <Text fw={800} mb={20} c="white" style={{
-                            fontSize: "2.5rem"
-                        }}>
+                        <Text
+                            fw={800}
+                            mb={20}
+                            c="white"
+                            style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }} // Standard Price Size
+                        >
                             ₱44,999
                         </Text>
 
-                        <Text size="md" mb={25} style={{ maxWidth: 350, lineHeight: 1.6 }}>
+                        <Text
+                            size="md"
+                            mb={30}
+                            style={{
+                                maxWidth: 400,
+                                lineHeight: 1.6,
+                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)"
+                            }}
+                        >
                             Your best moments deserve to be remembered instantly. Our Same Day
                             Edit turns your photos and videos into a cinematic story — capturing
                             the emotion of today, for you to relive before the day even ends.
@@ -119,13 +142,17 @@ Best regards,`;
 
                     {/* RIGHT SIDE – INCLUSION */}
                     <Grid.Col span={{ base: 12, sm: 6 }}>
-                        <Text fw={800} mt={60} mb={20} c="white" style={{
-                            fontSize: "2.5rem"
-                        }}>
+                        <Text
+                            fw={800}
+                            mt={{ base: 30, sm: 60 }}
+                            mb={20}
+                            c="white"
+                            style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}
+                        >
                             INCLUSION
                         </Text>
 
-                        <List spacing="xs" size="md">
+                        <List spacing="md" size="md">
                             <List.Item>1 Photographer/Drone pilot, 2 Videographer, 1 Editor & 1 Assistant.</List.Item>
                             <List.Item>Photo Highlights Event Coverage.</List.Item>
                             <List.Item>Video Highlights Event Coverage MTV Highlights.</List.Item>
