@@ -4,6 +4,7 @@ import Photo from "./pages/Photo";
 import Video from "./pages/Video";
 import Multimedia from "./pages/Multimedia";
 import SDE from "./pages/SDE";
+import Studio from "./pages/Studio"
 // import Layout from "./components/Layout"; // Unused in your snippet, optional
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -15,13 +16,13 @@ import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     // CHANGE 1: Use BrowserRouter here instead of <>
-    <BrowserRouter> 
-      
+    <BrowserRouter>
+
       {/* Now ScrollToTop is INSIDE the Router, so useLocation() works */}
-      <ScrollToTop /> 
-      
-      <Navbar /> 
-      
+      <ScrollToTop />
+
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
@@ -30,13 +31,15 @@ function App() {
         <Route path="/video" element={<Video />} />
         <Route path="/multimedia" element={<Multimedia />} />
         <Route path="/sde" element={<SDE />} />
+        <Route path="/studio" element={<Studio />} />
+
 
         <Route path="*" element={<Home />} />
       </Routes>
-      
+
       <Footer />
-      
-    </BrowserRouter> 
+
+    </BrowserRouter>
     // CHANGE 2: Close BrowserRouter here instead of </>
   );
 }

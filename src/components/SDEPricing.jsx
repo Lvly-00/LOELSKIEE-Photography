@@ -1,7 +1,61 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Box, Container, Title, Text, Grid, List, Button, Divider } from "@mantine/core";
 
 function SDEPricing() {
+
+    // 1. Define Email Details for SDE Package
+    const recipientEmail = "loelskiee@gmail.com";
+    const emailSubject = "Booking Inquiry: Same Day Edit Coverage (₱44,999)";
+    const emailBody = `Hi Loelskiee Photography Team,
+
+I would like to inquire about booking the Same Day Edit (SDE) Coverage package (₱44,999).
+
+Here are my event details:
+Date: 
+Time: 
+Location: 
+Type of Event: 
+
+Please let me know if this date is available.
+
+Best regards,`;
+
+    // 2. Helper to encode strings for URLs
+    const subjectEncoded = encodeURIComponent(emailSubject);
+    const bodyEncoded = encodeURIComponent(emailBody);
+
+    // 3. Define the two types of links
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${subjectEncoded}&body=${bodyEncoded}`;
+    const mailtoLink = `mailto:${recipientEmail}?subject=${subjectEncoded}&body=${bodyEncoded}`;
+
+    // 4. "Smart" Logic to detect browser and decide which link to use
+    const buttonConfig = useMemo(() => {
+        const userAgent = typeof navigator !== 'undefined' ? navigator.userAgent.toLowerCase() : '';
+
+        // Detect Browsers
+        const isEdge = userAgent.includes('edg'); // Microsoft Edge
+        const isChrome = userAgent.includes('chrome') && !isEdge && !userAgent.includes('opr'); // Chrome (excluding Edge/Opera)
+
+        // LOGIC:
+        // If Chrome or Edge -> Open Gmail Website in new tab
+        if (isChrome || isEdge) {
+            return {
+                href: gmailLink,
+                target: "_blank",
+                rel: "noopener noreferrer"
+            };
+        }
+
+        // If Safari (or anything else) -> Open Default Mail App (Apple Mail / Outlook App)
+        return {
+            href: mailtoLink,
+            target: undefined,
+            rel: undefined
+        };
+
+    }, [gmailLink, mailtoLink]);
+
+
     return (
         <Box bg="#1E1E1E" pt={80} pb={120} c="white">
             <Container size="lg">
@@ -48,7 +102,12 @@ function SDEPricing() {
                             the emotion of today, for you to relive before the day even ends.
                         </Text>
 
+                        {/* SMART BOOK NOW BUTTON */}
                         <Button
+                            component="a"
+                            href={buttonConfig.href}
+                            target={buttonConfig.target}
+                            rel={buttonConfig.rel}
                             variant="outline"
                             color="white"
                             size="md"
