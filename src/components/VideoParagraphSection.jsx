@@ -3,6 +3,8 @@ import { Container, Grid, Image, Text, Title, Paper, Stack, Group, Divider, Aspe
 import { IconBrandFacebook, IconBrandInstagram, IconMail } from "@tabler/icons-react";
 import Reel from "../assets/images/VideoReel.png";  // should be a video
 import ReactPlayer from "react-player";
+import FacebookVideoEmbed from "./FacebookVideoEmbed";
+
 
 
 export default function VideoParagraphSection() {
@@ -72,6 +74,29 @@ export default function VideoParagraphSection() {
                                     }}
                                 />
                             </AspectRatio>
+                            {/* <AspectRatio ratio={16 / 9}>
+                                <iframe
+                                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1287318512927223&width=500&show_text=false&height=281&appId"
+                                    width="100%"
+                                    height="100%"
+                                    data-autoplay="true"
+                                    data-show-captions="false"
+                                    style={{
+                                        border: "none",
+                                        overflow: "hidden",
+                                        pointerEvents: "none"  // disables interaction like YouTube ReactPlayer style
+                                    }}
+                                    scrolling="no"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </AspectRatio> */}
+
+                            {/* <FacebookVideoEmbed url="https://www.facebook.com/reel/1287318512927223" /> */}
+
+
+
                         </Grid.Col>
 
                         {/* RIGHT — TEXT + ICONS */}

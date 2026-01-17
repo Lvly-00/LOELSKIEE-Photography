@@ -1,112 +1,79 @@
 import React from "react";
-import { Container, SimpleGrid, Text, Title, Image, Box, Grid } from "@mantine/core";
-// Keep your image imports here...
-import img1 from "../assets/images/gallery1.jpg";
-import img2 from "../assets/images/gallery2.jpg";
-import img3 from "../assets/images/gallery3.jpg";
-import img4 from "../assets/images/gallery4.jpg";
-import img5 from "../assets/images/gallery5.jpg";
-import img6 from "../assets/images/gallery6.jpg";
-import img7 from "../assets/images/gallery7.jpg";
-import img8 from "../assets/images/gallery8.jpg";
-import img9 from "../assets/images/gallery9.jpg";
-import img10 from "../assets/images/gallery10.jpg";
-import img11 from "../assets/images/gallery11.jpg";
-import img12 from "../assets/images/gallery12.jpg";
+import { Container, SimpleGrid, Text, Title, Image } from "@mantine/core";
 
-export default function PhotoGallerySection() {
-  const images = [
-    img3, img4, img5, img1, img2, img7, img6,
-    img8, img9, img10, img11, img12, img3, img4, img5,
-  ];
+// Generate 24 images dynamically
+const images = Array.from({ length: 24 }, (_, i) =>
+  new URL(`../assets/images/gallery/gallery${i + 1}.jpg`, import.meta.url).href
+);
 
+export default function GallerySection() {
   return (
     <section
       id="gallery"
       style={{
-        padding: "clamp(4rem, 8vw, 6rem) 0", // Uniform Padding
-        backgroundColor: "#1E1E1E",
-        fontFamily: "'Sora', sans-serif"
+        padding: "clamp(4rem, 8vw, 6rem) 0",
+        fontFamily: "'Sora', sans-serif",
       }}
     >
       <Container size="lg">
-
-        {/* Title & Description */}
-        <Box ta="center" mb={60}>
-          <Title 
-            order={1} 
-            c="white" 
-            fw={700} 
-            style={{ 
-                letterSpacing: 1,
-                fontSize: "clamp(2.5rem, 5vw, 4rem)" // Standardized Gallery Title
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <Title
+            order={1}
+            style={{
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              fontWeight: 800,
+              letterSpacing: "1px",
+              color: "#111",
+              marginBottom: "1rem",
             }}
           >
             GALLERY
           </Title>
 
-          {/* underline */}
-          <div
+          <Text
             style={{
-              width: 180,
-              height: 4,
-              background: "#5D6E5C",
-              margin: "15px auto 0",
-              borderRadius: 2,
+              maxWidth: "700px",
+              margin: "0 auto",
+              color: "#333",
+              fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)",
+              lineHeight: 1.6,
             }}
-          />
+          >
+            Step into our gallery and immerse yourself in a visual feast of
+            captivating imagery crafted by passionate souls.
+          </Text>
+        </div>
 
-          <Grid justify="center" align="center" mt="xl">
-            <Grid.Col span={{ base: 12, md: 8 }}>
-              <Text
-                fw={300}
-                ta="center"
-                style={{
-                  maxWidth: "750px",
-                  margin: "0 auto",
-                  color: "#ffffff",
-                  fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)", // Uniform Body Text
-                  lineHeight: 1.6,
-                  opacity: 0.9
-                }}
-              >
-                Step into our gallery and immerse yourself in a visual feast of
-                captivating imagery crafted by passionate souls. Here, we present a
-                curated selection of our finest photography, showcasing the beauty,
-                emotion, and artistry that define our work.
-              </Text>
-            </Grid.Col>
-          </Grid>
-        </Box>
-
-        {/* Gallery Grid */}
-        <SimpleGrid
-          cols={3}
-          spacing="md"
-          breakpoints={[
-            { maxWidth: "md", cols: 2 },
-            { maxWidth: "sm", cols: 1 },
-          ]}
-        >
+        {/* Grid — always 3 columns */}
+        <SimpleGrid cols={3} spacing="sm">
           {images.map((src, index) => (
-            <div key={index} style={{ overflow: "hidden", borderRadius: "8px" }}>
+            <div
+              key={index}
+              style={{
+                overflow: "hidden",
+                borderRadius: "6px",
+              }}
+            >
               <Image
                 src={src}
                 alt={`Gallery Image ${index + 1}`}
                 fit="cover"
+                loading="lazy"
+                height="100%"
                 style={{
                   filter: "grayscale(80%) saturate(50%) contrast(1.1)",
                   transition: "transform 0.4s ease, filter 0.4s ease",
-                  height: "100%",
-                  minHeight: "250px"
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.05)";
-                  e.currentTarget.style.filter = "grayscale(0%) saturate(100%) contrast(1.1)";
+                  e.currentTarget.style.filter =
+                    "grayscale(0%) saturate(100%) contrast(1.1)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.filter = "grayscale(80%) saturate(50%) contrast(1.1)";
+                  e.currentTarget.style.filter =
+                    "grayscale(80%) saturate(50%) contrast(1.1)";
                 }}
               />
             </div>

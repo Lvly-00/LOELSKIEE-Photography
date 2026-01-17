@@ -34,7 +34,7 @@ const Navbar = () => {
   const performSmoothScroll = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const headerOffset = 90; 
+      const headerOffset = 90;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -62,11 +62,11 @@ const Navbar = () => {
   useEffect(() => {
     // If we are on home AND we have a targetId in the history state...
     if (isHome && location.state && location.state.targetId) {
-      
+
       // Small delay to ensure DOM is ready
       const timer = setTimeout(() => {
         performSmoothScroll(location.state.targetId);
-        
+
         // OPTIONAL: Clear the state so it doesn't scroll again on refresh
         // We use 'replace: true' to update the history without adding a new entry
         navigate(location.pathname, { replace: true, state: {} });
@@ -99,9 +99,8 @@ const Navbar = () => {
           width: "100%",
           zIndex: 200,
           padding: isMobile ? "0.8rem 1rem" : "1rem 1.5rem",
-          backgroundColor: `rgba(0, 0, 0, ${
-            scrollRatio ? 0.6 + scrollRatio * 0.4 : 0
-          })`,
+          backgroundColor: `rgba(0, 0, 0, ${scrollRatio ? 0.6 + scrollRatio * 0.4 : 0
+            })`,
           backdropFilter: scrollRatio > 0 ? "blur(5px)" : "none",
           transition: "all 0.3s ease",
         }}
@@ -259,10 +258,10 @@ const Navbar = () => {
               width: "100%",
             }}
           >
-             <div onClick={() => { handleNavigation('home'); setOpened(false); }}>
-               <img src={LOGO} alt="Logo" style={{ width: "80px", height: "auto" }} />
-             </div>
-             <Burger opened={opened} onClick={() => setOpened(false)} color="white" size="sm" />
+            <div onClick={() => { handleNavigation('home'); setOpened(false); }}>
+              <img src={LOGO} alt="Logo" style={{ width: "80px", height: "auto" }} />
+            </div>
+            <Burger opened={opened} onClick={() => setOpened(false)} color="white" size="sm" />
           </Container>
 
           <Stack
@@ -303,7 +302,7 @@ const Navbar = () => {
             <Box mt="xl">
               <Button
                 radius="xl"
-                size="xl"
+                size="lg"
                 onClick={() =>
                   window.open("https://www.facebook.com/Loelskieez", "_blank")
                 }
@@ -312,8 +311,10 @@ const Navbar = () => {
                     backgroundColor: "#FFB700",
                     color: "#000",
                     fontWeight: 800,
-                    fontSize: "1.5rem",
-                    padding: "0.8rem 3rem",
+
+                    /* Responsive sizing */
+                  
+
                     "&:hover": {
                       backgroundColor: "#ffc933",
                     },
@@ -322,6 +323,7 @@ const Navbar = () => {
               >
                 REACH OUT
               </Button>
+
             </Box>
           </Stack>
         </Drawer>
