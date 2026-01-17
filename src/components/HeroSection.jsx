@@ -65,6 +65,7 @@ const HeroSection = () => {
                     <Image
                         src={HeroBanner}
                         alt="Featured"
+                        fetchpriority="high"
                         style={{
                             width: "100%",
                             borderRadius: "18px",

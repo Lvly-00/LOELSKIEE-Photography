@@ -47,9 +47,12 @@ const BookNowSection = () => {
 
         {/* ICONS */}
         <Group spacing="xl" position="center" style={{ marginTop: "2rem", justifyContent: "center" }}>
-          <img src={FacebookIcon} alt="Facebook" width={30} height={30} />
-          <img src={GmailIcon} alt="Gmail" width={30} height={30} />
-          <img src={InstagramIcon} alt="Instagram" width={30} height={30} />
+          <img src={FacebookIcon} alt="Facebook" style={{ width: "clamp(20px, 4vw, 30px)", height: "auto" }}
+          />
+          <img src={GmailIcon} alt="Gmail" style={{ width: "clamp(20px, 4vw, 30px)", height: "auto" }}
+          />
+          <img src={InstagramIcon} alt="Instagram" style={{ width: "clamp(20px, 4vw, 30px)", height: "auto" }}
+          />
         </Group>
 
         {/* CTA BUTTON */}

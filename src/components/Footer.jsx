@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Group, Text, Image, SimpleGrid } from "@mantine/core";
+import { Container, Group, Text, Image, SimpleGrid, Box } from "@mantine/core";
 import { useLocation } from "react-router-dom";
 import LOGO from "../assets/images/Footer-Logo.png";
 import FooterImg from "../assets/images/FooterImg.png";
@@ -18,7 +18,7 @@ const Footer = () => {
   const copyEmailToClipboard = () => {
     navigator.clipboard.writeText(email).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000); // reset "copied" after 2 seconds
+      setTimeout(() => setCopied(false), 2000); // reset after 2 seconds
     });
   };
 
@@ -36,7 +36,7 @@ const Footer = () => {
         <div
           style={{
             background: "#FEF9F6",
-            padding: "4rem 0 2rem 0", // Adjusted padding for copyright at bottom
+            padding: "4rem 0 2rem 0",
             marginTop: "clamp(-150px, -10vw, -10px)",
           }}
         >
@@ -50,32 +50,49 @@ const Footer = () => {
               }}
             />
 
+            {/* Desktop: 3 columns as in original */}
             <SimpleGrid
               cols={3}
               spacing="clamp(0.3rem, 1vw, 3rem)"
-              breakpoints={[{ maxWidth: "md", cols: 1 }]}
+              breakpoints={[{ maxWidth: "md", cols: 1 }]} // on small screen, cols=1 (stack)
+              style={{ gap: "clamp(0.3rem, 1vw, 3rem)" }}
             >
               {/* LEFT COLUMN */}
-              <div style={{ display: "flex", flexDirection: "column" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  maxWidth: "380px",
+                  margin: "0 auto", // center on small screens
+                }}
+              >
                 <Text
                   style={{
-                    maxWidth: "380px",
                     lineHeight: 1.5,
                     marginBottom: "1.5rem",
                     fontSize: "clamp(0.5rem, 2.5vw, 1rem)",
                   }}
                 >
                   From weddings to JS proms and every special occasion in between,
-                  Loelskiee Photography captures each moment with creativity and
-                  passion. We offer a wide range of photography and video services
-                  to make every memory last a lifetime.
+                  Loelskiee Photography captures each moment with creativity and passion. We offer a wide range of photography and video services to make every memory last a lifetime.
                 </Text>
 
                 <Group spacing="lg">
                   {/* Social Icons with links */}
-                  <a href="https://www.facebook.com/Loelskieez" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <img src={FacebookIcon} alt="Facebook" width={30} height={30} />
+                  <a
+                    href="https://www.facebook.com/Loelskieez"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    style={{ display: "inline-block" }}
+                  >
+                    <img
+                      src={FacebookIcon}
+                      alt="Facebook"
+                      style={{ width: "clamp(20px, 4vw, 30px)", height: "auto" }}
+                    />
                   </a>
+
                   <div style={{ position: "relative" }}>
                     <button
                       onClick={copyEmailToClipboard}
@@ -89,7 +106,11 @@ const Footer = () => {
                       }}
                       type="button"
                     >
-                      <img src={GmailIcon} alt="Gmail" width={30} height={30} />
+                      <img
+                        src={GmailIcon}
+                        alt="Gmail"
+                        style={{ width: "clamp(20px, 4vw, 30px)", height: "auto" }}
+                      />
                     </button>
 
                     {copied && (
@@ -117,10 +138,21 @@ const Footer = () => {
                     )}
                   </div>
 
-                  <a href="https://www.instagram.com/loelskieez" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <img src={InstagramIcon} alt="Instagram" width={30} height={30} />
+                  <a
+                    href="https://www.instagram.com/loelskieez"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    style={{ display: "inline-block" }}
+                  >
+                    <img
+                      src={InstagramIcon}
+                      alt="Instagram"
+                      style={{ width: "clamp(20px, 4vw, 30px)", height: "auto" }}
+                    />
                   </a>
                 </Group>
+
               </div>
 
               {/* CENTER COLUMN */}
@@ -140,7 +172,7 @@ const Footer = () => {
                     listStyle: "disc",
                     lineHeight: 1.6,
                     fontSize: "clamp(0.5rem, 2.5vw, 1rem)",
-                    marginLeft: "1rem", // Added indent for bullet points
+                    paddingLeft: "1rem",
                   }}
                 >
                   <li>Manila, Philippines</li>
@@ -150,7 +182,7 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* RIGHT COLUMN - REPLACED */}
+              {/* RIGHT COLUMN */}
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <Text
                   style={{
@@ -175,22 +207,27 @@ const Footer = () => {
                   <li>Multimedia</li>
                   <li>Same Day Edit</li>
                   <li>Studio</li>
-
                 </ul>
               </div>
             </SimpleGrid>
 
             {/* COPYRIGHT SECTION */}
-            <div style={{ marginTop: "3rem", borderTop: "1px solid #ddd", paddingTop: "1rem", textAlign: "center" }}>
+            <div
+              style={{
+                marginTop: "3rem",
+                borderTop: "1px solid #ddd",
+                paddingTop: "1rem",
+                textAlign: "center",
+              }}
+            >
               <Text size="sm" color="dimmed" style={{ fontSize: "clamp(0.5rem, 2vw, 0.8rem)" }}>
                 © {new Date().getFullYear()} Loelskiee Photography. All rights reserved.
               </Text>
             </div>
-
           </Container>
         </div>
       </div>
-    </footer >
+    </footer>
   );
 };
 
