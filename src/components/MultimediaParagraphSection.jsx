@@ -52,31 +52,23 @@ export default function MultimediaParagraphSection() {
                         {/* LEFT — IMAGE */}
                         <Grid.Col span={{ base: 12, md: 6 }}>
                             <AspectRatio ratio={16 / 9}>
-                                <ReactPlayer
-                                    style={{ pointerEvents: "none" }}
-                                    width='100%'
-                                    height='100%'
-                                    src="https://www.youtube.com/embed/Ymh0Zx5V9e4"
-                                    title="YouTube video player"
+                                <iframe
+                                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D1140471464820696%26rdid%3DdGXuSfsTyQk4cDN0&width=500&show_text=false&height=281&appId"
+                                    width="100%"
+                                    height="100%"
+                                    data-autoplay="true"
+                                    data-show-captions="false"
+                                    style={{
+                                        border: "none",
+                                        overflow: "hidden",
+                                    }}
+                                    scrolling="no"
+                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
-                                    playing={true}   // Autoplay
-                                    muted={true}     // Muted (Required for autoplay)
-                                    loop={true}      // Loop
-                                    controls={false} // Hide pause/play buttons
-
-                                    // YouTube Specific Config to remove UI clutter
-                                    config={{
-                                        youtube: {
-                                            playerVars: {
-                                                showinfo: 0,
-                                                modestbranding: 1,
-                                                rel: 0
-                                            }
-                                        }
-                                    }}
                                 />
                             </AspectRatio>
+
 
 
                         </Grid.Col>

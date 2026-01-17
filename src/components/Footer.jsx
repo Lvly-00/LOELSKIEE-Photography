@@ -1,13 +1,26 @@
-import React from "react";
+import { useState } from "react";
 import { Container, Group, Text, Image, SimpleGrid } from "@mantine/core";
 import { useLocation } from "react-router-dom";
 import LOGO from "../assets/images/Footer-Logo.png";
 import FooterImg from "../assets/images/FooterImg.png";
+import FacebookIcon from "../assets/images/icons/facebook.svg";
+import GmailIcon from "../assets/images/icons/gmail.svg";
+import InstagramIcon from "../assets/images/icons/ig.svg";
 
 const Footer = () => {
   const location = useLocation();
   const whiteBgPaths = ["/", "/studio"];
   const useWhiteBg = whiteBgPaths.includes(location.pathname);
+
+  const email = "loelskiee@gmail.com";
+  const [copied, setCopied] = useState(false);
+
+  const copyEmailToClipboard = () => {
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // reset "copied" after 2 seconds
+    });
+  };
 
   return (
     <footer style={{ color: "#000", fontFamily: "'Sora', sans-serif" }}>
@@ -59,39 +72,54 @@ const Footer = () => {
                 </Text>
 
                 <Group spacing="lg">
-                  {/* Social Icons */}
-                  <svg
-                    style={{
-                      width: "clamp(14px, 3vw, 33px)",
-                      height: "clamp(24px, 3vw, 33px)",
-                    }}
-                    viewBox="0 0 24 24"
-                    fill="black"
-                  >
-                    <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 2 .1v2.3h-1.1c-1 0-1.3.6-1.3 1.2V12h2.6l-.4 3h-2.2v7A10 10 0 0 0 22 12" />
-                  </svg>
+                  {/* Social Icons with links */}
+                  <a href="https://www.facebook.com/Loelskieez" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <img src={FacebookIcon} alt="Facebook" width={30} height={30} />
+                  </a>
+                  <div style={{ position: "relative" }}>
+                    <button
+                      onClick={copyEmailToClipboard}
+                      aria-label="Copy email address"
+                      style={{
+                        background: "none",
+                        border: "none",
+                        padding: 0,
+                        cursor: "pointer",
+                        display: "inline-flex",
+                      }}
+                      type="button"
+                    >
+                      <img src={GmailIcon} alt="Gmail" width={30} height={30} />
+                    </button>
 
-                  <svg
-                    style={{
-                      width: "clamp(14px, 3vw, 33px)",
-                      height: "clamp(24px, 3vw, 33px)",
-                    }}
-                    viewBox="0 0 24 24"
-                    fill="black"
-                  >
-                    <path d="M12 13.2 2 6.5V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6.5l-10 6.7zm10-9.7V6l-10 6.5L2 6V3.5C2 2.7 2.7 2 3.5 2h17c.8 0 1.5.7 1.5 1.5z" />
-                  </svg>
+                    {copied && (
+                      <Text
+                        size="xs"
+                        color="green"
+                        style={{
+                          position: "absolute",
+                          top: "-1.5rem",
+                          left: "50%",
+                          transform: "translateX(-50%)",
+                          backgroundColor: "rgba(0, 0, 0, 0.75)",
+                          color: "white",
+                          padding: "2px 6px",
+                          borderRadius: "4px",
+                          pointerEvents: "none",
+                          userSelect: "none",
+                          whiteSpace: "nowrap",
+                          fontWeight: "bold",
+                          zIndex: 10,
+                        }}
+                      >
+                        Email copied!
+                      </Text>
+                    )}
+                  </div>
 
-                  <svg
-                    style={{
-                      width: "clamp(14px, 3vw, 33px)",
-                      height: "clamp(24px, 3vw, 33px)",
-                    }}
-                    viewBox="0 0 24 24"
-                    fill="black"
-                  >
-                    <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3zm5.3-.8a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1zM12 9a3 3 0 1 0 3 3 3 3 0 0 0-3-3z" />
-                  </svg>
+                  <a href="https://www.instagram.com/loelskieez" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <img src={InstagramIcon} alt="Instagram" width={30} height={30} />
+                  </a>
                 </Group>
               </div>
 

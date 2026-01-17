@@ -51,7 +51,7 @@ function SDEPackages() {
                     src={Packages}
                     alt="Photography Sample"
                     fit="cover"
-                    h="clamp(200px, 40vw, 550px)" // Adjusted clamp for better mobile view
+                    h="clamp(350px, 40vw, 550px)" // Adjusted clamp for better mobile view
                     w="100%"
 
                 />

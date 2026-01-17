@@ -5,6 +5,13 @@ import GmailIcon from "../assets/images/icons/gmail.svg";
 import InstagramIcon from "../assets/images/icons/ig.svg";
 
 const BookNowSection = () => {
+  const scrollToDeals = () => {
+    const dealsSection = document.getElementById("deals");
+    if (dealsSection) {
+      dealsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section style={{ padding: "clamp(3rem, 8vw, 6rem) 1rem", fontFamily: "'Sora', sans-serif" }}>
       <Container size="md" style={{ textAlign: "center" }}>
@@ -50,6 +57,7 @@ const BookNowSection = () => {
           radius="xl"
           size="md"
           mt="xl"
+          onClick={scrollToDeals} // add this
           styles={(theme) => ({
             root: {
               backgroundColor: "#FFB700",

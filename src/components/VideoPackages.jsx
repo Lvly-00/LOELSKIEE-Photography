@@ -14,9 +14,9 @@ function PhotoPackages() {
                         fontSize: "clamp(2.5rem, 5vw, 4rem)", // Standardized Title
                         lineHeight: 1.1
                     }}>
-                        PHOTOGRAPHY &
+                        VIDEO HIGHLIGHTS &
                         <br />
-                        COVERAGE PACKAGES
+                        COVERAGE 
                     </Title>
 
                     {/* underline */}
@@ -44,7 +44,7 @@ function PhotoPackages() {
                     src={Packages}
                     alt="Photography Sample"
                     fit="cover"
-                    h="clamp(200px, 40vw, 550px)"
+                    h="clamp(350px, 40vw, 550px)" // Adjusted clamp for better mobile view
                     w="100%"
 
                 />
