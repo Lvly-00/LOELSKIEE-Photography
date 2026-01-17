@@ -57,7 +57,8 @@ export default function SDEParagraphSection() {
                         <Grid.Col span={{ base: 12, md: 6 }}>
                             <AspectRatio ratio={16 / 9}>
                                 <iframe
-                                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D1800461543833074%26rdid%3DiNXKCDZKO2l4L4AE&show_text=false&width=500&height=281"
+                                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D1287318512927223%26rdid%3DgKlx6nmsKbtVaWQS&width=500&show_text=false&height=281&appId"
+                                    width="100%"
                                     height="100%"
                                     data-autoplay="true"
                                     data-show-captions="false"

@@ -47,18 +47,18 @@ const BookNowSection = () => {
 
         {/* ICONS */}
         <Group spacing="xl" position="center" style={{ marginTop: "2rem", justifyContent: "center" }}>
-          <img src={FacebookIcon} alt="Facebook" style={{ width: "clamp(20px, 4vw, 30px)", height: "auto" }}
+          <img src={FacebookIcon} alt="Facebook" style={{ width: "clamp(24px, 4vw, 30px)", height: "auto" }}
           />
-          <img src={GmailIcon} alt="Gmail" style={{ width: "clamp(20px, 4vw, 30px)", height: "auto" }}
+          <img src={GmailIcon} alt="Gmail" style={{ width: "clamp(24px, 4vw, 30px)", height: "auto" }}
           />
-          <img src={InstagramIcon} alt="Instagram" style={{ width: "clamp(20px, 4vw, 30px)", height: "auto" }}
+          <img src={InstagramIcon} alt="Instagram" style={{ width: "clamp(24px, 4vw, 30px)", height: "auto" }}
           />
         </Group>
 
         {/* CTA BUTTON */}
         <Button
           radius="xl"
-          size="md"
+          size="lg"
           mt="xl"
           onClick={scrollToDeals} // add this
           styles={(theme) => ({
@@ -67,7 +67,7 @@ const BookNowSection = () => {
               color: "#000",
               fontWeight: 800,
               fontFamily: "'Sora', sans-serif",
-              paddingInline: "clamp(1rem, 5vw, 2.5rem)",
+              paddingInline: "clamp(1.5rem, 5vw, 2.5rem)",
               fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
               transition: "background-color 0.2s ease, transform 0.15s ease",
 
