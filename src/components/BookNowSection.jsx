@@ -1,85 +1,81 @@
 import React from "react";
-import { Container, SimpleGrid, Text, Title, Image } from "@mantine/core";
+import { Container, Title, Button, Group } from "@mantine/core";
+import FacebookIcon from "../assets/images/icons/facebook.svg";
+import GmailIcon from "../assets/images/icons/gmail.svg";
+import InstagramIcon from "../assets/images/icons/ig.svg";
 
-// Generate 24 images dynamically
-const images = Array.from({ length: 24 }, (_, i) =>
-  new URL(`../assets/images/gallery/gallery${i + 1}.jpg`, import.meta.url).href
-);
-
-export default function GallerySection() {
+const BookNowSection = () => {
   return (
-    <section
-      id="gallery"
-      style={{
-        padding: "clamp(4rem, 8vw, 6rem) 0",
-        fontFamily: "'Sora', sans-serif",
-      }}
-    >
-      <Container size="lg">
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <Title
-            order={1}
-            style={{
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+    <section style={{ padding: "clamp(3rem, 8vw, 6rem) 1rem", fontFamily: "'Sora', sans-serif" }}>
+      <Container size="md" style={{ textAlign: "center" }}>
+        <Title
+          style={{
+            fontWeight: 800,
+            fontSize: "clamp(2rem, 5vw, 4.5rem)",
+            lineHeight: 1.1,
+            color: "#000",
+            marginBottom: "1.5rem",
+          }}
+        >
+          Capture the moment,<br />
+          Relive the memory
+        </Title>
+
+        <Title
+          order={3}
+          style={{
+            fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)",
+            fontWeight: 400,
+            maxWidth: "800px",
+            margin: "0 auto",
+            lineHeight: 1.6,
+            color: "#333",
+          }}
+        >
+          We offer professional photography and videography services that
+          capture life’s most meaningful moments with creativity and precision.
+          From weddings and debuts to corporate events and personal milestones,
+          we transform every frame into a visual story filled with emotion and artistry.
+        </Title>
+
+        {/* ICONS */}
+        <Group spacing="xl" position="center" style={{ marginTop: "2rem", justifyContent: "center" }}>
+          <img src={FacebookIcon} alt="Facebook" width={30} height={30} />
+          <img src={GmailIcon} alt="Gmail" width={30} height={30} />
+          <img src={InstagramIcon} alt="Instagram" width={30} height={30} />
+        </Group>
+
+        {/* CTA BUTTON */}
+        <Button
+          radius="xl"
+          size="md"
+          mt="xl"
+          styles={(theme) => ({
+            root: {
+              backgroundColor: "#FFB700",
+              color: "#000",
               fontWeight: 800,
-              letterSpacing: "1px",
-              color: "#111",
-              marginBottom: "1rem",
-            }}
-          >
-            GALLERY
-          </Title>
+              fontFamily: "'Sora', sans-serif",
+              paddingInline: "clamp(1rem, 5vw, 2.5rem)",
+              fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+              transition: "background-color 0.2s ease, transform 0.15s ease",
 
-          <Text
-            style={{
-              maxWidth: "700px",
-              margin: "0 auto",
-              color: "#333",
-              fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)",
-              lineHeight: 1.6,
-            }}
-          >
-            Step into our gallery and immerse yourself in a visual feast of
-            captivating imagery crafted by passionate souls.
-          </Text>
-        </div>
+              "&:hover": {
+                backgroundColor: "#f0aa00",
+                transform: "translateY(-1px)",
+              },
 
-        {/* Grid — always 3 columns */}
-        <SimpleGrid cols={3} spacing="sm">
-          {images.map((src, index) => (
-            <div
-              key={index}
-              style={{
-                overflow: "hidden",
-                borderRadius: "6px",
-              }}
-            >
-              <Image
-                src={src}
-                alt={`Gallery Image ${index + 1}`}
-                fit="cover"
-                loading="lazy"
-                height="100%"
-                style={{
-                  filter: "grayscale(80%) saturate(50%) contrast(1.1)",
-                  transition: "transform 0.4s ease, filter 0.4s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "scale(1.05)";
-                  e.currentTarget.style.filter =
-                    "grayscale(0%) saturate(100%) contrast(1.1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.filter =
-                    "grayscale(80%) saturate(50%) contrast(1.1)";
-                }}
-              />
-            </div>
-          ))}
-        </SimpleGrid>
+              "&:active": {
+                transform: "translateY(0)",
+              },
+            },
+          })}
+        >
+          BOOK NOW
+        </Button>
       </Container>
     </section>
   );
-}
+};
+
+export default BookNowSection;
