@@ -70,7 +70,7 @@ Type of Event:
 
 Please let me know if this date is available.
 
-Best regards,`;
+Best regards, (Your Name)`;
 
   return (
     <Box
