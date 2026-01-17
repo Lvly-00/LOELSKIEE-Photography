@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Text, Title, Button, Stack } from "@mantine/core";
-import HeroImg from "../assets/images/hero-bg.jpg"; 
+import HeroImg from "../assets/images/hero-bg.jpg";
 
 const HeroSection2 = () => {
     return (
@@ -49,20 +49,21 @@ const HeroSection2 = () => {
                     {/* Standardized Button Size */}
                     <Button
                         radius="xl"
-                        size="xl" 
+                        size="xl"
                         style={{
                             backgroundColor: "#fff",
                             color: "#000",
                             fontWeight: 800,
-                            height: "3.5rem",
-                            padding: "0 2rem",
-                            fontSize: "1rem",
+                            height: "clamp(2.5rem, 4vw, 3.5rem)",       // height scales from 2.5rem up to 3.5rem
+                            padding: "0 clamp(1rem, 4vw, 2rem)",          // horizontal padding scales from 1rem to 2rem
+                            fontSize: "clamp(0.875rem, 2vw, 1rem)",       // font size scales between 0.875rem and 1rem
                             marginTop: "1rem"
                         }}
                         onClick={() => window.open("https://www.facebook.com/Loelskieez", "_blank")}
                     >
                         SEND A MESSAGE
                     </Button>
+
                 </Stack>
             </Container>
         </section>

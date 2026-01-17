@@ -59,7 +59,6 @@ export default function GallerySection() {
                 src={src}
                 alt={`Gallery Image ${index + 1}`}
                 fit="cover"
-                loading="lazy"
                 height="100%"
                 style={{
                   filter: "grayscale(80%) saturate(50%) contrast(1.1)",
