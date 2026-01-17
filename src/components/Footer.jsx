@@ -199,7 +199,7 @@ const Footer = () => {
                     listStyle: "disc",
                     lineHeight: 1.6,
                     fontSize: "clamp(0.5rem, 2.5vw, 1rem)",
-                    marginLeft: "1rem",
+                    paddingLeft: "1.5rem",
                   }}
                 >
                   <li>Photography</li>
