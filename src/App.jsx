@@ -12,11 +12,14 @@ import Footer from "./components/Footer";
 import '@mantine/carousel/styles.css';
 import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollToHash from './components/ScrollToHash';
+
 
 function App() {
   return (
     // CHANGE 1: Use BrowserRouter here instead of <>
     <BrowserRouter>
+      <ScrollToHash />
 
       {/* Now ScrollToTop is INSIDE the Router, so useLocation() works */}
       <ScrollToTop />

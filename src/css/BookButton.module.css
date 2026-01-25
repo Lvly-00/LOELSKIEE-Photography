@@ -15,3 +15,21 @@
 .root:active {
     transform: scale(0.97);
 }
+
+.root1 {
+    border-color: #000000;
+    color: #000000;
+    border-width: 2px;
+    font-weight: 700;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.root1:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.root1:active {
+    transform: scale(0.97);
+}

@@ -1,62 +1,8 @@
 import React, { useMemo } from "react";
 import { Box, Container, Title, Text, Grid, List, Button, Divider } from "@mantine/core";
-
-// --- Reusable SmartBookButton Component ---
-const SmartBookButton = ({ subject, body }) => {
-  const recipientEmail = "loelskiee@gmail.com";
-
-  // Encode details
-  const subjectEncoded = encodeURIComponent(subject);
-  const bodyEncoded = encodeURIComponent(body);
-
-  // Links
-  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${subjectEncoded}&body=${bodyEncoded}`;
-  const mailtoLink = `mailto:${recipientEmail}?subject=${subjectEncoded}&body=${bodyEncoded}`;
-
-  // Browser Detection & Link Choice
-  const buttonConfig = useMemo(() => {
-    if (typeof navigator === "undefined") {
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const uaLower = userAgent.toLowerCase();
-
-    // Mobile detection
-    const isMobile = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(uaLower);
-
-    if (isMobile) {
-      // On mobile, use mailto for better native support
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    // Desktop detection
-    const isEdge = uaLower.includes("edg");
-    const isChrome = uaLower.includes("chrome") && !isEdge && !uaLower.includes("opr");
-
-    if (isChrome || isEdge) {
-      return { href: gmailLink, target: "_blank", rel: "noopener noreferrer" };
-    }
-
-    // Fallback to mailto for other desktop browsers
-    return { href: mailtoLink, target: undefined, rel: undefined };
-  }, [gmailLink, mailtoLink]);
-
-  return (
-    <Button
-      component="a"
-      href={buttonConfig.href}
-      target={buttonConfig.target}
-      rel={buttonConfig.rel}
-      variant="outline"
-      color="black"
-      radius="md"
-      style={{ fontWeight: 700 }}
-    >
-      BOOK NOW
-    </Button>
-  );
-};
+import classes from '../css/BookButton.module.css';
+import { Link } from 'react-router-dom';
+import { SmartBookButton, SmartBookButton2 }  from "../components/SmartBookButton";
 
 // --- Helper to generate email body ---
 const getEmailBody = (packageName, price) => {
@@ -134,7 +80,7 @@ function StudioPricing() {
               photo booth package, handled by a professional photographer.
             </Text>
 
-            <SmartBookButton
+            <SmartBookButton2 
               subject="Booking: Photo Booth Package (₱4,999)"
               body={getEmailBody("Photo Booth", "₱4,999")}
             />
@@ -183,7 +129,7 @@ function StudioPricing() {
               polished, high-quality photos.
             </Text>
 
-            <SmartBookButton
+            <SmartBookButton2 
               subject="Booking: Photo Studio Package (₱7,999)"
               body={getEmailBody("Photo Studio", "₱7,999")}
             />
@@ -232,7 +178,7 @@ function StudioPricing() {
               professional photographer and editor.
             </Text>
 
-            <SmartBookButton
+            <SmartBookButton2 
               subject="Booking: Studio Booth Package (₱12,999)"
               body={getEmailBody("Studio Booth", "₱12,999")}
             />
@@ -281,7 +227,7 @@ function StudioPricing() {
               setup and a professional team ensuring smooth real-time coverage.
             </Text>
 
-            <SmartBookButton
+            <SmartBookButton2 
               subject="Booking: Live Feed Broadcast (₱79,999)"
               body={getEmailBody("Live Feed Broadcast", "₱79,999")}
             />
@@ -299,6 +245,21 @@ function StudioPricing() {
             </List>
           </Grid.Col>
         </Grid>
+
+        <Box mt={200} p={10} style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button
+            component={Link}
+            to="/#deals"
+            color="black"
+            variant="outline"
+            size="lg"
+            radius="md"
+            classNames={{ root: classes.root1 }}
+
+          >
+            BACK TO DEALS
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

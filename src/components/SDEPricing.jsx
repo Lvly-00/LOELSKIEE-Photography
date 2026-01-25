@@ -1,59 +1,8 @@
 import React, { useMemo } from "react";
 import { Box, Container, Title, Text, Grid, List, Button, Divider } from "@mantine/core";
-
-// Reusable SmartBookButton component
-const SmartBookButton = ({ subject, body }) => {
-  const recipientEmail = "loelskiee@gmail.com";
-  const subjectEncoded = encodeURIComponent(subject);
-  const bodyEncoded = encodeURIComponent(body);
-
-  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${subjectEncoded}&body=${bodyEncoded}`;
-  const mailtoLink = `mailto:${recipientEmail}?subject=${subjectEncoded}&body=${bodyEncoded}`;
-
-  const buttonConfig = useMemo(() => {
-    if (typeof navigator === "undefined") {
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const uaLower = userAgent.toLowerCase();
-
-    // Detect mobile devices
-    const isMobile = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(uaLower);
-
-    if (isMobile) {
-      // Use mailto on mobile devices for better compatibility
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    const isEdge = uaLower.includes("edg");
-    const isChrome = uaLower.includes("chrome") && !isEdge && !uaLower.includes("opr");
-
-    if (isChrome || isEdge) {
-      // Desktop Chrome or Edge: open Gmail web compose in new tab
-      return { href: gmailLink, target: "_blank", rel: "noopener noreferrer" };
-    }
-
-    // Fallback: use mailto link
-    return { href: mailtoLink, target: undefined, rel: undefined };
-  }, [gmailLink, mailtoLink]);
-
-  return (
-    <Button
-      component="a"
-      href={buttonConfig.href}
-      target={buttonConfig.target}
-      rel={buttonConfig.rel}
-      variant="outline"
-      color="white"
-      size="md"
-      radius="md"
-      style={{ borderWidth: "2px", fontWeight: 700 }}
-    >
-      BOOK NOW
-    </Button>
-  );
-};
+import SmartBookButton from "../components/SmartBookButton";
+import classes from '../css/BookButton.module.css';
+import { Link } from 'react-router-dom';
 
 function SDEPricing() {
   const emailSubject = "Booking Inquiry: Same Day Edit Coverage (₱44,999)";
@@ -154,16 +103,30 @@ Best regards, (Your Name)`;
             </Text>
 
             <List spacing="md" size="md" c="white">
-              <List.Item>1 Photographer/Drone pilot, 2 Videographer, 1 Editor & 1 Assistant.</List.Item>
-              <List.Item>Photo Highlights Event Coverage.</List.Item>
-              <List.Item>Video Highlights Event Coverage MTV Highlights.</List.Item>
+              <List.Item>Photo and Video Highlights Event Same Day Edit Coverage.</List.Item>
+              <List.Item>1 Photographer + 2 Videographer +1 Editor + 1 Drone Pilot.</List.Item>
+              <List.Item>MTV Highlights Edited Video.</List.Item>
               <List.Item>Unlimited shots + Enhancing photos.</List.Item>
-              <List.Item>Google Drive space for quick and easy to download.</List.Item>
-              <List.Item>Transportation fee is included.</List.Item>
-              <List.Item>With BIR Original Receipt Invoice.</List.Item>
+              <List.Item>All photos are edited & 5mins MTV</List.Item>
+              <List.Item>Good for Start & End of Program.</List.Item>
             </List>
           </Grid.Col>
         </Grid>
+
+        <Box mt={200} p={10} style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button
+            component={Link}
+            to="/#deals"
+            color="white"
+            variant="outline"
+            size="lg"
+            radius="md"
+            classNames={{ root: classes.root }}
+
+          >
+            BACK TO DEALS
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

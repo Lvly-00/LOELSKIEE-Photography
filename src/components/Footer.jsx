@@ -206,7 +206,7 @@ const Footer = () => {
                   <li>Videography</li>
                   <li>Multimedia</li>
                   <li>Same Day Edit</li>
-                  <li>Studio</li>
+                  <li>Footer & Studio</li>
                 </ul>
               </div>
             </SimpleGrid>

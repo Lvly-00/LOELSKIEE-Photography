@@ -11,11 +11,12 @@ export default function GallerySection() {
     <section
       id="gallery"
       style={{
+        backgroundColor: "#1E1E1E",
         padding: "clamp(4rem, 8vw, 6rem) 0",
         fontFamily: "'Sora', sans-serif",
       }}
     >
-      <Container size="lg">
+      <Container size="lg" >
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
           <Title
@@ -24,7 +25,7 @@ export default function GallerySection() {
               fontSize: "clamp(2.5rem, 6vw, 5rem)",
               fontWeight: 800,
               letterSpacing: "1px",
-              color: "#111",
+              color: "#ffffff",
               marginBottom: "1rem",
             }}
           >
@@ -35,7 +36,7 @@ export default function GallerySection() {
             style={{
               maxWidth: "700px",
               margin: "0 auto",
-              color: "#333",
+              color: "#ffffff",
               fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)",
               lineHeight: 1.6,
             }}

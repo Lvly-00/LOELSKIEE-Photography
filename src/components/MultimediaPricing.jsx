@@ -1,59 +1,8 @@
 import React, { useMemo } from "react";
 import { Box, Container, Title, Text, Grid, List, Button, Divider } from "@mantine/core";
-
-// Reusable SmartBookButton component
-const SmartBookButton = ({ subject, body }) => {
-  const recipientEmail = "loelskiee@gmail.com";
-  const subjectEncoded = encodeURIComponent(subject);
-  const bodyEncoded = encodeURIComponent(body);
-
-  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${subjectEncoded}&body=${bodyEncoded}`;
-  const mailtoLink = `mailto:${recipientEmail}?subject=${subjectEncoded}&body=${bodyEncoded}`;
-
-  const buttonConfig = useMemo(() => {
-    if (typeof navigator === "undefined") {
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const uaLower = userAgent.toLowerCase();
-
-    // Mobile device detection
-    const isMobile = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(uaLower);
-
-    if (isMobile) {
-      // On mobile devices, use mailto:
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    const isEdge = uaLower.includes("edg");
-    const isChrome = uaLower.includes("chrome") && !isEdge && !uaLower.includes("opr");
-
-    if (isChrome || isEdge) {
-      // Desktop Chrome/Edge use Gmail web compose in new tab
-      return { href: gmailLink, target: "_blank", rel: "noopener noreferrer" };
-    }
-
-    // Fallback to mailto:
-    return { href: mailtoLink, target: undefined, rel: undefined };
-  }, [gmailLink, mailtoLink]);
-
-  return (
-    <Button
-      component="a"
-      href={buttonConfig.href}
-      target={buttonConfig.target}
-      rel={buttonConfig.rel}
-      variant="outline"
-      color="white"
-      size="md"
-      radius="md"
-      style={{ borderWidth: "2px", fontWeight: 700 }}
-    >
-      BOOK NOW
-    </Button>
-  );
-};
+import SmartBookButton from "../components/SmartBookButton";
+import classes from '../css/BookButton.module.css';
+import { Link } from 'react-router-dom';
 
 function MultimediaPricing() {
   // Email content for multimedia package
@@ -121,7 +70,7 @@ Best regards, (Your Name)`;
               c="white"
               style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }} // Standard Price Size
             >
-              ₱12,999
+              ₱14,999
             </Text>
 
             <Text
@@ -155,17 +104,30 @@ Best regards, (Your Name)`;
             </Text>
 
             <List spacing="md" size="md" c="white">
-              <List.Item>1 Photographer/Drone pilot & 1 Videographer.</List.Item>
-              <List.Item>Photo Highlights Event Coverage.</List.Item>
-              <List.Item>MTV Highlights Video Edited.</List.Item>
+              <List.Item>Photo and Video Highlights Event Coverage.</List.Item>
+              <List.Item>1 Photographer + & 1 Videographer.</List.Item>
+              <List.Item>MTV Highlights Edited Video.</List.Item>
               <List.Item>Unlimited shots + Enhancing photos.</List.Item>
-              <List.Item>Uploading photos thru Google Drive after the event.</List.Item>
-              <List.Item>Additional 1k per succeeding hours.</List.Item>
-              <List.Item>Good for the first 2 hours.</List.Item>
-              <List.Item>With BIR Original Receipt Invoice.</List.Item>
+              <List.Item>All photos are edited & 5mins MTV</List.Item>
+              <List.Item>Good for the first 4 hours.</List.Item>
             </List>
           </Grid.Col>
         </Grid>
+
+        <Box mt={200} p={10} style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button
+            component={Link}
+            to="/#deals"
+            color="white"
+            variant="outline"
+            size="lg"
+            radius="md"
+            classNames={{ root: classes.root }}
+
+          >
+            BACK TO DEALS
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

@@ -20,7 +20,7 @@ function MultimediaPackages() {
                             fontSize: "clamp(2.5rem, 5vw, 4rem)", // Standardized Title
                             lineHeight: 1.1
                         }}
-                    >                        PHOTOGRAPHY &
+                    >                        PHOTOGRAPHY & VIDEO
                         <br />
                         COVERAGE PACKAGES
                     </Title>
