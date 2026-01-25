@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Box, Container, Title, Text, Grid, List, Button, Divider } from "@mantine/core";
 import classes from '../css/BookButton.module.css';
 import { Link } from 'react-router-dom';
-import SmartBookButton from "../components/SmartBookButton";
+import { SmartBookButton, SmartBookButton2 }  from "../components/SmartBookButton";
 
 
 function PhotoPricing() {
@@ -127,7 +127,6 @@ Best regards, (Your Name)`;
             BACK TO DEALS
           </Button>
         </Box>
-
 
       </Container>
     </Box>
