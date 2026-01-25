@@ -114,10 +114,9 @@ Best regards, (Your Name)`;
           </Grid.Col>
         </Grid>
       </Container>
+
       <Box bg="#1E1E1E"  mt={200}>
         <DealsComponent show={["VIDEO", "MULTIMEDIA", "SDE", "STUDIO"]} />
-
-
       </Box>
     </Box>
   );
