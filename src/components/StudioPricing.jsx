@@ -93,6 +93,7 @@ function StudioPricing() {
             </Title>
             <List spacing="md" size="md">
               <List.Item>Complete Photo Booth Experience.</List.Item>
+              <List.Item>Photoman.</List.Item>
               <List.Item>2 Hours of Unlimited Portrait Session.</List.Item>
               <List.Item>Capture as many high-quality portraits as you like.</List.Item>
               <List.Item>All edited images delivered via Google Drive.</List.Item>
@@ -142,6 +143,7 @@ function StudioPricing() {
             </Title>
             <List spacing="md" size="md">
               <List.Item>Complete Studio Booth Experience.</List.Item>
+              <List.Item>Photoman.</List.Item>
               <List.Item>2 Hours of Unlimited Portrait Session.</List.Item>
               <List.Item>Capture as many portraits as you like.</List.Item>
               <List.Item>All edited images delivered via Google Drive.</List.Item>

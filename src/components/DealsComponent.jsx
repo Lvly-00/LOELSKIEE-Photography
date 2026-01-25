@@ -10,7 +10,7 @@ import PhotoImg from "../assets/images/Photo.png";
 import VideoImg from "../assets/images/Video.png";
 import MultiImg from "../assets/images/Multimedia.png";
 import SdeImg from "../assets/images/SDE.png";
-import Studio from "../assets/images/Studio.png";
+import Studio from "../assets/images/StudioDeal.png";
 
 const DealsComponent = ({ show = ["PHOTO", "VIDEO", "MULTIMEDIA", "SDE"] }) => {
     const isSmallScreen = useMediaQuery("(max-width: 769px)");
