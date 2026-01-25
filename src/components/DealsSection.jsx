@@ -3,6 +3,7 @@ import { Container, Grid, Text, Button, Image, Paper, Center, Box } from "@manti
 import { useMediaQuery } from "@mantine/hooks";
 import { Carousel } from "@mantine/carousel";
 import { Link } from "react-router-dom";
+import classes from '../css/ExploreButton.module.css';
 
 // Images imports remain the same...
 import PhotoImg from "../assets/images/Photo.png";
@@ -77,10 +78,9 @@ const DealsSection = () => {
           component={Link}
           to={`/${deal.title.toLowerCase()}`}
           variant="outline"
-          color="black"
           radius="xl"
           size="md"
-          style={{ borderWidth: "2px", fontWeight: 700 }}
+          classNames={{ root: classes.root }}
         >
           EXPLORE
         </Button>
