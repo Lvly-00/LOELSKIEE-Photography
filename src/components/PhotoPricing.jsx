@@ -1,59 +1,10 @@
 import React, { useMemo } from "react";
 import { Box, Container, Title, Text, Grid, List, Button, Divider } from "@mantine/core";
+import classes from '../css/BookButton.module.css';
+import { useNavigate } from "react-router-dom";
+import SmartBookButton from "../components/SmartBookButton";
 
-// SmartBookButton with mobile-friendly mailto fallback
-const SmartBookButton = ({ subject, body }) => {
-  const recipientEmail = "loelskiee@gmail.com";
-  const subjectEncoded = encodeURIComponent(subject);
-  const bodyEncoded = encodeURIComponent(body);
 
-  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${subjectEncoded}&body=${bodyEncoded}`;
-  const mailtoLink = `mailto:${recipientEmail}?subject=${subjectEncoded}&body=${bodyEncoded}`;
-
-  const buttonConfig = useMemo(() => {
-    if (typeof navigator === "undefined") {
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const uaLower = userAgent.toLowerCase();
-
-    // Simple mobile detection
-    const isMobile = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(uaLower);
-
-    if (isMobile) {
-      // Use mailto: on mobile for best compatibility
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    const isEdge = uaLower.includes("edg");
-    const isChrome = uaLower.includes("chrome") && !isEdge && !uaLower.includes("opr");
-
-    if (isChrome || isEdge) {
-      // Use Gmail web compose on Chrome/Edge desktop
-      return { href: gmailLink, target: "_blank", rel: "noopener noreferrer" };
-    }
-
-    // Default fallback to mailto:
-    return { href: mailtoLink, target: undefined, rel: undefined };
-  }, [gmailLink, mailtoLink]);
-
-  return (
-    <Button
-      component="a"
-      href={buttonConfig.href}
-      target={buttonConfig.target}
-      rel={buttonConfig.rel}
-      variant="outline"
-      color="white"
-      size="md"
-      radius="md"
-      style={{ borderWidth: "2px", fontWeight: 700 }}
-    >
-      BOOK NOW
-    </Button>
-  );
-};
 
 function PhotoPricing() {
   // Email Content Helper
@@ -118,7 +69,7 @@ Best regards, (Your Name)`;
               c="white"
               style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }} // Standard Price Size
             >
-              ₱4,999
+              ₱2,999
             </Text>
 
             <Text
@@ -151,15 +102,14 @@ Best regards, (Your Name)`;
             </Text>
 
             <List spacing="md" size="md" c="white">
-              <List.Item>Including 1 Photographer.</List.Item>
               <List.Item>Photo Highlights Event Coverage.</List.Item>
+              <List.Item>1 Photographer included.</List.Item>
               <List.Item>Unlimited shots + Enhancing photos.</List.Item>
               <List.Item>
-                Uploading photos thru Google Drive within 1–3 working days.
+                All photos are edited.
               </List.Item>
               <List.Item>Additional ₱1,000 for succeeding hours.</List.Item>
-              <List.Item>Good for first 2 hours.</List.Item>
-              <List.Item>With BIR Original Receipt Invoice.</List.Item>
+              <List.Item>Good for first starting 2 hours.</List.Item>
             </List>
           </Grid.Col>
         </Grid>
