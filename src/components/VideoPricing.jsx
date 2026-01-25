@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
 import { Box, Container, Title, Text, Grid, List, Button, Divider } from "@mantine/core";
-import { SmartBookButton, SmartBookButton2 }  from "../components/SmartBookButton";
+import { SmartBookButton, SmartBookButton2 } from "../components/SmartBookButton";
 import classes from '../css/BookButton.module.css';
 import { Link } from 'react-router-dom';
+import DealsComponent from "./DealsComponent";
 
 
 
@@ -115,22 +116,11 @@ Best regards, (Your Name)`;
             </List>
           </Grid.Col>
         </Grid>
-
-        <Box mt={200} p={10} style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button
-            component={Link}
-            to="/#deals"
-            color="white"
-            variant="outline"
-            size="lg"
-            radius="md"
-            classNames={{ root: classes.root }}
-
-          >
-            BACK TO DEALS
-          </Button>
-        </Box>
       </Container>
+
+      <Box bg="#1E1E1E" mt={200}>
+        <DealsComponent show={["PHOTO", "MULTIMEDIA", "SDE", "STUDIO"]} />
+      </Box>
     </Box>
   );
 }

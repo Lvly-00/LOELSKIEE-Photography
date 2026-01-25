@@ -2,7 +2,8 @@ import React, { useMemo } from "react";
 import { Box, Container, Title, Text, Grid, List, Button, Divider } from "@mantine/core";
 import classes from '../css/BookButton.module.css';
 import { Link } from 'react-router-dom';
-import { SmartBookButton, SmartBookButton2 }  from "../components/SmartBookButton";
+import { SmartBookButton, SmartBookButton2 } from "../components/SmartBookButton";
+import DealsComponent from "./DealsComponent";
 
 // --- Helper to generate email body ---
 const getEmailBody = (packageName, price) => {
@@ -80,7 +81,7 @@ function StudioPricing() {
               photo booth package, handled by a professional photographer.
             </Text>
 
-            <SmartBookButton2 
+            <SmartBookButton2
               subject="Booking: Photo Booth Package (₱4,999)"
               body={getEmailBody("Photo Booth", "₱4,999")}
             />
@@ -129,7 +130,7 @@ function StudioPricing() {
               polished, high-quality photos.
             </Text>
 
-            <SmartBookButton2 
+            <SmartBookButton2
               subject="Booking: Photo Studio Package (₱7,999)"
               body={getEmailBody("Photo Studio", "₱7,999")}
             />
@@ -178,7 +179,7 @@ function StudioPricing() {
               professional photographer and editor.
             </Text>
 
-            <SmartBookButton2 
+            <SmartBookButton2
               subject="Booking: Studio Booth Package (₱12,999)"
               body={getEmailBody("Studio Booth", "₱12,999")}
             />
@@ -227,7 +228,7 @@ function StudioPricing() {
               setup and a professional team ensuring smooth real-time coverage.
             </Text>
 
-            <SmartBookButton2 
+            <SmartBookButton2
               subject="Booking: Live Feed Broadcast (₱79,999)"
               body={getEmailBody("Live Feed Broadcast", "₱79,999")}
             />
@@ -245,22 +246,11 @@ function StudioPricing() {
             </List>
           </Grid.Col>
         </Grid>
-
-        <Box mt={200} p={10} style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button
-            component={Link}
-            to="/#deals"
-            color="black"
-            variant="outline"
-            size="lg"
-            radius="md"
-            classNames={{ root: classes.root1 }}
-
-          >
-            BACK TO DEALS
-          </Button>
-        </Box>
       </Container>
+
+      <Box mt={200}>
+        <DealsComponent show={["PHOTO", "VIDEO", "MULTIMEDIA", "SDE"]} />
+      </Box>
     </Box>
   );
 }
