@@ -1,59 +1,7 @@
 import React, { useMemo } from "react";
 import { Box, Container, Title, Text, Grid, List, Button, Divider } from "@mantine/core";
+import SmartBookButton from "../components/SmartBookButton";
 
-// Reusable SmartBookButton for VideoPricing (with mobile detection)
-const SmartBookButton = ({ subject, body }) => {
-  const recipientEmail = "loelskiee@gmail.com";
-  const subjectEncoded = encodeURIComponent(subject);
-  const bodyEncoded = encodeURIComponent(body);
-
-  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${subjectEncoded}&body=${bodyEncoded}`;
-  const mailtoLink = `mailto:${recipientEmail}?subject=${subjectEncoded}&body=${bodyEncoded}`;
-
-  const buttonConfig = useMemo(() => {
-    if (typeof navigator === "undefined") {
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const uaLower = userAgent.toLowerCase();
-
-    // Mobile device detection
-    const isMobile = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(uaLower);
-
-    if (isMobile) {
-      // Use mailto: for better mobile compatibility
-      return { href: mailtoLink, target: undefined, rel: undefined };
-    }
-
-    const isEdge = uaLower.includes("edg");
-    const isChrome = uaLower.includes("chrome") && !isEdge && !uaLower.includes("opr");
-
-    if (isChrome || isEdge) {
-      // Use Gmail web compose on desktop Chrome/Edge
-      return { href: gmailLink, target: "_blank", rel: "noopener noreferrer" };
-    }
-
-    // Fallback to mailto:
-    return { href: mailtoLink, target: undefined, rel: undefined };
-  }, [gmailLink, mailtoLink]);
-
-  return (
-    <Button
-      component="a"
-      href={buttonConfig.href}
-      target={buttonConfig.target}
-      rel={buttonConfig.rel}
-      variant="outline"
-      color="white"
-      size="md"
-      radius="md"
-      style={{ borderWidth: "2px", fontWeight: 700 }}
-    >
-      BOOK NOW
-    </Button>
-  );
-};
 
 function VideoPricing() {
   // Email details
@@ -156,16 +104,11 @@ Best regards, (Your Name)`;
             </Text>
 
             <List spacing="md" size="md" c="white">
-              <List.Item>Including 1 Videographer.</List.Item>
-              <List.Item>Video Highlights Coverage.</List.Item>
-              <List.Item>MTV Event Highlights Video Edited.</List.Item>
-              <List.Item>
-                Uploading video thru Google Drive within 1–2 weeks working day.
-              </List.Item>
-              <List.Item>Transportation fee is included.</List.Item>
+              <List.Item>Video Highlights Event Coverage.</List.Item>
+              <List.Item>1 Videographer Included.</List.Item>
+              <List.Item>MTV Event Highlights Edited Video.</List.Item>
               <List.Item>Additional 1k for succeeding hours.</List.Item>
-              <List.Item>Good for first starting 2 hours.</List.Item>
-              <List.Item>With BIR Original Receipt Invoice.</List.Item>
+              <List.Item>Good for first starting 4 hours.</List.Item>
             </List>
           </Grid.Col>
         </Grid>
