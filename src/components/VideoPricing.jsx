@@ -12,17 +12,23 @@ function VideoPricing() {
   const emailSubject = "Booking Inquiry: Video Coverage Package (₱9,999)";
   const emailBody = `Hi Loelskiee Photography Team,
 
-I would like to inquire about booking the Video Coverage package (₱9,999).
+I would like to schedule booking the Video Coverage package (₱9,999).
 
-Here are my event details:
+Here are my event details
+Type of Event: 
 Date: 
 Time: 
 Location: 
-Type of Event: 
+Contact Person: 
+Contact Number: 
 
-Please let me know if this date is available.
+Note: A ₱500 down payment is required to secure the slot and send the downpayment to our page once your done.
 
-Best regards, (Your Name)`;
+For other inquiries, you may also reach us through our Facebook page:
+https://facebook.com/Loelskieez
+
+Best regards,
+(Your Name)`;
 
   return (
     <Box

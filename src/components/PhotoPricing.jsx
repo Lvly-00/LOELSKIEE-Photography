@@ -8,20 +8,26 @@ import DealsComponent from "./DealsComponent";
 
 function PhotoPricing() {
   // Email Content Helper
-  const emailSubject = "Booking Inquiry: Photo Coverage Package (₱4,999)";
+  const emailSubject = "Booking Inquiry: Photo Coverage Package (₱2,999)";
   const emailBody = `Hi Loelskiee Photography Team,
 
-I would like to inquire about booking the Photo Coverage package (₱4,999).
+I would like to schedule booking the Photo Coverage package (₱2,999).
 
 Here are my event details:
+Type of Event: 
 Date: 
 Time: 
 Location: 
-Type of Event: 
+Contact Person: 
+Contact Number: 
 
-Please let me know if this date is available.
+Note: A ₱500 down payment is required to secure the slot and send the downpayment to our page once you're done.
 
-Best regards, (Your Name)`;
+For other inquiries, you may also reach us through our Facebook page:
+https://facebook.com/Loelskieez
+
+Best regards,
+(Your Name)`;
 
   return (
     <Box

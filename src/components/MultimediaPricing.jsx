@@ -8,20 +8,26 @@ import DealsComponent from "./DealsComponent";
 
 function MultimediaPricing() {
   // Email content for multimedia package
-  const emailSubject = "Booking Inquiry: Multimedia Coverage Package (₱12,999)";
+  const emailSubject = "Booking Inquiry: Multimedia Coverage Package (14,999)";
   const emailBody = `Hi Loelskiee Photography Team,
 
-I would like to inquire about booking the Multimedia Coverage package (₱12,999).
+I would like to schedule booking the Multimedia Coverage package (14,999).
 
-Here are my event details:
+Here are my event details
+Type of Event: 
 Date: 
 Time: 
 Location: 
-Type of Event: 
+Contact Person: 
+Contact Number: 
 
-Please let me know if this date is available.
+Note: A ₱500 down payment is required to secure the slot and send the downpayment to our page once you're done.
 
-Best regards, (Your Name)`;
+For other inquiries, you may also reach us through our Facebook page:
+https://facebook.com/Loelskieez
+
+Best regards,
+(Your Name)`;
 
   return (
     <Box

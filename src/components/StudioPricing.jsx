@@ -9,17 +9,23 @@ import DealsComponent from "./DealsComponent";
 const getEmailBody = (packageName, price) => {
   return `Hi Loelskiee Photography Team,
 
-I would like to inquire about booking the ${packageName} package (${price}).
+I would like to schedule booking the ${packageName} package (${price}).
 
-Here are my event details:
+Here are my event details
+Type of Event: 
 Date: 
 Time: 
 Location: 
-Type of Event: 
+Contact Person: 
+Contact Number: 
 
-Please let me know if this date is available.
+Note: A ₱500 down payment is required to secure the slot and send the downpayment to our page once you're done.
 
-Best regards, (Your Name)`;
+For other inquiries, you may also reach us through our Facebook page:
+https://facebook.com/Loelskieez
+
+Best regards,
+(Your Name)`;
 };
 
 function StudioPricing() {
