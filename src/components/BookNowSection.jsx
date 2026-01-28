@@ -1,9 +1,70 @@
-import React from "react";
-import { Container, Title, Button, Group } from "@mantine/core";
+import React, { useState } from "react";
+import { Container, Title, Button, Group, Text } from "@mantine/core";
+
 import FacebookIcon from "../assets/images/icons/facebook.svg";
 import GmailIcon from "../assets/images/icons/gmail.svg";
 import InstagramIcon from "../assets/images/icons/ig.svg";
 
+/* ================================
+   Reusable Copy Icon
+================================ */
+const CopyIcon = ({ value, icon, label }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(value).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <div style={{ position: "relative", display: "inline-flex" }}>
+      <button
+        type="button"
+        onClick={copyToClipboard}
+        aria-label={label}
+        style={{
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
+        <img
+          src={icon}
+          alt={label}
+          style={{ width: "clamp(24px, 4vw, 30px)", }}
+        />
+      </button>
+
+      {copied && (
+        <Text
+          size="xs"
+          style={{
+            position: "absolute",
+            top: "-2.6rem",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "rgba(0,0,0,0.75)",
+            color: "#fff",
+            padding: "2px 6px",
+            borderRadius: "4px",
+            fontWeight: "bold",
+            whiteSpace: "nowrap",
+            pointerEvents: "none",
+            zIndex: 10,
+          }}
+        >
+          Email copied!
+        </Text>
+      )}
+    </div>
+  );
+};
+
+/* ================================
+   Book Now Section
+================================ */
 const BookNowSection = () => {
   const scrollToDeals = () => {
     const dealsSection = document.getElementById("deals");
@@ -13,7 +74,12 @@ const BookNowSection = () => {
   };
 
   return (
-    <section style={{ padding: "clamp(3rem, 8vw, 6rem) 1rem", fontFamily: "'Sora', sans-serif" }}>
+    <section
+      style={{
+        padding: "clamp(3rem, 8vw, 6rem) 1rem",
+        fontFamily: "'Sora', sans-serif",
+      }}
+    >
       <Container size="md" style={{ textAlign: "center" }}>
         <Title
           style={{
@@ -24,7 +90,8 @@ const BookNowSection = () => {
             marginBottom: "1.5rem",
           }}
         >
-          Capture the moment,<br />
+          Capture the moment,
+          <br />
           Relive the memory
         </Title>
 
@@ -47,12 +114,38 @@ const BookNowSection = () => {
 
         {/* ICONS */}
         <Group spacing="xl" position="center" style={{ marginTop: "2rem", justifyContent: "center" }}>
-          <img src={FacebookIcon} alt="Facebook" style={{ width: "clamp(24px, 4vw, 30px)", height: "auto" }}
+          <a
+            href="https://www.facebook.com/Loelskieez"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <img
+              src={FacebookIcon}
+              alt="Facebook"
+              style={{ width: "clamp(24px, 4vw, 33px)", height: "auto" }}
+            />
+          </a>
+
+          {/* Gmail copy */}
+          <CopyIcon
+            value="loelskiee@gmail.com"
+            icon={GmailIcon}
+            label="Copy email address"
           />
-          <img src={GmailIcon} alt="Gmail" style={{ width: "clamp(24px, 4vw, 30px)", height: "auto" }}
-          />
-          <img src={InstagramIcon} alt="Instagram" style={{ width: "clamp(24px, 4vw, 30px)", height: "auto" }}
-          />
+
+          <a
+            href="https://www.instagram.com/loelskieez"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <img
+              src={InstagramIcon}
+              alt="Instagram"
+              style={{ width: "clamp(24px, 4vw, 30px)", height: "auto" }}
+            />
+          </a>
         </Group>
 
         {/* CTA BUTTON */}
@@ -60,8 +153,8 @@ const BookNowSection = () => {
           radius="xl"
           size="lg"
           mt="xl"
-          onClick={scrollToDeals} // add this
-          styles={(theme) => ({
+          onClick={scrollToDeals}
+          styles={() => ({
             root: {
               backgroundColor: "#FFB700",
               color: "#000",
@@ -90,3 +183,5 @@ const BookNowSection = () => {
 };
 
 export default BookNowSection;
+
+

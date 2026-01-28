@@ -1,15 +1,81 @@
-import React from "react";
-import { Container, Box, Grid, AspectRatio, Text, Title, Paper, Stack, Group, Divider } from "@mantine/core";
-import { IconBrandFacebook, IconBrandInstagram, IconMail } from "@tabler/icons-react";
+import React, { useState } from "react";
+import {
+    Container,
+    Box,
+    Grid,
+    AspectRatio,
+    Text,
+    Title,
+    Paper,
+    Stack,
+    Group,
+    Divider,
+} from "@mantine/core";
+import {
+    IconBrandFacebook,
+    IconBrandInstagram,
+    IconMail,
+} from "@tabler/icons-react";
 
+// Reusable CopyMailIcon component
+const CopyMailIcon = ({ value }) => {
+    const [copied, setCopied] = useState(false);
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(value).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        });
+    };
+
+    return (
+        <div style={{ position: "relative", display: "inline-flex" }}>
+            <button
+                type="button"
+                onClick={copyToClipboard}
+                aria-label="Copy email address"
+                style={{
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    cursor: "pointer",
+                }}
+            >
+                <IconMail size={28} color="white" />
+            </button>
+
+            {copied && (
+                <Text
+                    size="xs"
+                    style={{
+                        position: "absolute",
+                        top: "-1.6rem",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        background: "rgba(0,0,0,0.8)",
+                        color: "#fff",
+                        padding: "2px 6px",
+                        borderRadius: "4px",
+                        fontWeight: "bold",
+                        whiteSpace: "nowrap",
+                        pointerEvents: "none",
+                        zIndex: 10,
+                    }}
+                >
+                    Email copied!
+                </Text>
+            )}
+        </div>
+    );
+};
 
 export default function SDEParagraphSection() {
     return (
         <Box
             style={{
                 backgroundColor: "#1E1E1E",
-                padding: "clamp(4rem, 8vw, 6rem) 0", 
-                fontFamily: "'Sora', sans-serif"
+                padding: "clamp(4rem, 8vw, 6rem) 0",
+                fontFamily: "'Sora', sans-serif",
             }}
         >
             <Container size="lg">
@@ -22,11 +88,12 @@ export default function SDEParagraphSection() {
                                 color: "white",
                                 lineHeight: 1.3,
                                 fontWeight: 300,
-                                fontSize: "clamp(1.5rem, 3vw, 2.5rem)" 
+                                fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
                             }}
                         >
-                            A photo captures a moment, a video brings it to life —
-                            together, they tell stories that  <span style={{ fontWeight: 700 }}>lasts forever.</span>
+                            A photo captures a moment, a video brings it to life — together,
+                            they tell stories that{" "}
+                            <span style={{ fontWeight: 700 }}>lasts forever.</span>
                         </Title>
                     </Grid.Col>
 
@@ -35,24 +102,25 @@ export default function SDEParagraphSection() {
                             c="gray.3"
                             style={{
                                 lineHeight: 1.8,
-                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)" 
+                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)",
                             }}
                         >
-                            Investing in professional photography is one of the best ways to make a lasting impression.
-                            Whether it’s for personal branding, events, or creative projects, high-quality photos help you
-                            stand out and tell your story with clarity and confidence.
+                            Investing in professional photography is one of the best ways to
+                            make a lasting impression. Whether it’s for personal branding,
+                            events, or creative projects, high-quality photos help you stand
+                            out and tell your story with clarity and confidence.
                             <br />
                             <br />
-                            Your photos reflect more than moments — they capture emotion, personality, and purpose.
-                            What story do you want your images to tell?
+                            Your photos reflect more than moments — they capture emotion,
+                            personality, and purpose. What story do you want your images to
+                            tell?
                         </Text>
                     </Grid.Col>
                 </Grid>
 
                 <Container size="xl" style={{ marginTop: 90 }}>
                     <Grid align="center" gutter="xl">
-
-                        {/* LEFT — IMAGE */}
+                        {/* LEFT — VIDEO */}
                         <Grid.Col span={{ base: 12, md: 6 }}>
                             <AspectRatio ratio={16 / 9}>
                                 <iframe
@@ -75,12 +143,7 @@ export default function SDEParagraphSection() {
 
                         {/* RIGHT — TEXT + ICONS */}
                         <Grid.Col span={{ base: 12, md: 6 }}>
-                            <Stack
-                                gap="lg"
-                                h="100%"
-                                justify="space-between"
-                            >
-
+                            <Stack gap="lg" h="100%" justify="space-between">
                                 {/* TITLE + TEXT + DIVIDER */}
                                 <Group align="flex-start">
                                     <Divider
@@ -97,23 +160,45 @@ export default function SDEParagraphSection() {
                                         </Title>
 
                                         <Text c="gray.4" size="md">
-                                            From events to creative projects, our videography brings your story
-                                            to life with motion, sound, and emotion that leave a lasting impression.
+                                            From events to creative projects, our videography brings
+                                            your story to life with motion, sound, and emotion that
+                                            leave a lasting impression.
                                         </Text>
                                     </Stack>
                                 </Group>
 
                                 {/* ICONS AT THE BOTTOM */}
                                 <Group spacing="md">
-                                    <IconBrandFacebook size={28} color="white" style={{ cursor: "pointer" }} />
-                                    <IconBrandInstagram size={28} color="white" style={{ cursor: "pointer" }} />
-                                    <IconMail size={28} color="white" style={{ cursor: "pointer" }} />
-                                </Group>
+                                    <a
+                                        href="https://www.facebook.com/Loelskieez"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Facebook"
+                                    >
+                                        <IconBrandFacebook
+                                            size={28}
+                                            color="white"
+                                            style={{ cursor: "pointer" }}
+                                        />
+                                    </a>
 
+                                    <CopyMailIcon value="loelskiee@gmail.com" />
+
+                                    <a
+                                        href="https://www.instagram.com/loelskieez"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Instagram"
+                                    >
+                                        <IconBrandInstagram
+                                            size={28}
+                                            color="white"
+                                            style={{ cursor: "pointer" }}
+                                        />
+                                    </a>
+                                </Group>
                             </Stack>
                         </Grid.Col>
-
-
                     </Grid>
                 </Container>
 
@@ -125,7 +210,7 @@ export default function SDEParagraphSection() {
                         fw={700}
                         style={{
                             letterSpacing: 1,
-                            fontSize: "clamp(2.5rem, 5vw, 4rem)" 
+                            fontSize: "clamp(2.5rem, 5vw, 4rem)",
                         }}
                     >
                         WHY CAPTURE YOUR <br /> MOMENTS WITH US?
@@ -139,17 +224,10 @@ export default function SDEParagraphSection() {
                             borderRadius: 2,
                         }}
                     />
-
                 </Box>
 
-
-
                 {/* FEATURE CARDS */}
-                <Grid
-                    mt={50}
-                    gutter={20}
-                    align="stretch"
-                >
+                <Grid mt={50} gutter={20} align="stretch">
                     {/* ---- Card 1 ---- */}
                     <Grid.Col span={{ base: 12, sm: 4 }}>
                         <Paper
