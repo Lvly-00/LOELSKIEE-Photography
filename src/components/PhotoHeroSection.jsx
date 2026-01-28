@@ -6,7 +6,7 @@ function PhotoHeroSection() {
         <Box
             style={{
                 position: "relative",
-                height: "100vh", // Standardized hero height
+                height: "100vh", 
                 width: "100%",
                 backgroundImage: `url(${HeroSection})`,
                 backgroundSize: "cover",
@@ -52,7 +52,7 @@ function PhotoHeroSection() {
                     style={{
                         fontSize: "clamp(0.9rem, 1.5vw, 1.2rem)",
                         fontWeight: 700,
-                        padding: "1.2rem 2.5rem", // More comfortable padding
+                        padding: "1.2rem 2.5rem", 
                         textTransform: "uppercase",
                         letterSpacing: "1px"
                     }}

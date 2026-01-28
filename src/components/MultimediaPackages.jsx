@@ -17,7 +17,7 @@ function MultimediaPackages() {
                         fw={700}
                         style={{
                             letterSpacing: 1,
-                            fontSize: "clamp(2.5rem, 5vw, 4rem)", // Standardized Title
+                            fontSize: "clamp(2.5rem, 5vw, 4rem)", 
                             lineHeight: 1.1
                         }}
                     >                        PHOTOGRAPHY & VIDEO
@@ -50,7 +50,7 @@ function MultimediaPackages() {
                     src={Packages}
                     alt="Photography Sample"
                     fit="cover"
-                    h="clamp(350px, 40vw, 550px)" // Adjusted clamp for better mobile view
+                    h="clamp(350px, 40vw, 550px)" 
                     w="100%"
 
                 />

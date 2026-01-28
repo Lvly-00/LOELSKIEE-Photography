@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Box, Grid, AspectRatio, Text, Title, Paper, Stack, Group, Divider } from "@mantine/core";
 import { IconBrandFacebook, IconBrandInstagram, IconMail } from "@tabler/icons-react";
-import ReactPlayer from "react-player";
 
 
 export default function SDEParagraphSection() {
@@ -9,7 +8,7 @@ export default function SDEParagraphSection() {
         <Box
             style={{
                 backgroundColor: "#1E1E1E",
-                padding: "clamp(4rem, 8vw, 6rem) 0", // Uniform Padding
+                padding: "clamp(4rem, 8vw, 6rem) 0", 
                 fontFamily: "'Sora', sans-serif"
             }}
         >
@@ -23,7 +22,7 @@ export default function SDEParagraphSection() {
                                 color: "white",
                                 lineHeight: 1.3,
                                 fontWeight: 300,
-                                fontSize: "clamp(1.5rem, 3vw, 2.5rem)" // Responsive Heading
+                                fontSize: "clamp(1.5rem, 3vw, 2.5rem)" 
                             }}
                         >
                             A photo captures a moment, a video brings it to life —
@@ -36,7 +35,7 @@ export default function SDEParagraphSection() {
                             c="gray.3"
                             style={{
                                 lineHeight: 1.8,
-                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)" // Uniform Body Text
+                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)" 
                             }}
                         >
                             Investing in professional photography is one of the best ways to make a lasting impression.
@@ -126,7 +125,7 @@ export default function SDEParagraphSection() {
                         fw={700}
                         style={{
                             letterSpacing: 1,
-                            fontSize: "clamp(2.5rem, 5vw, 4rem)" // Standardized Section Title
+                            fontSize: "clamp(2.5rem, 5vw, 4rem)" 
                         }}
                     >
                         WHY CAPTURE YOUR <br /> MOMENTS WITH US?

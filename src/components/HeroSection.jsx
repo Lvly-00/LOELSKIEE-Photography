@@ -9,8 +9,8 @@ const HeroSection = () => {
             <section
                 style={{
                     backgroundColor: "#000000",
-                    paddingTop: "clamp(6rem, 12vw, 9rem)", // Standardized top padding
-                    paddingBottom: "10rem", // Room for image overlap
+                    paddingTop: "clamp(6rem, 12vw, 9rem)", 
+                    paddingBottom: "10rem", 
                     color: "#fff",
                     fontFamily: "'Sora', sans-serif",
                 }}
@@ -29,7 +29,7 @@ const HeroSection = () => {
                         <div style={{ flex: "1 1 300px" }}>
                             <Title
                                 style={{
-                                    fontSize: "clamp(3rem, 7vw, 6rem)", // Uniform Hero Size
+                                    fontSize: "clamp(3rem, 7vw, 6rem)", 
                                     fontWeight: 900,
                                     lineHeight: 0.9,
                                     color: "#fff",
@@ -46,10 +46,10 @@ const HeroSection = () => {
                             style={{
                                 flex: "1 1 300px",
                                 maxWidth: "600px",
-                                fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)", // Uniform Body Size
+                                fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)", 
                                 lineHeight: 1.6,
                                 opacity: 0.8,
-                                textAlign: "right", // Alignment matches design
+                                textAlign: "right", 
                             }}
                         >
                             From weddings to JS proms and every special occasion in between,

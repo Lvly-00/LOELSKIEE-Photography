@@ -5,7 +5,6 @@ import { Carousel } from "@mantine/carousel";
 import { Link } from "react-router-dom";
 import classes from '../css/ExploreButton.module.css';
 
-// Images imports remain the same...
 import PhotoImg from "../assets/images/Photo.png";
 import VideoImg from "../assets/images/Video.png";
 import MultiImg from "../assets/images/Multimedia.png";
@@ -24,7 +23,6 @@ const DealsComponent = ({ show = ["PHOTO", "VIDEO", "MULTIMEDIA", "SDE"] }) => {
         { title: "STUDIO", img: Studio, bg: "#fdf7e4", text: "We provide professional photobooth and studio services for birthdays, weddings, corporate events, and more—delivering high-quality photos, creative backdrops, and instant prints to capture memories that last." },
     ];
 
-    // 🔹 ONLY THIS LINE IS NEW
     const filteredDeals = deals.filter((deal) => show.includes(deal.title));
 
     const renderCard = (deal, isCarousel = false) => (

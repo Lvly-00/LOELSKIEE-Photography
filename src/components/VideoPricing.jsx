@@ -22,7 +22,7 @@ Location:
 Contact Person: 
 Contact Number: 
 
-Note: A ₱500 down payment is required to secure the slot and send the downpayment to our page once your done.
+Note: A ₱500 down payment is required to secure the slot and send the downpayment to our page once you're done.
 
 For other inquiries, you may also reach us through our Facebook page:
 https://facebook.com/Loelskieez

@@ -6,7 +6,7 @@ import Studio from "../assets/images/Studio.png";
 export default function StudioSection() {
   return (
     <Box
-      py={{ base: 40, md: 80 }} // Less padding on mobile
+      py={{ base: 40, md: 80 }} 
       mt={{ base: "2rem", md: "4rem" }}
       style={{
         width: "100%",

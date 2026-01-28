@@ -1,9 +1,6 @@
 import React from "react";
 import { Container, Grid, Image, Text, Title, Paper, Stack, Group, Divider, AspectRatio } from "@mantine/core";
 import { IconBrandFacebook, IconBrandInstagram, IconMail } from "@tabler/icons-react";
-import Reel from "../assets/images/VideoReel.png";  // should be a video
-import ReactPlayer from "react-player";
-import FacebookVideoEmbed from "./FacebookVideoEmbed";
 
 
 
@@ -30,7 +27,7 @@ export default function VideoParagraphSection() {
                     <Grid.Col span={{ base: 12, md: 6 }}>
                         <Text c="gray.3" style={{
                             lineHeight: 1.8,
-                            fontSize: "clamp(0.9rem, 1.1vw, 1rem)" // Uniform Body Text
+                            fontSize: "clamp(0.9rem, 1.1vw, 1rem)" 
                         }}>
                             Professional videography turns ordinary moments into unforgettable stories.
                             From personal milestones to brand showcases, every shot and frame is
@@ -120,7 +117,7 @@ export default function VideoParagraphSection() {
                 <div style={{ textAlign: "center", marginTop: 90 }}>
                     <Title order={1} c="white" fw={700} style={{
                         letterSpacing: 1,
-                        fontSize: "clamp(2.5rem, 5vw, 4rem)" // Standardized Section Title
+                        fontSize: "clamp(2.5rem, 5vw, 4rem)" 
                     }}>
 
                         WHY CAPTURE YOUR <br /> MOMENTS WITH US?

@@ -43,7 +43,7 @@ const AboutMeSection = () => {
 
         <Text
           style={{
-            fontSize: "clamp(0.95rem, 1.2vw, 1.15rem)", // Readable Body
+            fontSize: "clamp(0.95rem, 1.2vw, 1.15rem)",
             lineHeight: 1.8,
             opacity: 0.9,
             maxWidth: "800px",

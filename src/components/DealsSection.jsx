@@ -5,7 +5,6 @@ import { Carousel } from "@mantine/carousel";
 import { Link } from "react-router-dom";
 import classes from '../css/ExploreButton.module.css';
 
-// Images imports remain the same...
 import PhotoImg from "../assets/images/Photo.png";
 import VideoImg from "../assets/images/Video.png";
 import MultiImg from "../assets/images/Multimedia.png";
@@ -31,7 +30,7 @@ const DealsSection = () => {
       style={{
         background: deal.bg,
         height: "100%",
-        minHeight: "600px", // Uniform height
+        minHeight: "600px", 
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -42,7 +41,7 @@ const DealsSection = () => {
         <Text
           fw={800}
           style={{
-            fontSize: "clamp(2rem, 3vw, 3rem)", // Uniform Card Title
+            fontSize: "clamp(2rem, 3vw, 3rem)", 
             marginBottom: "1.5rem",
             textAlign: "center",
             color: "#000"
@@ -63,7 +62,7 @@ const DealsSection = () => {
         <Text
           mt="xl"
           style={{
-            fontSize: "1rem", // Standard body size
+            fontSize: "1rem", 
             lineHeight: 1.6,
             textAlign: "center",
             color: "#000"
@@ -105,7 +104,7 @@ const DealsSection = () => {
               <Text
                 ta={{ base: "center", md: "left" }}
                 style={{
-                  fontSize: "clamp(1rem, 1.5vw, 1.25rem)", // Slightly larger intro text
+                  fontSize: "clamp(1rem, 1.5vw, 1.25rem)", 
                   lineHeight: 1.6,
                   maxWidth: "700px",
                   margin: "0 auto",

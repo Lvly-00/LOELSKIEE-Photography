@@ -73,7 +73,7 @@ Best regards,
               fw={800}
               mb={20}
               c="white"
-              style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }} // Standard Price Size
+              style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }} 
             >
               ₱2,999
             </Text>

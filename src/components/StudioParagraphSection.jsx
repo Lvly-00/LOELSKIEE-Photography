@@ -1,13 +1,12 @@
 import React from "react";
 import { Container, Grid, Image, Text, Title, Paper, Stack, Group, Divider, Box } from "@mantine/core";
 import { IconBrandFacebook, IconBrandInstagram, IconMail } from "@tabler/icons-react";
-import Reel from "../assets/images/VideoReel.png";  // should be a video
 
 export default function StudioParagraphSection() {
     return (
         <Box
             style={{
-                padding: "clamp(4rem, 8vw, 6rem) 0", // Uniform Padding
+                padding: "clamp(4rem, 8vw, 6rem) 0", 
                 fontFamily: "'Sora', sans-serif"
             }}
         >
@@ -20,7 +19,7 @@ export default function StudioParagraphSection() {
                             style={{
                                 lineHeight: 1.3,
                                 fontWeight: 300,
-                                fontSize: "clamp(1.5rem, 3vw, 2.5rem)" // Responsive Heading
+                                fontSize: "clamp(1.5rem, 3vw, 2.5rem)" 
                             }}
                         >
                             A photo is more than just an image — it’s a story, a feeling, and a
@@ -33,7 +32,7 @@ export default function StudioParagraphSection() {
                             c="black.3"
                             style={{
                                 lineHeight: 1.8,
-                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)" // Uniform Body Text
+                                fontSize: "clamp(0.9rem, 1.1vw, 1rem)" 
                             }}
                         >
                             Investing in professional photography is one of the best ways to

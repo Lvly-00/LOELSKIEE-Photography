@@ -15,12 +15,12 @@ const getButtonConfig = (mailtoLink, gmailLink) => {
   const isChrome =
     ua.includes("chrome") && !isEdge && !isAndroid; // desktop chrome only
 
-  // 📱 Mobile (iOS + Android): ALWAYS use mailto
+  // Mobile (iOS + Android): ALWAYS use mailto
   if (isIOS || isAndroid) {
     return { href: mailtoLink };
   }
 
-  // 💻 Desktop Chrome / Edge → Gmail Web
+  // Desktop Chrome / Edge → Gmail Web
   if (isChrome || isEdge) {
     return {
       href: gmailLink,

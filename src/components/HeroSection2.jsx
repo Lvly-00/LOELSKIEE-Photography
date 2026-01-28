@@ -10,7 +10,7 @@ const HeroSection2 = () => {
                 backgroundImage: `url(${HeroImg})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                height: "70vh", // Adjusted height
+                height: "70vh", 
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -37,7 +37,7 @@ const HeroSection2 = () => {
                     <Title
                         style={{
                             color: "#fff",
-                            fontSize: "clamp(2rem, 4vw, 3rem)", // Uniform Header
+                            fontSize: "clamp(2rem, 4vw, 3rem)", 
                             fontWeight: 800,
                             lineHeight: 1.1,
                         }}
@@ -54,9 +54,9 @@ const HeroSection2 = () => {
                             backgroundColor: "#fff",
                             color: "#000",
                             fontWeight: 800,
-                            height: "clamp(2.5rem, 4vw, 3.5rem)",       // height scales from 2.5rem up to 3.5rem
-                            padding: "0 clamp(1rem, 4vw, 2rem)",          // horizontal padding scales from 1rem to 2rem
-                            fontSize: "clamp(0.875rem, 2vw, 1rem)",       // font size scales between 0.875rem and 1rem
+                            height: "clamp(2.5rem, 4vw, 3.5rem)",       
+                            padding: "0 clamp(1rem, 4vw, 2rem)",        
+                            fontSize: "clamp(0.875rem, 2vw, 1rem)",      
                             marginTop: "1rem"
                         }}
                         onClick={() => window.open("https://www.facebook.com/Loelskieez", "_blank")}
